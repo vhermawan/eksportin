@@ -1,0 +1,2 @@
+export const EXAMPLE_COUNT = 'EXAMPLE_COUNT'
+export const TODO_SUCCESS = 'TODO_SUCCESS'
