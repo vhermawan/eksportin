@@ -6,8 +6,10 @@ const prod = process.env.NODE_ENV === 'production'
 
 module.exports = withPWA({
   pwa: {
-    disable: prod ? false : true,
+    // disable: prod ? false : true,
     dest: 'public',
+    register: true,
+    skipWaiting: true,
     runtimeCaching,
   },
   devIndicators: {
@@ -17,5 +19,5 @@ module.exports = withPWA({
     BASE_URL: process.env.BASE_URL,
     FLASK_URL: process.env.FLASK_URL,
   },
-  webpack5: false,
+  webpack5: true,
 })
