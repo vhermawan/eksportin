@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components'
 function SimpleForm() {
   const [opened, setOpened] = useState(false)
   // const [token] = useState(Cookies.get('token'))
-  const [lastHitTime, setLastHitTime] = useState(null)
+  // const [lastHitTime, setLastHitTime] = useState(null)
 
   const toggleFloating = ({ opened }) => {
     setOpened(opened)
@@ -49,9 +49,9 @@ function SimpleForm() {
     //   })
   }
 
-  const hitMessage = () => {
-    setLastHitTime(new Date().getSeconds())
-  }
+  // const hitMessage = () => {
+  //   setLastHitTime(new Date().getSeconds())
+  // }
 
 
   const theme = {
