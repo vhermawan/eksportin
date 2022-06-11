@@ -4,7 +4,7 @@ import ChatBot from 'react-simple-chatbot'
 import { ThemeProvider } from 'styled-components'
 // import { API } from '@/common/api/api'
 
-function SimpleForm(props) {
+function SimpleForm() {
   const [opened, setOpened] = useState(false)
   // const [token] = useState(Cookies.get('token'))
   const [lastHitTime, setLastHitTime] = useState(null)
