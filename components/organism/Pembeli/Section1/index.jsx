@@ -39,7 +39,7 @@ const Section1 = (props) => {
     <>
       <Container
         maxW="full"
-        bgImage="/assets/img/pembeli-section1.png"
+        bgImage="/assets/img/pembeli-section1.webp"
         bgSize="cover"
         bgRepeat="no-repeat"
         centerContent

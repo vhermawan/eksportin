@@ -24,7 +24,7 @@ const Section5 = () => {
             <Image
               boxSize={{ base: '350px', '3xl': '500px' }}
               objectFit="contain"
-              src="/assets/img/section-5-picture.png"
+              src="/assets/img/section-5-picture.webp"
               alt="section-5-picture"
               bottom="0"
               loading="lazy"

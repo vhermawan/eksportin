@@ -55,7 +55,7 @@ const Section1 = (props) => {
             mt="16"
           >
             <Image
-              src="/assets/img/instansi-section1.png"
+              src="/assets/img/instansi-section1.webp"
               alt="Berita"
               loading="lazy"
             />
@@ -109,7 +109,7 @@ const Section1 = (props) => {
             mt={{ '3xl': '0' }}
           >
             <Image
-              src="/assets/img/instansi-section1.png"
+              src="/assets/img/instansi-section1.webp"
               alt="Berita"
               loading="lazy"
               w={{ '3xl': '3xl' }}

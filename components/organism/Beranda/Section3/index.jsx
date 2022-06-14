@@ -30,7 +30,7 @@ const Section3 = () => {
             <Image
               boxSize={{ base: '90px', '3xl': '120px' }}
               objectFit="contain"
-              src="/assets/img/ornamen.png"
+              src="/assets/img/ornamen.webp"
               alt="personal-assitant"
               zIndex="1"
               ml="-12"
@@ -104,7 +104,7 @@ const Section3 = () => {
                   <Image
                     boxSize={{ base: '50px', '3xl': '90px' }}
                     objectFit="contain"
-                    src="/assets/img/icon-calendar.png"
+                    src="/assets/img/icon-calendar.webp"
                     alt="personal-assitant"
                     ml={{ base: '4', lg: '0' }}
                   />
@@ -136,7 +136,7 @@ const Section3 = () => {
                   <Image
                     boxSize={{ base: '50px', '3xl': '90px' }}
                     objectFit="contain"
-                    src="/assets/img/icon-calendar.png"
+                    src="/assets/img/icon-calendar.webp"
                     alt="personal-assitant"
                     ml={{ base: '4', lg: '0' }}
                     loading="lazy"
@@ -168,7 +168,7 @@ const Section3 = () => {
                   <Image
                     boxSize={{ base: '50px', '3xl': '90px' }}
                     objectFit="contain"
-                    src="/assets/img/icon-calendar.png"
+                    src="/assets/img/icon-calendar.webp"
                     alt="personal-assitant"
                     ml={{ base: '4', lg: '0' }}
                     loading="lazy"

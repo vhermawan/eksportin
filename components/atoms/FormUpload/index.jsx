@@ -15,7 +15,7 @@ export default function Dropzone(props) {
     maxFiles: 1, maxSize:2000000, multiple: false
   });
 
-  const dropText = isDragActive ? 'Drop the files here max size 2 mb...' : 'Drag \'n\' drop .png file here max size 2 mb, or click to select files';
+  const dropText = isDragActive ? 'Drop the files here max size 2 mb...' : 'Drag \'n\' drop .webp file here max size 2 mb, or click to select files';
 
   const activeBg = useColorModeValue('gray.100', 'gray.600');
   const borderColor = useColorModeValue(

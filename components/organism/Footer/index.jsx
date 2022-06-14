@@ -46,7 +46,7 @@ const Footer = () => {
               <Image
                 borderRadius="full"
                 boxSize={{ base: '45px', '3xl': '60px' }}
-                src="/assets/img/Logo.png"
+                src="/assets/img/Logo.webp"
                 alt="logo-eksportin"
                 loading="lazy"
                 mr={4}

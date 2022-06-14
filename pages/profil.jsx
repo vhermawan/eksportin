@@ -122,7 +122,7 @@ function Profil(props) {
             align="center"
           >
             <Box
-              bgImage="/assets/img/ProfileBackground.png"
+              bgImage="/assets/img/ProfileBackground.webp"
               w="100%"
               h="300px"
               borderRadius="25px"
@@ -162,7 +162,7 @@ function Profil(props) {
                 >
                   <Avatar
                     me={{ md: '22px' }}
-                    src={dataUmkm.image_URL ? dataUmkm.image_URL : "/assets/avatars/avatar4.png" }
+                    src={dataUmkm.image_URL ? dataUmkm.image_URL : "/assets/avatars/avatar4.webp" }
                     w="80px"
                     h="80px"
                     borderRadius="15px"
