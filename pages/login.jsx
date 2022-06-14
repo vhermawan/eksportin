@@ -185,6 +185,7 @@ function Login(props) {
                       mb="20px"
                       color="white"
                       mt="20px"
+                      aria-label="sign-in"
                       _hover={{
                         bg: 'teal.200',
                       }}

@@ -172,6 +172,7 @@ const Section2 = (props) => {
             color="white"
             p={{ base: '4', md: '8', xl: '6', '3xl': '6' }}
             onClick={() => setPage(page + 1)}
+            aria-label="muat-lebih-banyak"
           >
             Muat Lebih Banyak
           </Button>

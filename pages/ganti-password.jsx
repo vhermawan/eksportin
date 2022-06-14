@@ -299,6 +299,7 @@ function EditProfil() {
                           _focus={{ shadow: '' }}
                           fontWeight="md"
                           isLoading={loading}
+                          aria-label="simpan"
                         >
                           Simpan
                         </Button>

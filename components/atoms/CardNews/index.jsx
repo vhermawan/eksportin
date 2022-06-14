@@ -89,6 +89,7 @@ const CardNews = (props) => {
                 p="0"
                 color="#4FD1C5"
                 _hover={{ textDecor: 'underline' }}
+                aria-label={`Berita ${props.data.title}`}
                 onClick={() => props.setSlugNews(props.data.slug)}
               >
                 Baca Selengkapnya

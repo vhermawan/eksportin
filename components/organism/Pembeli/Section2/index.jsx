@@ -181,6 +181,7 @@ function Section2(props) {
             p={{ base: '4', md: '8', xl: '6', '3xl': '6' }}
             onClick={() => setPage(page + 1)}
             display={props.isFilter ? 'none' : 'flex'}
+            aria-label="muat-lebih-banyak"
           >
             Muat Lebih Banyak
           </Button>

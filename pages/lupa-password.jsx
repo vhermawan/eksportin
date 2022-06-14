@@ -165,6 +165,7 @@ export default function LupaPassword() {
                       w="100%"
                       h="45"
                       mb="24px"
+                      aria-label="submit"
                       _hover={{
                         bg: 'teal.200',
                       }}

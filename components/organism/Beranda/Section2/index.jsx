@@ -83,6 +83,7 @@ const Section2 = () => {
               fontSize={{ base: 'sm', '3xl': 'xl' }}
               onClick={() => router.push('/login')}
               display={token ? 'block' : 'none'}
+              aria-label="button-section-2"
             >
               Pelajari Fitur Selengkapnya
             </Button>
@@ -122,6 +123,7 @@ const Section2 = () => {
               fontSize={{ base: 'sm', '3xl': 'xl' }}
               onClick={() => router.push('/login')}
               display={token ? 'block' : 'none'}
+              aria-label="pelajari-fitur"
             >
               Pelajari Fitur Selengkapnya
             </Button>
@@ -161,6 +163,7 @@ const Section2 = () => {
               fontSize={{ base: 'sm', '3xl': 'xl' }}
               onClick={() => router.push('/login')}
               display={token ? 'block' : 'none'}
+              aria-label="pelajari-fitur"
             >
               Pelajari Fitur Selengkapnya
             </Button>

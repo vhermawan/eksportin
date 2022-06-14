@@ -63,7 +63,7 @@ const MenuItems = ({ children }) => {
         color={color}
         textDecoration={active}
         aria-label="button-header"
-        fontSize={{ base: 'sm', xl: 'x-small', '3xl': '14px' }}
+        fontSize={{ base: 'sm', xl: '12px', '3xl': '14px' }}
       >
         {children}
       </Link>

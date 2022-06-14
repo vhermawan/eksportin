@@ -53,6 +53,7 @@ const Section5 = () => {
                 p={{ base: '4', md: '8' }}
                 fontSize="smaller"
                 onClick={() => router.push('/login')}
+                aria-label="mulai-sekarang"
               >
                 Mulai Sekarang
               </Button>
@@ -63,6 +64,7 @@ const Section5 = () => {
                 color="white"
                 p={{ base: '4', md: '8' }}
                 fontSize="smaller"
+                aria-label="hubungi-kami"
               >
                 Hubungi Kami
               </Button>

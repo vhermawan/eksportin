@@ -220,6 +220,7 @@ function SignUp(props) {
                       w="100%"
                       h="45"
                       mb="24px"
+                      aria-label="sign-up"
                       _hover={{
                         bg: 'teal.200',
                       }}

@@ -130,6 +130,7 @@ function Header(props) {
                   variant={'link'}
                   cursor={'pointer'}
                   minW={0}
+                  aria-label="profile"
                 >
                   <Avatar
                     size={'sm'}

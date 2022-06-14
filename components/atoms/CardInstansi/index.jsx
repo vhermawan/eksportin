@@ -63,6 +63,7 @@ const CardInstansi = (props) => {
               p={{ base: '3', '2xl': '5' }}
               color="white"
               bg="#1EA59A"
+              aria-label={`Instansi ${props.data.name}`}
               _hover={{ textDecor: 'underline' }}
               onClick={() => props.setSlugStakeholder(props.data.slug)}
             >

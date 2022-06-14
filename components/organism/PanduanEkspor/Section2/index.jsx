@@ -90,6 +90,7 @@ const Section2 = () => {
                       colorScheme="teal"
                       display={{ base: 'flex', '2xl': 'none' }}
                       variant="outline"
+                      aria-label="panduan-eskpor"
                       onClick={() =>
                         router.push('/panduan-ekspor/sales-contant-process')
                       }
@@ -144,6 +145,7 @@ const Section2 = () => {
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       size="sm"
+                      aria-label="panduan-eskpor"
                       colorScheme="teal"
                       display={{ base: 'flex', '2xl': 'none' }}
                       variant="outline"
@@ -201,6 +203,7 @@ const Section2 = () => {
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       size="sm"
+                      aria-label="panduan-eskpor"
                       colorScheme="teal"
                       display={{ base: 'flex', '2xl': 'none' }}
                       variant="outline"
@@ -258,6 +261,7 @@ const Section2 = () => {
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       size="sm"
+                      aria-label="panduan-eskpor"
                       colorScheme="teal"
                       display={{ base: 'flex', '2xl': 'none' }}
                       variant="outline"

@@ -81,6 +81,7 @@ const CardMateri = (props) => {
             colorScheme="red"
             variant="solid"
             size="sm"
+            aria-label={`Umkm ${props.data.title}`}
             onClick={() => props.deleteCourse(props.data.id_course_umkm)}
           >
             Delete Course

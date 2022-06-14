@@ -186,6 +186,7 @@ export default function SetPassword() {
                       w="100%"
                       h="45"
                       mb="24px"
+                      aria-label="submit"
                       _hover={{
                         bg: 'teal.200',
                       }}

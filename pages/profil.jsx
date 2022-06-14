@@ -198,6 +198,7 @@ function Profil(props) {
                       borderRadius: '15px',
                       bg: 'hsla(0,0%,100%,.3)',
                     }}
+                    aria-label="profil"
                   >
                     <Flex
                       align="center"
@@ -218,6 +219,7 @@ function Profil(props) {
                     p="0px"
                     bg="transparent"
                     onClick={() => router.push('/edit-profil')}
+                    aria-label="edit-profil"
                     _hover={{
                       boxShadow:
                         'inset 0 0 1px 1px hsl(0deg 0% 100% / 90%), 0 20px 27px 0 rgb(0 0 0 / 5%)',

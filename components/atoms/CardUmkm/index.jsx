@@ -91,6 +91,7 @@ const CardUmkm = (props) => {
               _hover={{ textDecoration: 'underline' }}
               fontSize={{ base: 'x-small', md: 'xs', '3xl': 'lg' }}
               mt={{ base: '2', '3xl': '5' }}
+              aria-label={`Umkm ${props.data.name_umkm}`}
               onClick={() => props.setSlugUmkm(props.data.slug)}
             >
               Baca Selengkapnya

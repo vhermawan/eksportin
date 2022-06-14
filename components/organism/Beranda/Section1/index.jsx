@@ -59,6 +59,7 @@ const Section1 = (props) => {
                 color="white"
                 p={{ base: '4', md: '8', xl: '6', '3xl': '8' }}
                 onClick={() => router.push('/login')}
+                aria-label="login"
               >
                 Mulai Sekarang
               </Button>

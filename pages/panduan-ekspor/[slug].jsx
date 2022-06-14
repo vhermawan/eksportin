@@ -189,6 +189,7 @@ export default function detailPanduan() {
                 fontSize="xl"
                 colorScheme="teal"
                 variant="outline"
+                aria-label="panduan-eskpor"
                 onClick={() =>
                   router.push(`/panduan-ekspor/${data.nextPage.slug}`)
                 }
@@ -233,6 +234,7 @@ export default function detailPanduan() {
                 colorScheme="teal"
                 display={{ base: 'flex', '2xl': 'none' }}
                 variant="outline"
+                aria-label="panduan-eskpor"
                 onClick={() =>
                   router.push(`/panduan-ekspor/${data.nextPage.slug}`)
                 }

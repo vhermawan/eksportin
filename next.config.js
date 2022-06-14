@@ -6,7 +6,7 @@ const prod = process.env.NODE_ENV === 'production'
 
 module.exports = withPWA({
   pwa: {
-    // disable: prod ? false : true,
+    disable: prod ? false : true,
     dest: 'public',
     register: true,
     skipWaiting: true,

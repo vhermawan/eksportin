@@ -514,6 +514,7 @@ function EditProfil(props) {
                           bgColor="#4FD1C5"
                           _focus={{ shadow: '' }}
                           fontWeight="md"
+                          aria-label="simpan"
                         >
                           Simpan
                         </Button>

@@ -57,6 +57,7 @@ const Section1 = () => {
               color="white"
               p={{ base: '4', md: '6', '3xl': '8' }}
               fontSize={{ base: 'sm', '3xl': 'xl' }}
+              aria-label="mulai-belajar"
               onClick={
                 token
                   ? () => router.push('/materi')
