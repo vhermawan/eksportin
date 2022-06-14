@@ -44,13 +44,15 @@ const Section4 = () => {
               dagangan dengan benar.
             </Text>
             <Flex w="full" wrap={{ base: 'nowrap', lg: 'wrap' }} mt="8">
-              <WrapItem>
-                <Avatar
-                  name="Dan Abrahmov"
-                  size="xl"
-                  src="https://bit.ly/dan-abramov"
-                />
-              </WrapItem>
+              <ol>
+                <WrapItem>
+                  <Avatar
+                    name="Dan Abrahmov"
+                    size="xl"
+                    src="https://bit.ly/dan-abramov"
+                  />
+                </WrapItem>
+              </ol>
               <Box ml="8">
                 <Text
                   fontSize={{ base: 'sm', lg: 'lg', '3xl': '2xl' }}
@@ -72,13 +74,15 @@ const Section4 = () => {
               semua gratis, serta dapat diakses darimana saja dan kapan saja
             </Text>
             <Flex w="full" wrap={{ base: 'nowrap', lg: 'wrap' }} mt="8">
-              <WrapItem>
-                <Avatar
-                  name="Dan Abrahmov"
-                  size="xl"
-                  src="https://bit.ly/dan-abramov"
-                />
-              </WrapItem>
+              <ol>
+                <WrapItem>
+                  <Avatar
+                    name="Dan Abrahmov"
+                    size="xl"
+                    src="https://bit.ly/dan-abramov"
+                  />
+                </WrapItem>
+              </ol>
               <Box ml="8">
                 <Text
                   fontSize={{ base: 'sm', lg: 'lg', '3xl': '2xl' }}

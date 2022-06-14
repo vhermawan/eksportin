@@ -9,6 +9,9 @@ const MenuItems = ({ children }) => {
   const [active, setActive] = React.useState('underline')
   const { colorMode } = useColorMode()
 
+  let stringLower = string.toLowerCase()
+  let pathRouter = stringLower.replace(' ', '-')
+
   React.useEffect(() => {
     let stringLower = string.toLowerCase()
     let pathRouter = stringLower.replace(' ', '-')
@@ -44,13 +47,7 @@ const MenuItems = ({ children }) => {
       }
     }
   }, [router.asPath, colorMode])
-
-  const redirect = (path) => {
-    let stringLower = path.toLowerCase()
-    let pathRouter = stringLower.replace(' ', '-')
-    router.push(`/${pathRouter}`)
-  }
-
+  
   return (
     <>
       <Link
@@ -59,10 +56,10 @@ const MenuItems = ({ children }) => {
         display="block"
         size="xs"
         backgroundColor="transparent"
-        onClick={() => redirect(string)}
         color={color}
         textDecoration={active}
         aria-label="button-header"
+        href={"/"+pathRouter}
         fontSize={{ base: 'sm', xl: '12px', '3xl': '14px' }}
       >
         {children}
