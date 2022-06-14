@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components'
 function SimpleForm() {
   const [opened, setOpened] = useState(false)
   // const [token] = useState(Cookies.get('token'))
-  const [lastHitTime, setLastHitTime] = useState(null)
+  // const [lastHitTime, setLastHitTime] = useState(null)
 
   const toggleFloating = ({ opened }) => {
     setOpened(opened)
@@ -30,13 +30,13 @@ function SimpleForm() {
     // }
     
 
-    const timeNow = new Date().getSeconds()
+    // const timeNow = new Date().getSeconds()
 
-    if (timeNow - lastHitTime > 5 || lastHitTime === null) {
-      console.log('generate id awal',timeNow,lastHitTime)
-    }else{
-      console.log('pakai id terakhir',timeNow,lastHitTime)
-    }
+    // if (timeNow - lastHitTime > 5 || lastHitTime === null) {
+    //   console.log('generate id awal',timeNow,lastHitTime)
+    // }else{
+    //   console.log('pakai id terakhir',timeNow,lastHitTime)
+    // }
     // generateSessionId(lastHitTime)
 
     
