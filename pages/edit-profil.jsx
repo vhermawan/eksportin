@@ -92,7 +92,7 @@ function EditProfil(props) {
             align="center"
           >
             <Box
-              bgImage="/assets/img/ProfileBackground.webp"
+              bgImage="/assets/img/ProfileBackground.png"
               w="100%"
               h="300px"
               borderRadius="25px"
@@ -176,7 +176,8 @@ function EditProfil(props) {
                   onSubmit={(values) => {
                     props.changeProfileUser(
                       `/change-profile/${dataUmkm.id}`,
-                      values, file
+                      values,
+                      file,
                     )
                   }}
                 >
@@ -487,24 +488,17 @@ function EditProfil(props) {
                             )}
                           </Field>
 
-                          <FormControl
-                            as={GridItem}
-                            colSpan={[6]}
-                          >
-                             <FormLabel
+                          <FormControl as={GridItem} colSpan={[6]}>
+                            <FormLabel
                               htmlFor="photo"
                               fontSize="sm"
                               fontWeight="md"
-                              color={useColorModeValue(
-                                'gray.700',
-                                'gray.50',
-                              )}
+                              color={useColorModeValue('gray.700', 'gray.50')}
                             >
                               Upload foto
                             </FormLabel>
-                            <UploadFile file={file} setFile={setFile}/>
+                            <UploadFile file={file} setFile={setFile} />
                           </FormControl>
-
                         </SimpleGrid>
                       </Stack>
                       <Box px={{ base: 4, sm: 6 }} py={3} textAlign="right">

@@ -12,7 +12,6 @@ function SimpleForm() {
   const toggleFloating = ({ opened }) => {
     setOpened(opened)
   }
-  
 
   const sendMessage = () => {
     // let question = event.steps.name.metadata.q
@@ -28,18 +27,13 @@ function SimpleForm() {
     //   answer,
     //   name,
     // }
-    
-
     // const timeNow = new Date().getSeconds()
-
     // if (timeNow - lastHitTime > 5 || lastHitTime === null) {
     //   console.log('generate id awal',timeNow,lastHitTime)
     // }else{
     //   console.log('pakai id terakhir',timeNow,lastHitTime)
     // }
     // generateSessionId(lastHitTime)
-
-    
     // API.sendMessage(`/answer`, params)
     //   .then((res) => {
     //     console.log('res', res)
@@ -52,7 +46,6 @@ function SimpleForm() {
   // const hitMessage = () => {
   //   setLastHitTime(new Date().getSeconds())
   // }
-
 
   const theme = {
     background: '#f5f8fb',
@@ -124,7 +117,7 @@ function SimpleForm() {
           floating={true}
           opened={opened}
           href="#"
-          // userAvatar={props.datauser.umkm.image_URL ? props.datauser.umkm.image_URL : "/assets/avatars/avatar4.webp"}
+          // userAvatar={props.datauser.umkm.image_URL ? props.datauser.umkm.image_URL : "/assets/avatars/avatar4.png"}
         />
       </ThemeProvider>
     </>

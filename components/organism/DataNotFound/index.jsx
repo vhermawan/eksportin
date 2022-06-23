@@ -24,8 +24,8 @@ export default function DataNotFound() {
             <Image
               src={
                 colorMode === 'light'
-                  ? '/assets/img/datanotfound.webp'
-                  : '/assets/img/datanotfound-dm.webp'
+                  ? '/assets/img/datanotfound.png'
+                  : '/assets/img/datanotfound-dm.png'
               }
               alt="data-not-found"
               loading="lazy"

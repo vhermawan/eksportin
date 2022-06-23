@@ -208,7 +208,7 @@ function Login(props) {
               >
                 <Text color={textColor} fontWeight="medium">
                   Belum punya akun?
-                  <Link color={titleColor} as="span" ms="5px" fontWeight="bold">
+                  <Link color={titleColor} as="span" ms="5px" fontWeight="bold" onClick={()=> router.push('/register') }>
                     Register
                   </Link>
                 </Text>
@@ -224,7 +224,7 @@ function Login(props) {
             right="0px"
           >
             <Box
-              bgImage="/assets/img/signInImage.webp"
+              bgImage="/assets/img/signInImage.png"
               w="100%"
               h="100%"
               bgSize="cover"

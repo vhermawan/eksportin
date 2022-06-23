@@ -58,7 +58,7 @@ const Section2 = () => {
               <Image
                 boxSize={{ base: '150px', '3xl': '200px' }}
                 objectFit="contain"
-                src="/assets/img/personal-assistant.webp"
+                src="/assets/img/personal-assistant.png"
                 alt="personal-assitant"
                 loading="lazy"
               />
@@ -98,7 +98,7 @@ const Section2 = () => {
               <Image
                 boxSize={{ base: '150px', '3xl': '200px' }}
                 objectFit="contain"
-                src="/assets/img/stakeholder-section2.webp"
+                src="/assets/img/stakeholder-section2.png"
                 alt="personal-assitant"
                 loading="lazy"
               />
@@ -138,7 +138,7 @@ const Section2 = () => {
               <Image
                 boxSize={{ base: '150px', '3xl': '200px' }}
                 objectFit="contain"
-                src="/assets/img/self-assestment.webp"
+                src="/assets/img/self-assestment.png"
                 alt="personal-assitant"
                 loading="lazy"
               />

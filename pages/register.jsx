@@ -69,7 +69,7 @@ function SignUp(props) {
           overflow="hidden"
           zIndex="-1"
           top="0"
-          bgImage="/assets/img/BgSignUp.webp"
+          bgImage="/assets/img/BgSignUp.png"
           bgSize="cover"
           mx={{ md: 'auto' }}
           mt={{ md: '14px' }}

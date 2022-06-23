@@ -32,7 +32,7 @@ const Section1 = () => {
             h="max-content"
           >
             <Image
-              src="/assets/img/berita-section1.webp"
+              src="/assets/img/berita-section1.png"
               alt="Berita"
               loading="lazy"
               mr="auto"

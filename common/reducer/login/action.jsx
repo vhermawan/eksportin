@@ -9,12 +9,12 @@ export const loginUser = (url, payload) => {
 }
 
 export const changeProfileUser = (url, payload, file) => {
-  console.log('file',file)
+  console.log('file', file)
   return {
     type: actionTypes.CHANGE_PROFILE_PROCESS,
     endpoint: url,
     params: payload,
-    file : file
+    file: file,
   }
 }
 

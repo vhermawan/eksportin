@@ -116,7 +116,7 @@ function EditProfil() {
             align="center"
           >
             <Box
-              bgImage="/assets/img/ProfileBackground.webp"
+              bgImage="/assets/img/ProfileBackground.png"
               w="100%"
               h="300px"
               borderRadius="25px"

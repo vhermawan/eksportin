@@ -15,7 +15,7 @@ const Footer = dynamic(() => import('@/components/organism/Footer/index.jsx'))
 const Layout = (props) => {
   const toast = createStandaloneToast()
   const [result, setResult] = useState(false)
-  const [dataUser] = useState(props.auth) 
+  const [dataUser] = useState(props.auth)
 
   useEffect(() => {
     if (dataUser !== null) {

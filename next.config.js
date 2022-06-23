@@ -2,21 +2,22 @@
 /** @type {import('next').NextConfig} */
 const withPWA = require('next-pwa')
 const runtimeCaching = require('next-pwa/cache')
-const prod = process.env.NODE_ENV === 'production';
-const ImageminWebpWebpackPlugin= require("imagemin-webp-webpack-plugin");
-
+const prod = process.env.NODE_ENV === 'production'
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 
 const settings = {
-  config: [{
-    test: /\.(jpe?g|png|webp)/,
-    options: {
-      quality:  50
-    }
-  }],
+  config: [
+    {
+      test: /\.(jpe?g|png|webp)/,
+      options: {
+        quality: 50,
+      },
+    },
+  ],
   overrideExtension: true,
   detailedLogs: false,
   silent: false,
-  strict: true
+  strict: true,
 }
 
 module.exports = withPWA({
@@ -35,5 +36,5 @@ module.exports = withPWA({
     FLASK_URL: process.env.FLASK_URL,
   },
   webpack5: true,
-  plugins: [new ImageminWebpWebpackPlugin(settings)]
+  plugins: [new ImageminWebpWebpackPlugin(settings)],
 })

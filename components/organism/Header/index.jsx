@@ -63,7 +63,7 @@ function Header(props) {
           <Image
             borderRadius="full"
             boxSize="25px"
-            src="/assets/img/Logo.webp"
+            src="/assets/img/Logo.png"
             alt="logo-eksportin"
             mr={4}
             loading="lazy"
@@ -134,7 +134,11 @@ function Header(props) {
                 >
                   <Avatar
                     size={'sm'}
-                    src={props.datauser !== null ? props.datauser.umkm.image_URL : "/assets/avatars/avatar4.webp" }
+                    src={
+                      props.datauser !== null
+                        ? props.datauser.umkm.image_URL
+                        : '/assets/avatars/avatar4.png'
+                    }
                   />
                 </MenuButton>
                 <MenuList>

@@ -10,7 +10,7 @@ const Section1 = () => {
     <>
       <Container
         maxW="full"
-        bgImage="/assets/img/header-umkm.webp"
+        bgImage="/assets/img/header-umkm.png"
         centerContent
         paddingTop={{ base: '20', md: '28', lg: '72', xl: '32' }}
         px={{ base: '5', md: '16', lg: '40', xl: '20', '3xl': '24' }}

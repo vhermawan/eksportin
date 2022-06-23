@@ -70,7 +70,7 @@ const Section1 = (props) => {
               boxSize="full"
               objectFit="cover"
               loading="lazy"
-              src="/assets/img/logo-section1-beranda.webp"
+              src="/assets/img/logo-section1-beranda.png"
               alt="logo-landing"
             />
           </GridItem>
@@ -93,7 +93,7 @@ const Section1 = (props) => {
                       '3xl': '170px',
                     }}
                     objectFit="contain"
-                    src="/assets/img/logodjp.webp"
+                    src="/assets/img/logodjp.png"
                     loading="lazy"
                     alt="logo-landing"
                   />
@@ -110,7 +110,7 @@ const Section1 = (props) => {
                     }}
                     objectFit="contain"
                     loading="lazy"
-                    src="/assets/img/logougm.webp"
+                    src="/assets/img/logougm.png"
                     alt="logo-landing"
                   />
                 </Center>
@@ -126,7 +126,7 @@ const Section1 = (props) => {
                     }}
                     objectFit="cover"
                     loading="lazy"
-                    src="/assets/img/logokemenlu.webp"
+                    src="/assets/img/logokemenlu.png"
                     alt="logo-landing"
                   />
                 </Center>
@@ -142,7 +142,7 @@ const Section1 = (props) => {
                     }}
                     objectFit="contain"
                     loading="lazy"
-                    src="/assets/img/logokemenkeu.webp"
+                    src="/assets/img/logokemenkeu.png"
                     alt="logo-landing"
                   />
                 </Center>

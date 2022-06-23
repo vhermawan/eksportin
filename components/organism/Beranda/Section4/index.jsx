@@ -16,7 +16,7 @@ const Section4 = () => {
           <Image
             boxSize={{ base: '60px', lg: '90px' }}
             objectFit="contain"
-            src="/assets/img/quote.webp"
+            src="/assets/img/quote.png"
             alt="quote"
             zIndex="1"
             loading="lazy"

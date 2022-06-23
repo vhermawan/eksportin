@@ -104,7 +104,7 @@ export function* changeProfileUser(action) {
   params.set('phone', action.params.phone)
   params.set('description', action.params.description)
   params.set('bussiness_entity', action.params.bussiness_entity)
-  params.append('photo',action.file)
+  params.append('photo', action.file)
 
   const content = yield API.post(action.endpoint, params)
   if (content.status === 400) {

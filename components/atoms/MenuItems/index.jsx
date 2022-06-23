@@ -47,7 +47,7 @@ const MenuItems = ({ children }) => {
       }
     }
   }, [router.asPath, colorMode])
-  
+
   return (
     <>
       <Link
@@ -59,7 +59,7 @@ const MenuItems = ({ children }) => {
         color={color}
         textDecoration={active}
         aria-label="button-header"
-        href={"/"+pathRouter}
+        href={'/' + pathRouter}
         fontSize={{ base: 'sm', xl: '12px', '3xl': '14px' }}
       >
         {children}
