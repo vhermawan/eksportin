@@ -32,18 +32,15 @@ const separatorStyles = {
     bg: "green.200"
   };
 
-const Demo = () => {
-  const pagesQuantity = 2;
-  const { currentPage, setCurrentPage } = usePaginator({
-    initialState: { currentPage: 1 }
-  });
+const Demo = (props) => {
+  const pagesQuantity = props.total;
 
   return (
     <ChakraProvider>
       <Paginator
         pagesQuantity={pagesQuantity}
-        currentPage={currentPage}
-        onPageChange={setCurrentPage}
+        currentPage={props.page}
+        onPageChange={(page)=>props.setPage(page)}
         normalStyles={normalStyles}
         separatorStyles={separatorStyles}
         activeStyles={activeStyles}

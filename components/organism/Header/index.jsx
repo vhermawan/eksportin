@@ -80,7 +80,7 @@ function Header(props) {
         </Flex>
         <Box
           display={{ base: 'none', lg: 'flex' }}
-          mt={{ base: 4, md: 0 }}
+          mt={{ base: 4, md: token !== undefined ? "7px" : 0 }}
           ml={{ base: 4, md: 10 }}
         >
           <MenuItems>Beranda</MenuItems>
@@ -151,12 +151,14 @@ function Header(props) {
                   <MenuDivider />
                   <Button
                     mt={{ base: 5, md: 0 }}
-                    ml={{ base: 6, '3xl': 2 }}
-                    display="block"
-                    size="xs"
+                    ml={{ base: 6, '3xl': "5px" }}
+                    size="sm"
+                    variant="ghost"
+                    _hover={'none'}
+                    p="0"
                     backgroundColor="transparent"
                     aria-label="button-header"
-                    fontSize={{ base: 'sm', xl: 'x-small', '3xl': '14px' }}
+                    fontSize={{ base: 'sm', xl: '12px', '3xl': '14px' }}
                     onClick={() => props.logoutuser('/auth/logout')}
                   >
                     Log Out

@@ -17,6 +17,7 @@ import Cookies from 'js-cookie'
 import router from 'next/router'
 import { NextSeo } from 'next-seo'
 import { API } from '@/common/api/api'
+import Pagination from '@/components/atoms/Pagination'
 
 const Layout = dynamic(() => import('@/components/organism/Layout/index'))
 const Card = dynamic(() => import('@/components/atoms/Card/Card'))
@@ -33,6 +34,8 @@ function Profil(props) {
   const [dataUmkm, setDataUmkm] = useState(null)
   const [courseUmkm, setCourseUmkm] = useState([])
   const textColor = useColorModeValue('gray.700', 'white')
+  const [page, setPage] = useState(1)
+  const [total,setTotal] = useState(1)
   const toast = useToast()
 
   const bgProfile = useColorModeValue(
@@ -46,8 +49,11 @@ function Profil(props) {
   const emailColor = useColorModeValue('gray.400', 'gray.300')
 
   const getCourse = () => {
-    API.get(`/course-umkm`)
+    console.log('page',page)
+    API.get(`/course-umkm?page=${page}`)
       .then((res) => {
+        setTotal(res.data.data.courseUmkm.last_page)
+        setPage(res.data.data.courseUmkm.current_page)
         setCourseUmkm(res.data.data.courseUmkm.data)
       })
       .catch((error) => {
@@ -63,7 +69,7 @@ function Profil(props) {
     } else {
       router.push('/login')
     }
-  }, [props.auth])
+  }, [props.auth,page])
 
   useEffect(() => {
     if (!token) {
@@ -82,15 +88,13 @@ function Profil(props) {
             duration: 9000,
             isClosable: true,
           })
-          getCourse()
+          setPage(1)
         }
       })
       .catch((error) => {
         console.log('err', error)
       })
   }
-
-  console.log('dataUmkm', dataUmkm)
 
   return dataUmkm && dataUser ? (
     <>
@@ -376,6 +380,8 @@ function Profil(props) {
                     <DataNotFound />
                   )}
                 </Grid>
+                {courseUmkm && courseUmkm.length > 0 ? 
+                  <Pagination page={page} total={total} setPage={setPage} /> :  <div></div>}
               </CardBody>
             </Card>
           </Grid>
