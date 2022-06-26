@@ -21,12 +21,7 @@ const Layout = (props) => {
 
   useEffect(() => {
     if (dataUser !== null) {
-      const isNullish = Object.values(dataUser.umkm).every((value) => {
-        if (value === null) {
-          return true
-        }
-        return false
-      })
+      const isNullish = Object.values(dataUser.umkm).includes(null)
       setResult(isNullish)
     }
   }, [dataUser])
