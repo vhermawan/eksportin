@@ -57,7 +57,7 @@ const CardNews = (props) => {
                 <EllipsisText text={props.data.title} length={40} />
               </Link>
             </Flex>
-            <Box>
+            <Box minH={'70px'}>
               <div
                 id="description"
                 dangerouslySetInnerHTML={{ __html: props.data.description }}
@@ -80,7 +80,9 @@ const CardNews = (props) => {
                     src="https://bit.ly/dan-abramov"
                     size="sm"
                   />
-                  <Text ml="3">{props.data.author}</Text>
+                  <Text ml="3" fontSize={13}>
+                    {props.data.author}
+                  </Text>
                 </Flex>
               </Box>
               <Button

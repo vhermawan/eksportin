@@ -1,46 +1,46 @@
-import React from "react";
-import { ChakraProvider } from "@chakra-ui/react";
+import React from 'react'
+import { ChakraProvider } from '@chakra-ui/react'
 import {
   Paginator,
   Container,
   Previous,
   Next,
   PageGroup,
-  usePaginator
-} from "chakra-paginator";
+  usePaginator,
+} from 'chakra-paginator'
 
 const activeStyles = {
-    w: 7,
-    bg: "green.300",
-    fontSize: "sm",
-    _hover: {
-      bg: "blue.300"
-    },
-  };
+  w: 7,
+  bg: 'green.300',
+  fontSize: 'sm',
+  _hover: {
+    bg: 'blue.300',
+  },
+}
 
-  const normalStyles = {
-    w: 7,
-    bg: "red.300",
-    fontSize: "sm",
-    _hover: {
-      bg: "green.300"
-    },
-  };
+const normalStyles = {
+  w: 7,
+  bg: 'red.300',
+  fontSize: 'sm',
+  _hover: {
+    bg: 'green.300',
+  },
+}
 
 const separatorStyles = {
-    w: "100px",
-    bg: "green.200"
-  };
+  w: '100px',
+  bg: 'green.200',
+}
 
 const Demo = (props) => {
-  const pagesQuantity = props.total;
+  const pagesQuantity = props.total
 
   return (
     <ChakraProvider>
       <Paginator
         pagesQuantity={pagesQuantity}
         currentPage={props.page}
-        onPageChange={(page)=>props.setPage(page)}
+        onPageChange={(page) => props.setPage(page)}
         normalStyles={normalStyles}
         separatorStyles={separatorStyles}
         activeStyles={activeStyles}
@@ -58,7 +58,7 @@ const Demo = (props) => {
         </Container>
       </Paginator>
     </ChakraProvider>
-  );
-};
+  )
+}
 
-export default Demo;
+export default Demo

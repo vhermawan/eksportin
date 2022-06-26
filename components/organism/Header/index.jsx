@@ -80,7 +80,7 @@ function Header(props) {
         </Flex>
         <Box
           display={{ base: 'none', lg: 'flex' }}
-          mt={{ base: 4, md: token !== undefined ? "7px" : 0 }}
+          mt={{ base: 4, md: token !== undefined ? '7px' : 0 }}
           ml={{ base: 4, md: 10 }}
         >
           <MenuItems>Beranda</MenuItems>
@@ -151,7 +151,7 @@ function Header(props) {
                   <MenuDivider />
                   <Button
                     mt={{ base: 5, md: 0 }}
-                    ml={{ base: 6, '3xl': "5px" }}
+                    ml={{ base: 6, '3xl': '5px' }}
                     size="sm"
                     variant="ghost"
                     _hover={'none'}

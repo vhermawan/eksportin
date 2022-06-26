@@ -208,7 +208,13 @@ function Login(props) {
               >
                 <Text color={textColor} fontWeight="medium">
                   Belum punya akun?
-                  <Link color={titleColor} as="span" ms="5px" fontWeight="bold" onClick={()=> router.push('/register') }>
+                  <Link
+                    color={titleColor}
+                    as="span"
+                    ms="5px"
+                    fontWeight="bold"
+                    onClick={() => router.push('/register')}
+                  >
                     Register
                   </Link>
                 </Text>

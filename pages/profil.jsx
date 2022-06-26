@@ -35,7 +35,7 @@ function Profil(props) {
   const [courseUmkm, setCourseUmkm] = useState([])
   const textColor = useColorModeValue('gray.700', 'white')
   const [page, setPage] = useState(1)
-  const [total,setTotal] = useState(1)
+  const [total, setTotal] = useState(1)
   const toast = useToast()
 
   const bgProfile = useColorModeValue(
@@ -49,7 +49,7 @@ function Profil(props) {
   const emailColor = useColorModeValue('gray.400', 'gray.300')
 
   const getCourse = () => {
-    console.log('page',page)
+    console.log('page', page)
     API.get(`/course-umkm?page=${page}`)
       .then((res) => {
         setTotal(res.data.data.courseUmkm.last_page)
@@ -69,7 +69,7 @@ function Profil(props) {
     } else {
       router.push('/login')
     }
-  }, [props.auth,page])
+  }, [props.auth, page])
 
   useEffect(() => {
     if (!token) {
@@ -380,8 +380,11 @@ function Profil(props) {
                     <DataNotFound />
                   )}
                 </Grid>
-                {courseUmkm && courseUmkm.length > 0 ? 
-                  <Pagination page={page} total={total} setPage={setPage} /> :  <div></div>}
+                {courseUmkm && courseUmkm.length > 0 ? (
+                  <Pagination page={page} total={total} setPage={setPage} />
+                ) : (
+                  <div></div>
+                )}
               </CardBody>
             </Card>
           </Grid>

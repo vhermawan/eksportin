@@ -15,27 +15,29 @@ import {
   Spacer,
   Avatar,
   Skeleton,
+  Button,
+  Icon,
 } from '@chakra-ui/react'
 import moment from 'moment'
 import { API } from '@/common/api/api'
 import { useSelector } from 'react-redux'
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import { NextSeo } from 'next-seo'
+import { FaShareSquare } from 'react-icons/fa'
 
 const Layout = dynamic(() => import('@/components/organism/Layout/index'))
 const CardUmkm = dynamic(() => import('@/components/atoms/CardUmkm/index'))
 const DataNotFound = dynamic(() =>
   import('@/components/organism/DataNotFound/index'),
 )
-import { NextSeo } from 'next-seo'
 
 export default function detailBerita() {
   const { colorMode } = useColorMode()
   const [data, setData] = useState([])
   const detailNews = useSelector((state) => state.slugPageData.detail_news)
   const loaded = useSelector((state) => state.slugPageData.loading)
+  const [totalLike, setTotalLike] = useState(0)
   const [loadedAdditional, setLoadedAdditionalInfo] = useState(false)
-
-  console.log('loaded', loaded)
 
   useEffect(() => {
     API.get(`/news-corelate/${detailNews.category}?page=1`)
@@ -48,6 +50,66 @@ export default function detailBerita() {
         console.log('err', error)
       })
   }, [])
+
+  const getTotalLike = () => {
+    API.get(`/get-like-news/${detailNews.id}`)
+      .then((res) => {
+        setTotalLike(res.data.data.count)
+      })
+      .catch((error) => {
+        console.log('err', error)
+      })
+  }
+
+  useEffect(() => {
+    getTotalLike()
+  }, [])
+
+  const hitLikeNews = () => {
+    API.post(`/like-news/${detailNews.id}`)
+      .then((res) => {
+        getTotalLike()
+        console.log('res', res)
+      })
+      .catch((error) => {
+        console.log('err', error)
+      })
+  }
+
+  const hitUnLikeNews = () => {
+    API.post(`/unlike-news/${detailNews.id}`)
+      .then((res) => {
+        getTotalLike()
+        console.log('res', res)
+      })
+      .catch((error) => {
+        console.log('err', error)
+      })
+  }
+
+  const likeNews = () => {
+    let getLocalStorageId = localStorage.getItem('idnews')
+    if (getLocalStorageId !== null) {
+      let checkData = JSON.parse(getLocalStorageId).find(
+        (data) => data == detailNews.id,
+      )
+      if (checkData !== undefined) {
+        let arrayIdNews = JSON.parse(getLocalStorageId)
+        let newArray = arrayIdNews.filter(function (value, index, arr) {
+          return value !== detailNews.id
+        })
+        localStorage.setItem('idnews', JSON.stringify(newArray))
+        hitUnLikeNews()
+      } else {
+        hitLikeNews()
+      }
+    } else {
+      let arrayIdNews = []
+      arrayIdNews.push(detailNews.id)
+      localStorage.setItem('idnews', JSON.stringify(arrayIdNews))
+      hitLikeNews()
+    }
+  }
 
   return (
     <>
@@ -168,6 +230,28 @@ export default function detailBerita() {
                 dangerouslySetInnerHTML={{ __html: detailNews.description }}
               />
             </Skeleton>
+          </Flex>
+          <Flex mt="10" w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}>
+            <Button
+              _hover={'none'}
+              variant="ghost"
+              p="0"
+              fontSize="20px"
+              onClick={() => likeNews()}
+            >
+              👏
+            </Button>
+            <Text my="auto">{totalLike}</Text>
+            <Button
+              _hover={'none'}
+              variant="ghost"
+              p="0"
+              fontSize="20px"
+              ml="5"
+            >
+              <Icon as={FaShareSquare} />
+            </Button>
+            <Text my="auto">Bagi berita ini</Text>
           </Flex>
           <Flex
             top="5"
