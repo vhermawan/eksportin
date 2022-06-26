@@ -6,7 +6,6 @@ import {
   Previous,
   Next,
   PageGroup,
-  usePaginator,
 } from 'chakra-paginator'
 
 const activeStyles = {

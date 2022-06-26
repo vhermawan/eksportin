@@ -78,9 +78,8 @@ export default function detailBerita() {
 
   const hitUnLikeNews = () => {
     API.post(`/unlike-news/${detailNews.id}`)
-      .then((res) => {
+      .then(() => {
         getTotalLike()
-        console.log('res', res)
       })
       .catch((error) => {
         console.log('err', error)
@@ -95,7 +94,7 @@ export default function detailBerita() {
       )
       if (checkData !== undefined) {
         let arrayIdNews = JSON.parse(getLocalStorageId)
-        let newArray = arrayIdNews.filter(function (value, index, arr) {
+        let newArray = arrayIdNews.filter(function (value) {
           return value !== detailNews.id
         })
         localStorage.setItem('idnews', JSON.stringify(newArray))
