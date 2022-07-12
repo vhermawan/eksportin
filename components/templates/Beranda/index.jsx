@@ -26,7 +26,7 @@ export default function Index(props) {
         <Section2 />
         <Section3 />
         <Section4 />
-        <Section5 dataUser={props.dataUser} />
+        <Section5 />
       </Layout>
     </>
   )

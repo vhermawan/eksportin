@@ -15,7 +15,7 @@ const CardNews = (props) => {
     <Flex w="full" alignItems="center" justifyContent="center" pb="4">
       <Box
         bg={useColorModeValue('white', 'gray.800')}
-        maxW={{ base: '300px', md: 'md' }}
+        maxW={{ base: '300px', md: '350px' }}
         borderWidth="1px"
         rounded="lg"
         shadow="lg"
@@ -26,7 +26,7 @@ const CardNews = (props) => {
           roundedTop="lg"
           objectFit="cover"
           loading="lazy"
-          w="md"
+          w="sm"
           h="200px"
         />
 

@@ -197,20 +197,6 @@ function SignUp(props) {
                         </FormControl>
                       )}
                     </Field>
-                    <FormControl display="flex" alignItems="center" mb="24px">
-                      <Switch
-                        id="remember-login"
-                        colorScheme="teal"
-                        me="10px"
-                      />
-                      <FormLabel
-                        htmlFor="remember-login"
-                        mb="0"
-                        fontWeight="normal"
-                      >
-                        Ingat Saya
-                      </FormLabel>
-                    </FormControl>
                     <Button
                       type="submit"
                       bg="teal.300"

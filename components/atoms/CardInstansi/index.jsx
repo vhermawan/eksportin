@@ -13,7 +13,7 @@ import {
 const CardInstansi = (props) => {
   return (
     <>
-      <Box width="full">
+      <Box width="full" maxW={"350px"}>
         <Flex w="full" wrap={{ base: 'no-wrap', md: 'wrap' }}>
           <Box>
             <Image
@@ -54,7 +54,7 @@ const CardInstansi = (props) => {
                 }}
                 onClick={() => props.setSlugStakeholder(props.data.slug)}
               >
-                {props.data.name}
+                {props.data.name_stakeholder}
               </Link>
             </Flex>
             <Button

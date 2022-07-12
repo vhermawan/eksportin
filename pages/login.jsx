@@ -230,7 +230,7 @@ function Login(props) {
             right="0px"
           >
             <Box
-              bgImage="/assets/img/signInImage.png"
+              bgImage="/assets/img/login.jpg"
               w="100%"
               h="100%"
               bgSize="cover"

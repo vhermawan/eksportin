@@ -19,28 +19,32 @@ import {
   Icon,
 } from '@chakra-ui/react'
 import moment from 'moment'
+import { connect } from 'react-redux'
 import { API } from '@/common/api/api'
 import { useSelector } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { NextSeo } from 'next-seo'
 import { FaShareSquare } from 'react-icons/fa'
+import { AiFillLike } from 'react-icons/ai'
+import { setSlugNews } from '@/common/reducer/slugPage/action'
 
 const Layout = dynamic(() => import('@/components/organism/Layout/index'))
-const CardUmkm = dynamic(() => import('@/components/atoms/CardUmkm/index'))
+const CardNews = dynamic(() => import('@/components/atoms/CardNews/index'))
 const DataNotFound = dynamic(() =>
   import('@/components/organism/DataNotFound/index'),
 )
 
-export default function detailBerita() {
+function detailBerita(props) {
   const { colorMode } = useColorMode()
   const [data, setData] = useState([])
   const detailNews = useSelector((state) => state.slugPageData.detail_news)
   const loaded = useSelector((state) => state.slugPageData.loading)
-  const [totalLike, setTotalLike] = useState(0)
   const [loadedAdditional, setLoadedAdditionalInfo] = useState(false)
+  const [totalLike, setTotalLike] = useState(0)
 
   useEffect(() => {
-    API.get(`/news-corelate/${detailNews.category}?page=1`)
+    API.get(`/news-corelate/${detailNews.id_category_news}/${detailNews.id_news}?page=1`)
       .then((res) => {
         setLoadedAdditionalInfo(true)
         setData(res.data.data.news.data)
@@ -157,7 +161,7 @@ export default function detailBerita() {
             w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}
             wrap={{ base: 'wrap', md: 'nowrap' }}
           >
-            <Box p="1">
+            <Box p="1" w={{ base: 'full', '2xl': '55%' }}>
               <Skeleton isLoaded={loaded}>
                 <Text
                   color={colorMode === 'light' ? '#21383E' : 'white'}
@@ -238,7 +242,7 @@ export default function detailBerita() {
               fontSize="20px"
               onClick={() => likeNews()}
             >
-              👏
+              <AiFillLike />
             </Button>
             <Text my="auto">{totalLike}</Text>
             <Button
@@ -287,7 +291,7 @@ export default function detailBerita() {
                   return (
                     <>
                       <Skeleton isLoaded={loadedAdditional}>
-                        <CardUmkm key={index} data={item} />
+                        <CardNews key={index} data={item}  setSlugNews={props.setSlugNews}/>
                       </Skeleton>
                     </>
                   )
@@ -304,3 +308,15 @@ export default function detailBerita() {
     </>
   )
 }
+
+const mapStateToProps = (state) => ({
+
+})
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setSlugNews: bindActionCreators(setSlugNews, dispatch),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(detailBerita)

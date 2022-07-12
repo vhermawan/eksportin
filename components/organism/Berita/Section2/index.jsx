@@ -51,6 +51,8 @@ const Section2 = (props) => {
             wrap={{ base: 'wrap', md: 'nowrap' }}
             justifyContent="space-between"
             pt="4"
+            w="full"
+            gridGap={"4"}
           >
             {data
               ? data.map((item, index) => {

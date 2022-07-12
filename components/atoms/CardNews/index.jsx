@@ -15,7 +15,7 @@ import {
 const CardNews = (props) => {
   return (
     <>
-      <Box width="full">
+      <Box width="full" maxW={"350px"}>
         <Flex w="full" wrap="wrap">
           <Box w="full">
             <Image
@@ -57,7 +57,7 @@ const CardNews = (props) => {
                 <EllipsisText text={props.data.title} length={40} />
               </Link>
             </Flex>
-            <Box minH={'70px'}>
+            <Box minH={'70px'} maxW={"300px"}>
               <div
                 id="description"
                 dangerouslySetInnerHTML={{ __html: props.data.description }}

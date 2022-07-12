@@ -16,7 +16,7 @@ import { API } from '@/common/api/api'
 const Section1 = (props) => {
   let filterTimeout
 
-  const doStakeholderFilter = (query) => {
+  const searchStakeholders = (query) => {
     clearTimeout(filterTimeout)
     if (!query) {
       props.setIsFilter(false)
@@ -97,7 +97,7 @@ const Section1 = (props) => {
               <Input
                 type="text"
                 placeholder="Cari Instansi..."
-                onKeyUp={(e) => doStakeholderFilter(e.target.value)}
+                onKeyUp={(e) => searchStakeholders(e.target.value)}
               />
             </InputGroup>
           </Box>

@@ -24,27 +24,13 @@ const DataNotFound = dynamic(() =>
 
 const Section3 = (props) => {
   let dataCategory = props.category
+  const { colorMode } = useColorMode()
   const [index, setIndex] = useState(0)
   const [tabs, setTabs] = useState('all')
   const [data, setData] = useState([])
   const [page, setPage] = useState(1)
   const [lastPage, setLastPage] = useState(1)
-  const { colorMode } = useColorMode()
   const [loaded, setLoaded] = useState(false)
-
-  let category = [
-    {
-      label: 'Semua',
-      value: 'all',
-    },
-  ]
-
-  dataCategory.map((item) => {
-    category.push({
-      label: item.name,
-      value: item.id,
-    })
-  })
 
   /*set index first*/
   useEffect(() => {
@@ -86,6 +72,22 @@ const Section3 = (props) => {
     }
   }, [tabs, page])
 
+  let category = [
+    {
+      label: 'Semua',
+      value: 'all',
+    },
+  ]
+
+  dataCategory.map((item) => {
+    category.push({
+      label: item.name,
+      value: item.id,
+    })
+  })
+
+  
+
   return (
     <>
       <Container
@@ -99,7 +101,7 @@ const Section3 = (props) => {
           alignContent="center"
           wrap="wrap"
           textAlign="center"
-          w={{ base: 'full', lg: 'container.sm', '3xl': 'container.lg' }}
+          w={{ base: 'full', lg: 'container.sm', '2xl': 'container.sm' }}
           flexDirection="column"
         >
           <Text

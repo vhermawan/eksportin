@@ -26,11 +26,11 @@ export default function detailInstansi() {
   return (
     <>
       <NextSeo
-        title={`Instansi | ${detailStakeholder.name}`}
+        title={`Instansi | ${detailStakeholder.name_stakeholder}`}
         description={detailStakeholder.description}
         openGraph={{
           url: 'https://eksportin.co.id',
-          title: `Instansi | ${detailStakeholder.name}`,
+          title: `Instansi | ${detailStakeholder.name_stakeholder}`,
           description: detailStakeholder.description,
           images: [
             {
@@ -61,7 +61,7 @@ export default function detailInstansi() {
                 isCurrentPage
                 color={colorMode === 'light' ? '#1EA59A' : 'blue.200'}
               >
-                <BreadcrumbLink>{detailStakeholder.name}</BreadcrumbLink>
+                <BreadcrumbLink>{detailStakeholder.name_stakeholder}</BreadcrumbLink>
               </BreadcrumbItem>
             </Breadcrumb>
           </Flex>
@@ -88,7 +88,7 @@ export default function detailInstansi() {
                 '3xl': '6xl',
               }}
             >
-              {detailStakeholder.name}
+              {detailStakeholder.name_stakeholder}
             </Heading>
           </Flex>
           <Flex mt="3" w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}>
