@@ -24,6 +24,7 @@ import { bindActionCreators } from 'redux'
 import { Formik, Form, Field } from 'formik'
 import * as validation from '@/lib/validator/validator'
 import { changeProfileUser } from '@/common/reducer/login/action'
+import { TextEditor } from '@/components/atoms/TextEditor'
 
 const Layout = dynamic(() => import('@/components/organism/Layout/index'))
 const UploadFile = dynamic(() => import('@/components/atoms/FormUpload/index'))
@@ -33,8 +34,11 @@ function EditProfil(props) {
   const [dataUser, setDataUser] = useState(null)
   const [dataUmkm, setDataUmkm] = useState(null)
   const [file, setFile] = useState(null)
+  const [description,setDescriptions] = useState('')
 
   const [token] = useState(Cookies.get('token'))
+  const [isError, setIsError] = useState(false)
+  const [isType, setIsType] = useState(false)
 
   const textColor = useColorModeValue('gray.700', 'white')
   const bgProfile = useColorModeValue(
@@ -57,10 +61,32 @@ function EditProfil(props) {
     if (props.auth) {
       setDataUser(props.auth.user)
       setDataUmkm(props.auth.umkm)
+      setDescriptions(props.auth.umkm.description)
     } else {
       router.push('/login')
     }
   }, [props.auth])
+
+  let filterTimeout
+
+  const parseDescription = (description) => {
+    setIsType(true)
+    clearTimeout(filterTimeout)
+    filterTimeout = setTimeout(() => {
+      console.log('====>', description)
+      setDescriptions(description)
+    }, 500)
+  }
+
+  useEffect(() => {
+    if(description !== null) {
+      if (description.length === 8 && isType) {
+        setIsError(true)
+      } else if (description.length > 8 && isType) {
+        setIsError(false)
+      }
+    }
+  },[description, isType])
 
   return dataUser && dataUmkm ? (
     <>
@@ -163,22 +189,31 @@ function EditProfil(props) {
                   initialValues={{
                     name: dataUser.name === null ? '' : dataUser.name,
                     phone: dataUmkm.phone === null ? '' : dataUmkm.phone,
-                    description:
-                      dataUmkm.description === null ? '' : dataUmkm.description,
-                    bussiness_entity:
-                      dataUmkm.bussiness_entity === null
+                    instagram:
+                      dataUmkm.instagram === null
                         ? ''
-                        : dataUmkm.bussiness_entity,
+                        : dataUmkm.instagram,
                     address: dataUmkm.address === null ? '' : dataUmkm.address,
                     email: dataUser.email,
                     id_category_umkms: dataUmkm.id_category_umkms,
+                    tokopedia: dataUmkm.tokopedia === null ? '' : dataUmkm.tokopedia,
+                    facebook: dataUmkm.facebook === null ? '' : dataUmkm.facebook,
+                    shopee: dataUmkm.shopee === null ? '' : dataUmkm.shopee,
                   }}
                   onSubmit={(values) => {
-                    props.changeProfileUser(
-                      `/change-profile/${dataUmkm.id}`,
-                      values,
-                      file,
-                    )
+                    if(description === null){
+                      setIsError(true)
+                    } else if (description.length === 8) {
+                      setIsError(true)
+                      setIsType(true)
+                    }else{
+                      props.changeProfileUser(
+                        `/change-profile/${dataUmkm.id}`,
+                        values,
+                        file,
+                        description,
+                      )
+                    }
                   }}
                 >
                   {() => (
@@ -199,6 +234,7 @@ function EditProfil(props) {
                                 isInvalid={
                                   form.errors.name && form.touched.name
                                 }
+                                isRequired
                               >
                                 <FormLabel
                                   htmlFor="name"
@@ -223,7 +259,7 @@ function EditProfil(props) {
                                   placeholder="Nama UMKM"
                                   {...field}
                                 />
-                                <FormErrorMessage mb="24px">
+                                <FormErrorMessage>
                                   {form.errors.name}
                                 </FormErrorMessage>
                               </FormControl>
@@ -241,6 +277,7 @@ function EditProfil(props) {
                                 isInvalid={
                                   form.errors.email && form.touched.email
                                 }
+                                isRequired
                               >
                                 <FormLabel
                                   htmlFor="email"
@@ -267,7 +304,7 @@ function EditProfil(props) {
                                   placeholder="Email UMKM"
                                   {...field}
                                 />
-                                <FormErrorMessage mb="24px">
+                                <FormErrorMessage>
                                   {form.errors.email}
                                 </FormErrorMessage>
                               </FormControl>
@@ -282,6 +319,7 @@ function EditProfil(props) {
                                 isInvalid={
                                   form.errors.phone && form.touched.phone
                                 }
+                                isRequired
                               >
                                 <FormLabel
                                   htmlFor="phone"
@@ -307,14 +345,14 @@ function EditProfil(props) {
                                   placeholder="08xxxxxxxxxx"
                                   {...field}
                                 />
-                                <FormErrorMessage mb="24px">
+                                <FormErrorMessage>
                                   {form.errors.phone}
                                 </FormErrorMessage>
                               </FormControl>
                             )}
                           </Field>
 
-                          <Field name="id_category_umkms">
+                          <Field name="id_category_umkms"> 
                             {({ field, form }) => (
                               <FormControl
                                 as={GridItem}
@@ -323,6 +361,7 @@ function EditProfil(props) {
                                   form.errors.id_category_umkms &&
                                   form.touched.id_category_umkms
                                 }
+                                isRequired
                               >
                                 <FormLabel
                                   htmlFor="id_category_umkms"
@@ -353,51 +392,8 @@ function EditProfil(props) {
                                     </option>
                                   ))}
                                 </Select>
-                                <FormErrorMessage mb="24px">
+                                <FormErrorMessage>
                                   {form.errors.id_category_umkms}
-                                </FormErrorMessage>
-                              </FormControl>
-                            )}
-                          </Field>
-
-                          <Field
-                            name="bussiness_entity"
-                            validate={validation.Required}
-                          >
-                            {({ field, form }) => (
-                              <FormControl
-                                as={GridItem}
-                                colSpan={[6]}
-                                isInvalid={
-                                  form.errors.bussiness_entity &&
-                                  form.touched.bussiness_entity
-                                }
-                              >
-                                <FormLabel
-                                  htmlFor="business_entity"
-                                  fontSize="sm"
-                                  fontWeight="md"
-                                  color={useColorModeValue(
-                                    'gray.700',
-                                    'gray.50',
-                                  )}
-                                >
-                                  Nomor Usaha
-                                </FormLabel>
-                                <Input
-                                  type="text"
-                                  id="business_entity"
-                                  mt={1}
-                                  focusBorderColor="brand.400"
-                                  shadow="sm"
-                                  size="sm"
-                                  w="full"
-                                  rounded="md"
-                                  placeholder="1268-xxxxxxxxxx"
-                                  {...field}
-                                />
-                                <FormErrorMessage mb="24px">
-                                  {form.errors.bussiness_entity}
                                 </FormErrorMessage>
                               </FormControl>
                             )}
@@ -411,6 +407,7 @@ function EditProfil(props) {
                                 isInvalid={
                                   form.errors.address && form.touched.address
                                 }
+                                isRequired
                               >
                                 <FormLabel
                                   htmlFor="address"
@@ -437,15 +434,42 @@ function EditProfil(props) {
                                   placeholder="Jl. Raya Kedungkandang No.1"
                                   {...field}
                                 />
-                                <FormErrorMessage mb="24px">
+                                <FormErrorMessage>
                                   {form.errors.address}
                                 </FormErrorMessage>
                               </FormControl>
                             )}
                           </Field>
 
+                          <FormControl
+                            as={GridItem}
+                            colSpan={[6]}
+                            isInvalid={isError}
+                            isRequired
+                          >
+                            <FormLabel
+                              htmlFor="description"
+                              fontSize="sm"
+                              fontWeight="md"
+                              color={useColorModeValue(
+                                'gray.700',
+                                'gray.50',
+                              )}
+                            >
+                              Deskripsi
+                            </FormLabel>
+                            <TextEditor
+                              setFieldValue={(val) => parseDescription(val)}
+                              value={description}
+                            />
+                            {!isError ? (<></>
+                            ) : (
+                              <FormErrorMessage>Silahkan isi.</FormErrorMessage>
+                            )}
+                          </FormControl>
+                         
                           <Field
-                            name="description"
+                            name="instagram"
                             validate={validation.Required}
                           >
                             {({ field, form }) => (
@@ -453,12 +477,13 @@ function EditProfil(props) {
                                 as={GridItem}
                                 colSpan={[6]}
                                 isInvalid={
-                                  form.errors.description &&
-                                  form.touched.description
+                                  form.errors.instagram &&
+                                  form.touched.instagram
                                 }
+                                isRequired
                               >
                                 <FormLabel
-                                  htmlFor="description"
+                                  htmlFor="instagram"
                                   fontSize="sm"
                                   fontWeight="md"
                                   color={useColorModeValue(
@@ -466,23 +491,110 @@ function EditProfil(props) {
                                     'gray.50',
                                   )}
                                 >
-                                  Deskripsi
+                                  Instagram
                                 </FormLabel>
-                                <Textarea
+                                <Input
                                   type="text"
-                                  name="description"
-                                  id="description"
+                                  id="instagram"
                                   mt={1}
                                   focusBorderColor="brand.400"
                                   shadow="sm"
                                   size="sm"
                                   w="full"
                                   rounded="md"
-                                  placeholder="Kami menjual berbagai macam barang"
+                                  placeholder="link instagram"
                                   {...field}
                                 />
-                                <FormErrorMessage mb="24px">
-                                  {form.errors.description}
+                                <FormErrorMessage>
+                                  {form.errors.instagram}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field
+                            name="shopee"
+                            validate={validation.Required}
+                          >
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.shopee &&
+                                  form.touched.shopee
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="shopee"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue(
+                                    'gray.700',
+                                    'gray.50',
+                                  )}
+                                >
+                                 Shopee
+                                </FormLabel>
+                                <Input
+                                  type="text"
+                                  id="shopee"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  placeholder="link shopee"
+                                  {...field}
+                                />
+                                <FormErrorMessage>
+                                  {form.errors.shopee}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field
+                            name="tokopedia"
+                            validate={validation.Required}
+                          >
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.tokopedia &&
+                                  form.touched.tokopedia
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="tokopedia"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue(
+                                    'gray.700',
+                                    'gray.50',
+                                  )}
+                                >
+                                  Tokopedia
+                                </FormLabel>
+                                <Input
+                                  type="text"
+                                  id="tokopedia"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  placeholder="link tokopedia"
+                                  {...field}
+                                />
+                                <FormErrorMessage>
+                                  {form.errors.tokopedia}
                                 </FormErrorMessage>
                               </FormControl>
                             )}
@@ -494,6 +606,7 @@ function EditProfil(props) {
                               fontSize="sm"
                               fontWeight="md"
                               color={useColorModeValue('gray.700', 'gray.50')}
+                              isRequired
                             >
                               Upload foto
                             </FormLabel>

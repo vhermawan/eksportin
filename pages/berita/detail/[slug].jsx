@@ -17,6 +17,7 @@ import {
   Skeleton,
   Button,
   Icon,
+  Tooltip,
 } from '@chakra-ui/react'
 import moment from 'moment'
 import { connect } from 'react-redux'
@@ -28,6 +29,7 @@ import { NextSeo } from 'next-seo'
 import { FaShareSquare } from 'react-icons/fa'
 import { AiFillLike } from 'react-icons/ai'
 import { setSlugNews } from '@/common/reducer/slugPage/action'
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const Layout = dynamic(() => import('@/components/organism/Layout/index'))
 const CardNews = dynamic(() => import('@/components/atoms/CardNews/index'))
@@ -42,6 +44,7 @@ function detailBerita(props) {
   const loaded = useSelector((state) => state.slugPageData.loading)
   const [loadedAdditional, setLoadedAdditionalInfo] = useState(false)
   const [totalLike, setTotalLike] = useState(0)
+  const [isCopy, setIsCopy] = useState(false)
 
   useEffect(() => {
     API.get(`/news-corelate/${detailNews.id_category_news}/${detailNews.id_news}?page=1`)
@@ -113,6 +116,14 @@ function detailBerita(props) {
       hitLikeNews()
     }
   }
+
+  useEffect (() => {
+    if(isCopy){
+      setTimeout(() => {
+        setIsCopy(false)
+      }, 2000)
+    }
+  },[isCopy])
 
   return (
     <>
@@ -245,16 +256,24 @@ function detailBerita(props) {
               <AiFillLike />
             </Button>
             <Text my="auto">{totalLike}</Text>
-            <Button
-              _hover={'none'}
-              variant="ghost"
-              p="0"
-              fontSize="20px"
-              ml="5"
-            >
-              <Icon as={FaShareSquare} />
-            </Button>
-            <Text my="auto">Bagi berita ini</Text>
+              <CopyToClipboard 
+                text={window.location.href} 
+                onCopy={() => setIsCopy(true)}
+              >
+                  <Button
+                    _hover={'none'}
+                    variant="ghost"
+                    p="0"
+                    fontSize="20px"
+                    ml="5"
+                  >
+                    <Icon as={FaShareSquare} />
+                  </Button>
+              </CopyToClipboard>
+              
+              <Tooltip label='Link telah tersalin' placement='top' isOpen={isCopy}>
+                  <Text my="auto">Salin link berita ini</Text>
+              </Tooltip>
           </Flex>
           <Flex
             top="5"

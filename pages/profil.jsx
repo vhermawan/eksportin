@@ -8,15 +8,19 @@ import {
   Flex,
   Grid,
   Icon,
+  Image,
+  Link,
+  Stack,
   Text,
   useColorModeValue,
   useToast,
 } from '@chakra-ui/react'
-import { FaUserAlt, FaEdit } from 'react-icons/fa'
+import { FaUserAlt, FaEdit, FaFacebook, FaInstagram } from 'react-icons/fa'
 import Cookies from 'js-cookie'
 import router from 'next/router'
 import { NextSeo } from 'next-seo'
 import { API } from '@/common/api/api'
+import NextLink from "next/link"
 import Pagination from '@/components/atoms/Pagination'
 
 const Layout = dynamic(() => import('@/components/organism/Layout/index'))
@@ -266,14 +270,10 @@ function Profil(props) {
               </CardHeader>
               <CardBody px="5px">
                 <Flex direction="column">
-                  <Text
-                    fontSize="md"
-                    color="gray.500"
-                    fontWeight="400"
-                    mb="30px"
-                  >
-                    {dataUmkm.description === null ? '-' : dataUmkm.description}
-                  </Text>
+                  <div
+                    id="description-course"
+                    dangerouslySetInnerHTML={{ __html: dataUmkm.description === null ? '-' : dataUmkm.description }}
+                  />
                   <Flex align="center" mb="18px">
                     <Text
                       fontSize="md"
@@ -326,20 +326,57 @@ function Profil(props) {
                       {dataUmkm.address === null ? '-' : dataUmkm.address}
                     </Text>
                   </Flex>
-                  <Flex align="center" mb="18px">
+                  <Flex align="center" mb="18px" >
                     <Text
                       fontSize="md"
                       color={textColor}
                       fontWeight="bold"
                       me="10px"
                     >
-                      Nomor Badan Usaha:{' '}
+                      Sosial Media:{' '}
                     </Text>
-                    <Text fontSize="md" color="gray.500" fontWeight="400">
-                      {dataUmkm.bussiness_entity === null
-                        ? '-'
-                        : dataUmkm.bussiness_entity}
-                    </Text>
+                  </Flex>
+                  <Flex align="center" mb="10px">
+                    <Stack direction={['column', 'row']} spacing='12px'>
+                      <NextLink href={`https://www.facebook.com/${dataUmkm.facebook}`} passHref>
+                        <Link isExternal>
+                          <Box w='40px' h='40px'>
+                            <Icon as={FaFacebook} w={10} h={10}/>
+                          </Box>
+                        </Link>
+                      </NextLink>
+                      <NextLink href={`https://www.instagram.com/${dataUmkm.instagram}`} passHref>
+                        <Link isExternal>
+                          <Box w='40px' h='40px'>
+                            <Icon as={FaInstagram} w={10} h={10} />
+                          </Box>
+                        </Link>
+                      </NextLink>
+                      <NextLink href={`https://www.tokopedia.com/${dataUmkm.tokopedia}`} passHref>
+                        <Link isExternal>
+                          <Box w='40px' h='40px'>
+                            <Image 
+                              src='/assets/icons/tokopedia.svg'
+                              w={10}
+                              h={10}
+                              loading="lazy"
+                            />
+                          </Box>
+                        </Link>
+                      </NextLink>
+                      <NextLink href={`https://shopee.co.id/${dataUmkm.shopee}`} passHref>
+                        <Link isExternal>
+                          <Box w='40px' h='40px'>
+                            <Image
+                              src='/assets/icons/shopee.png'
+                              w={10}
+                              h={10}
+                              loading="lazy"
+                            />
+                          </Box>
+                      </Link>
+                    </NextLink>
+                    </Stack>
                   </Flex>
                 </Flex>
               </CardBody>

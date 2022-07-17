@@ -3,12 +3,14 @@ import { wrapper } from '../common/store/index'
 import { useStore } from 'react-redux'
 import { createBreakpoints } from '@chakra-ui/theme-tools'
 import { ChakraProvider, extendTheme, Flex } from '@chakra-ui/react'
-import Fonts from '../lib/Font'
 import 'moment/locale/id'
 import '../styles/globals.css'
 import { Router } from 'next/router'
 import { useState } from 'react'
 import { CircleSpinner } from 'react-spinners-kit'
+
+import '@fontsource/poppins/400.css'
+import '@fontsource/poppins/700.css'
 
 const WrappedApp = ({ Component, pageProps }) => {
   const [loading, setLoading] = useState(false)
@@ -26,8 +28,8 @@ const WrappedApp = ({ Component, pageProps }) => {
 
   const theme = extendTheme({
     fonts: {
-      heading: 'Poppins',
-      body: 'Poppins-Normal',
+      heading: `'Poppins', sans-serif`,
+      body: `'Poppins', sans-serif`,
     },
     breakpoints,
   })
@@ -43,7 +45,6 @@ const WrappedApp = ({ Component, pageProps }) => {
   return (
     <PersistGate persistor={store.__persistor}>
       <ChakraProvider theme={theme}>
-        <Fonts />
         {loading ? (
           <Flex h="100vh" alignItems="center" justifyContent="center">
             <CircleSpinner size={70} color="#1EA59A" loading={true} />

@@ -8,13 +8,14 @@ export const loginUser = (url, payload) => {
   }
 }
 
-export const changeProfileUser = (url, payload, file) => {
-  console.log('file', file)
+export const changeProfileUser = (url, payload, file, description) => {
+  console.log('des',description)
   return {
     type: actionTypes.CHANGE_PROFILE_PROCESS,
     endpoint: url,
     params: payload,
     file: file,
+    description: description,
   }
 }
 

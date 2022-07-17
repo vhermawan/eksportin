@@ -76,13 +76,12 @@ const CardUmkm = (props) => {
                 <EllipsisText text={props.data.name_umkm} length={40} />
               </Link>
             </Flex>
-            <Text
-              fontSize={{ base: '12px', md: 'xs', '3xl': 'xl' }}
-              mr="2"
-              textAlign="justify"
-            >
-              <EllipsisText text={props.data.description} length={200} />
-            </Text>
+            <Box minH={'70px'} maxW={"350px"} textAlign="justify">
+              <div
+                id="description"
+                dangerouslySetInnerHTML={{ __html: props.data.description }}
+              />
+            </Box>
             <Button
               size="xs"
               variant="ghost"

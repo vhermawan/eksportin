@@ -29,7 +29,7 @@ const makeStore = () => {
       key: 'next-js',
       storage: storage,
       timeout: null,
-      whitelist: ['auth', 'masterData', 'slugPageData'],
+      whitelist: ['auth', 'masterData', 'slugPageData','detailPageData'],
     }
 
     const sagaMiddleware = createSagaMiddleware()

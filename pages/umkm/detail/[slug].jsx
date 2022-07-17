@@ -161,14 +161,12 @@ export default function detailUmkm() {
             w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}
             justifyContent="center"
           >
-            <Text
-              color={colorMode === 'light' ? '#21383E' : 'white'}
-              letterSpacing={'-.0.001rem'}
-              lineHeight={'-.0.001rem'}
-              fontSize={{ base: 'sm', '3xl': 'xl' }}
-            >
-              {detailUmkm.description}
-            </Text>
+            <div
+              id="description-umkm"
+              dangerouslySetInnerHTML={{
+                __html: detailUmkm.description,
+              }}
+            />
           </Flex>
           <Flex
             top="5"

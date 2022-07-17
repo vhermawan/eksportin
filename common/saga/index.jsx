@@ -15,6 +15,9 @@ import * as actionMaster from '@/common/saga/master/index'
 import * as actionTypeSlugPage from '@/common/reducer/slugPage/actionTypes'
 import * as actionSlugPage from '@/common/saga/slugPage/index'
 
+import * as actionTypeDetailPage from '@/common/reducer/detailPage/actionTypes'
+import * as actionDetailPage from '@/common/saga/detailPage/index'
+
 export default function* rootSagas() {
   yield all([
     // Content
@@ -71,6 +74,28 @@ export default function* rootSagas() {
     yield takeLatest(
       actionTypeSlugPage.GET_SLUG_UMKM_PROCESS,
       actionSlugPage.setSlugUmkm,
+    ),
+
+     /*get for detail page */
+     yield takeEvery(
+      actionTypeDetailPage.GET_DETAIL_NEWS_PROCESS,
+      actionDetailPage.getDetailNews,
+    ),
+    yield takeLatest(
+      actionTypeDetailPage.GET_DETAIL_BUYER_PROCESS,
+      actionDetailPage.getDetailBuyer,
+    ),
+    yield takeLatest(
+      actionTypeDetailPage.GET_DETAIL_STAKEHOLDER_PROCESS,
+      actionDetailPage.getDetailStakeholder,
+    ),
+    yield takeLatest(
+      actionTypeDetailPage.GET_DETAIL_COURSE_PROCESS,
+      actionDetailPage.getDetailCourse,
+    ),
+    yield takeLatest(
+      actionTypeDetailPage.GET_DETAIL_UMKM_PROCESS,
+      actionDetailPage.getDetailUmkm,
     ),
   ])
 }
