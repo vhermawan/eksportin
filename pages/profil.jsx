@@ -18,8 +18,8 @@ import {
 import { FaUserAlt, FaEdit, FaFacebook, FaInstagram } from 'react-icons/fa'
 import Cookies from 'js-cookie'
 import router from 'next/router'
-import { NextSeo } from 'next-seo'
 import { API } from '@/common/api/api'
+import { NextSeo } from 'next-seo'
 import NextLink from "next/link"
 import Pagination from '@/components/atoms/Pagination'
 
