@@ -57,7 +57,7 @@ export default function detailMateri() {
         <Flex h="100vh" alignItems="center" justifyContent="center">
           <CircleSpinner size={70} color="#1EA59A" loading={true} />
         </Flex>
-      ):(
+      ) : (
         <>
           <NextSeo
             title={`Materi | ${detailCourse.title}`}

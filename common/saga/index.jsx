@@ -76,8 +76,8 @@ export default function* rootSagas() {
       actionSlugPage.setSlugUmkm,
     ),
 
-     /*get for detail page */
-     yield takeEvery(
+    /*get for detail page */
+    yield takeEvery(
       actionTypeDetailPage.GET_DETAIL_NEWS_PROCESS,
       actionDetailPage.getDetailNews,
     ),

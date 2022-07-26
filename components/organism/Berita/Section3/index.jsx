@@ -86,8 +86,6 @@ const Section3 = (props) => {
     })
   })
 
-  
-
   return (
     <>
       <Container

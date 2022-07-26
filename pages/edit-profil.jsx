@@ -34,7 +34,7 @@ function EditProfil(props) {
   const [dataUser, setDataUser] = useState(null)
   const [dataUmkm, setDataUmkm] = useState(null)
   const [file, setFile] = useState(null)
-  const [description,setDescriptions] = useState('')
+  const [description, setDescriptions] = useState('')
 
   const [token] = useState(Cookies.get('token'))
   const [isError, setIsError] = useState(false)
@@ -79,14 +79,14 @@ function EditProfil(props) {
   }
 
   useEffect(() => {
-    if(description !== null) {
+    if (description !== null) {
       if (description.length === 8 && isType) {
         setIsError(true)
       } else if (description.length > 8 && isType) {
         setIsError(false)
       }
     }
-  },[description, isType])
+  }, [description, isType])
 
   return dataUser && dataUmkm ? (
     <>
@@ -190,23 +190,23 @@ function EditProfil(props) {
                     name: dataUser.name === null ? '' : dataUser.name,
                     phone: dataUmkm.phone === null ? '' : dataUmkm.phone,
                     instagram:
-                      dataUmkm.instagram === null
-                        ? ''
-                        : dataUmkm.instagram,
+                      dataUmkm.instagram === null ? '' : dataUmkm.instagram,
                     address: dataUmkm.address === null ? '' : dataUmkm.address,
                     email: dataUser.email,
                     id_category_umkms: dataUmkm.id_category_umkms,
-                    tokopedia: dataUmkm.tokopedia === null ? '' : dataUmkm.tokopedia,
-                    facebook: dataUmkm.facebook === null ? '' : dataUmkm.facebook,
+                    tokopedia:
+                      dataUmkm.tokopedia === null ? '' : dataUmkm.tokopedia,
+                    facebook:
+                      dataUmkm.facebook === null ? '' : dataUmkm.facebook,
                     shopee: dataUmkm.shopee === null ? '' : dataUmkm.shopee,
                   }}
                   onSubmit={(values) => {
-                    if(description === null){
+                    if (description === null) {
                       setIsError(true)
                     } else if (description.length === 8) {
                       setIsError(true)
                       setIsType(true)
-                    }else{
+                    } else {
                       props.changeProfileUser(
                         `/change-profile/${dataUmkm.id}`,
                         values,
@@ -352,7 +352,7 @@ function EditProfil(props) {
                             )}
                           </Field>
 
-                          <Field name="id_category_umkms"> 
+                          <Field name="id_category_umkms">
                             {({ field, form }) => (
                               <FormControl
                                 as={GridItem}
@@ -451,10 +451,7 @@ function EditProfil(props) {
                               htmlFor="description"
                               fontSize="sm"
                               fontWeight="md"
-                              color={useColorModeValue(
-                                'gray.700',
-                                'gray.50',
-                              )}
+                              color={useColorModeValue('gray.700', 'gray.50')}
                             >
                               Deskripsi
                             </FormLabel>
@@ -462,12 +459,13 @@ function EditProfil(props) {
                               setFieldValue={(val) => parseDescription(val)}
                               value={description}
                             />
-                            {!isError ? (<></>
+                            {!isError ? (
+                              <></>
                             ) : (
                               <FormErrorMessage>Silahkan isi.</FormErrorMessage>
                             )}
                           </FormControl>
-                         
+
                           <Field
                             name="instagram"
                             validate={validation.Required}
@@ -512,17 +510,13 @@ function EditProfil(props) {
                             )}
                           </Field>
 
-                          <Field
-                            name="shopee"
-                            validate={validation.Required}
-                          >
+                          <Field name="shopee" validate={validation.Required}>
                             {({ field, form }) => (
                               <FormControl
                                 as={GridItem}
                                 colSpan={[6]}
                                 isInvalid={
-                                  form.errors.shopee &&
-                                  form.touched.shopee
+                                  form.errors.shopee && form.touched.shopee
                                 }
                                 isRequired
                               >
@@ -535,7 +529,7 @@ function EditProfil(props) {
                                     'gray.50',
                                   )}
                                 >
-                                 Shopee
+                                  Shopee
                                 </FormLabel>
                                 <Input
                                   type="text"

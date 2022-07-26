@@ -13,7 +13,7 @@ import {
 const CardInstansi = (props) => {
   return (
     <>
-      <Box width="full" maxW={"350px"}>
+      <Box width="full" maxW={'350px'}>
         <Flex w="full" wrap={{ base: 'no-wrap', md: 'wrap' }}>
           <Box>
             <Image

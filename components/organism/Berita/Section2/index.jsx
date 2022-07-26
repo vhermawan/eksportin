@@ -52,7 +52,7 @@ const Section2 = (props) => {
             justifyContent="space-between"
             pt="4"
             w="full"
-            gridGap={"4"}
+            gridGap={'4'}
           >
             {data
               ? data.map((item, index) => {

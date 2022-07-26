@@ -172,7 +172,7 @@ export default function detailPanduan() {
               my="4"
               w={{ base: 'full', '2xl': '20%', '3xl': '20%' }}
               pr="10"
-              display={{ base: 'none', '2xl' : 'flex', '3xl': 'flex' }}
+              display={{ base: 'none', '2xl': 'flex', '3xl': 'flex' }}
             >
               <Heading
                 as="h6"

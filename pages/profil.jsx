@@ -20,7 +20,7 @@ import Cookies from 'js-cookie'
 import router from 'next/router'
 import { API } from '@/common/api/api'
 import { NextSeo } from 'next-seo'
-import NextLink from "next/link"
+import NextLink from 'next/link'
 import Pagination from '@/components/atoms/Pagination'
 
 const Layout = dynamic(() => import('@/components/organism/Layout/index'))
@@ -272,7 +272,12 @@ function Profil(props) {
                 <Flex direction="column">
                   <div
                     id="description-course"
-                    dangerouslySetInnerHTML={{ __html: dataUmkm.description === null ? '-' : dataUmkm.description }}
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        dataUmkm.description === null
+                          ? '-'
+                          : dataUmkm.description,
+                    }}
                   />
                   <Flex align="center" mb="18px">
                     <Text
@@ -326,7 +331,7 @@ function Profil(props) {
                       {dataUmkm.address === null ? '-' : dataUmkm.address}
                     </Text>
                   </Flex>
-                  <Flex align="center" mb="18px" >
+                  <Flex align="center" mb="18px">
                     <Text
                       fontSize="md"
                       color={textColor}
@@ -337,26 +342,35 @@ function Profil(props) {
                     </Text>
                   </Flex>
                   <Flex align="center" mb="10px">
-                    <Stack direction={['column', 'row']} spacing='12px'>
-                      <NextLink href={`https://www.facebook.com/${dataUmkm.facebook}`} passHref>
+                    <Stack direction={['column', 'row']} spacing="12px">
+                      <NextLink
+                        href={`https://www.facebook.com/${dataUmkm.facebook}`}
+                        passHref
+                      >
                         <Link isExternal>
-                          <Box w='40px' h='40px'>
-                            <Icon as={FaFacebook} w={10} h={10}/>
+                          <Box w="40px" h="40px">
+                            <Icon as={FaFacebook} w={10} h={10} />
                           </Box>
                         </Link>
                       </NextLink>
-                      <NextLink href={`https://www.instagram.com/${dataUmkm.instagram}`} passHref>
+                      <NextLink
+                        href={`https://www.instagram.com/${dataUmkm.instagram}`}
+                        passHref
+                      >
                         <Link isExternal>
-                          <Box w='40px' h='40px'>
+                          <Box w="40px" h="40px">
                             <Icon as={FaInstagram} w={10} h={10} />
                           </Box>
                         </Link>
                       </NextLink>
-                      <NextLink href={`https://www.tokopedia.com/${dataUmkm.tokopedia}`} passHref>
+                      <NextLink
+                        href={`https://www.tokopedia.com/${dataUmkm.tokopedia}`}
+                        passHref
+                      >
                         <Link isExternal>
-                          <Box w='40px' h='40px'>
-                            <Image 
-                              src='/assets/icons/tokopedia.svg'
+                          <Box w="40px" h="40px">
+                            <Image
+                              src="/assets/icons/tokopedia.svg"
                               w={10}
                               h={10}
                               loading="lazy"
@@ -364,18 +378,21 @@ function Profil(props) {
                           </Box>
                         </Link>
                       </NextLink>
-                      <NextLink href={`https://shopee.co.id/${dataUmkm.shopee}`} passHref>
+                      <NextLink
+                        href={`https://shopee.co.id/${dataUmkm.shopee}`}
+                        passHref
+                      >
                         <Link isExternal>
-                          <Box w='40px' h='40px'>
+                          <Box w="40px" h="40px">
                             <Image
-                              src='/assets/icons/shopee.png'
+                              src="/assets/icons/shopee.png"
                               w={10}
                               h={10}
                               loading="lazy"
                             />
                           </Box>
-                      </Link>
-                    </NextLink>
+                        </Link>
+                      </NextLink>
                     </Stack>
                   </Flex>
                 </Flex>

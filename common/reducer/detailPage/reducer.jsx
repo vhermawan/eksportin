@@ -13,7 +13,7 @@ export default function stateDetailPage(state = initialState, action) {
   switch (action.type) {
     case actionTypes.GET_DETAIL_NEWS_PROCESS: {
       return {
-        ...state, 
+        ...state,
         loading: true,
       }
     }

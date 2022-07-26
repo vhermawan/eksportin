@@ -76,7 +76,7 @@ const CardUmkm = (props) => {
                 <EllipsisText text={props.data.name_umkm} length={40} />
               </Link>
             </Flex>
-            <Box minH={'70px'} maxW={"350px"} textAlign="justify">
+            <Box minH={'70px'} maxW={'350px'} textAlign="justify">
               <div
                 id="description"
                 dangerouslySetInnerHTML={{ __html: props.data.description }}

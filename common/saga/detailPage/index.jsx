@@ -8,7 +8,7 @@ import Cookies from 'js-cookie'
 import router from 'next/router'
 
 export function* getDetailNews(action) {
-  console.log('slug tes',action.slug)
+  console.log('slug tes', action.slug)
 
   const content = yield API.get(`/news-detail/${action.slug}`)
   if (content.status === 200) {

@@ -41,7 +41,7 @@ const Layout = (props) => {
 
   useEffect(() => {
     let checkModal = localStorage.getItem('checkModal')
-    if(checkModal === null) {
+    if (checkModal === null) {
       let time = setTimeout(() => onOpen(), 2 * 1000)
       return () => {
         clearTimeout(time)
@@ -64,7 +64,7 @@ const Layout = (props) => {
 
   const closeModal = () => {
     onClose()
-    localStorage.setItem('checkModal',true)
+    localStorage.setItem('checkModal', true)
   }
 
   return (
