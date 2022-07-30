@@ -16,6 +16,8 @@ import moment from 'moment'
 import { NextSeo } from 'next-seo'
 import { API } from '@/common/api/api'
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import { CircleSpinner } from 'react-spinners-kit'
+import { useRouter } from 'next/router'
 
 const CardUmkm = dynamic(() => import('@/components/atoms/CardUmkm/index'))
 const DataNotFound = dynamic(() =>
@@ -27,6 +29,7 @@ export default function detailUmkm() {
   const { colorMode } = useColorMode()
   const [data, setData] = useState([])
   const [detailUmkm, setDetailUmkm] = useState(null)
+  const router = useRouter()
 
   useEffect(() => {
     API.get(`/umkm-detail/${router.query.slug}`)
@@ -57,11 +60,11 @@ export default function detailUmkm() {
       ) : (
         <>
           <NextSeo
-            title={`Umkm | ${detailUmkm.title}`}
+            title={`Umkm | ${detailUmkm.name}`}
             description={detailUmkm.description}
             openGraph={{
               url: 'https://eksportin.co.id',
-              title: `Umkm | ${detailUmkm.title}`,
+              title: `Umkm | ${detailUmkm.name}`,
               description: detailUmkm.description,
               images: [
                 {

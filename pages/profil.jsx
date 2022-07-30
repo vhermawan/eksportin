@@ -53,7 +53,6 @@ function Profil(props) {
   const emailColor = useColorModeValue('gray.400', 'gray.300')
 
   const getCourse = () => {
-    console.log('page', page)
     API.get(`/course-umkm?page=${page}`)
       .then((res) => {
         setTotal(res.data.data.courseUmkm.last_page)

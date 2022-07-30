@@ -9,7 +9,6 @@ export const loginUser = (url, payload) => {
 }
 
 export const changeProfileUser = (url, payload, file, description) => {
-  console.log('des', description)
   return {
     type: actionTypes.CHANGE_PROFILE_PROCESS,
     endpoint: url,

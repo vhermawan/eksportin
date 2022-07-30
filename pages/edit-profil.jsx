@@ -21,10 +21,11 @@ import {
 import router from 'next/router'
 import { NextSeo } from 'next-seo'
 import { bindActionCreators } from 'redux'
-import { Formik, Form, Field } from 'formik'
+import { Formik, Form, Field, useFormikContext } from 'formik'
 import * as validation from '@/lib/validator/validator'
 import { changeProfileUser } from '@/common/reducer/login/action'
 import { TextEditor } from '@/components/atoms/TextEditor'
+import { API } from '@/common/api/api'
 
 const Layout = dynamic(() => import('@/components/organism/Layout/index'))
 const UploadFile = dynamic(() => import('@/components/atoms/FormUpload/index'))
@@ -39,6 +40,15 @@ function EditProfil(props) {
   const [token] = useState(Cookies.get('token'))
   const [isError, setIsError] = useState(false)
   const [isType, setIsType] = useState(false)
+  
+  const [province, setProvince] = useState([])
+  const [city, setCity] = useState([])
+  const [district, setDistrict] = useState([])
+  const [subDistrict, setSubDistrict] = useState([])
+  const [idProvince, setIdProvince] = useState('')
+  const [idCity, setIdCity] = useState('')  
+  const [idDistrict, setIdDistrict] = useState('')
+  const [idSubdistrict, setIdSubdistrict] = useState('')
 
   const textColor = useColorModeValue('gray.700', 'white')
   const bgProfile = useColorModeValue(
@@ -87,6 +97,102 @@ function EditProfil(props) {
       }
     }
   }, [description, isType])
+
+  const getProvince = () => {
+    API.get(`/province`)
+    .then((res) => {
+      setProvince(res.data.data.province)
+    })
+    .catch((error) => {
+      console.log('err', error)
+    })
+  }
+
+  const getCity = (id) => {
+    console.log('get city nich')
+    API.get(`/city/${id}`)
+    .then((res) => {
+      setCity(res.data.data.city)
+    })
+    .catch((error) => {
+      console.log('err', error)
+    })
+  }
+
+  const getDistrict = (id) => {
+    API.get(`/district/${id}`)
+    .then((res) => {
+      setDistrict(res.data.data.district)
+    })
+    .catch((error) => {
+      console.log('err', error)
+    })
+  }
+
+  const getSubdistrict = (id) => {
+    API.get(`/subdistrict/${id}`)
+    .then((res) => {
+      setSubDistrict(res.data.data.subdistrict)
+    })
+    .catch((error) => {
+      console.log('err', error)
+    })
+  }
+
+  useEffect(() => {
+    getProvince()
+  },[])
+
+  useEffect(() => {
+    if(idProvince !== '') {
+      getCity(idProvince)
+    }else if(idProvince === "" && province.length !== 0){
+      setIdProvince(province[0].prov_id)
+    }
+  },[idProvince,province])
+
+  useEffect(() => {
+    if(idCity !== '') {
+      getDistrict(idCity)
+    }else if(idCity === "" && city.length !== 0){
+      console.log('city',city[0].city_id)
+      setIdCity(city[0].city_id)
+    }
+  },[idCity,city])
+
+  useEffect(() => {
+    if(idDistrict !== '') {
+      getSubdistrict(idDistrict)
+    }else if(idDistrict === "" && district.length !== 0){
+      setIdDistrict(district[0].dis_id)
+    }
+  },[idDistrict,district])
+
+  useEffect(() => {
+    if(idSubdistrict === "" && subDistrict.length !== 0){
+      setIdSubdistrict(subDistrict[0].dis_id)
+    }
+  },[subDistrict,idSubdistrict])
+
+  const FormObserver = () => {
+    const { values } = useFormikContext();
+  
+    useEffect(() => {
+      if(values.id_province !== ""){
+        setIdProvince(values.id_province)
+      }
+
+      if(values.id_city !== ""){
+        setIdCity(values.id_city)
+      }
+
+      if(values.id_district !== ""){
+        setIdDistrict(values.id_district)
+      }
+    }, [values]);
+  
+    return null;
+  };
 
   return dataUser && dataUmkm ? (
     <>
@@ -193,14 +299,34 @@ function EditProfil(props) {
                       dataUmkm.instagram === null ? '' : dataUmkm.instagram,
                     address: dataUmkm.address === null ? '' : dataUmkm.address,
                     email: dataUser.email,
-                    id_category_umkms: dataUmkm.id_category_umkms,
+                    id_category_umkms: dataUmkm.id_category_umkms === null ? '' : dataUmkm.id_category_umkms,
                     tokopedia:
                       dataUmkm.tokopedia === null ? '' : dataUmkm.tokopedia,
                     facebook:
                       dataUmkm.facebook === null ? '' : dataUmkm.facebook,
                     shopee: dataUmkm.shopee === null ? '' : dataUmkm.shopee,
+                    id_province: dataUmkm.id_province === null ? idProvince : dataUmkm.id_province,
+                    id_city: dataUmkm.id_city === null ? idCity : dataUmkm.id_city,
+                    id_district: dataUmkm.id_district === null ? idDistrict : dataUmkm.id_district,
+                    id_subdistrict: dataUmkm.id_subdistrict === null ? idSubdistrict : dataUmkm.id_subdistrict,
                   }}
                   onSubmit={(values) => {
+                    if(values.id_province === ""){
+                      values.id_province = idProvince
+                    }
+
+                    if(values.id_city === ""){
+                      values.id_city = idCity
+                    }
+
+                    if(values.id_district === ""){
+                      values.id_district = idDistrict
+                    }
+
+                    if(values.id_subdistrict === ""){
+                      values.id_subdistrict = idSubdistrict
+                    }
+
                     if (description === null) {
                       setIsError(true)
                     } else if (description.length === 8) {
@@ -218,6 +344,7 @@ function EditProfil(props) {
                 >
                   {() => (
                     <Form>
+                      <FormObserver/>
                       <Stack
                         px={4}
                         py={5}
@@ -394,6 +521,198 @@ function EditProfil(props) {
                                 </Select>
                                 <FormErrorMessage>
                                   {form.errors.id_category_umkms}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="id_province">
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.id_province &&
+                                  form.touched.id_province
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="id_province"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue(
+                                    'gray.700',
+                                    'gray.50',
+                                  )}
+                                >
+                                 Provinsi
+                                </FormLabel>
+                                <Select
+                                  id="id_province"
+                                  name="id_province"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  onChange={form.onChange}
+                                  isRequired
+                                  {...field}
+                                >
+                                  {province.map((item) => (
+                                    <option key={item.prov_id} value={item.prov_id}>
+                                      {item.prov_name}
+                                    </option>
+                                  ))}
+                                </Select>
+                                <FormErrorMessage>
+                                  {form.errors.id_province}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="id_city">
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.id_city &&
+                                  form.touched.id_city
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="id_city"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue(
+                                    'gray.700',
+                                    'gray.50',
+                                  )}
+                                >
+                                 Kabupaten/Kota
+                                </FormLabel>
+                                <Select
+                                  id="id_city"
+                                  name="id_city"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  isRequired
+                                  {...field}
+                                  disabled= {city.length === 0}
+                                >
+                                  {city.map((item) => (
+                                    <option key={item.city_id} value={item.city_id}>
+                                      {item.city_name}
+                                    </option>
+                                  ))}
+                                </Select>
+                                <FormErrorMessage>
+                                  {form.errors.id_city}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="id_district">
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.id_district &&
+                                  form.touched.id_district
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="id_district"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue(
+                                    'gray.700',
+                                    'gray.50',
+                                  )}
+                                >
+                                 Kecamatan
+                                </FormLabel>
+                                <Select
+                                  id="id_district"
+                                  name="id_district"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  isRequired
+                                  disabled= {district.length === 0}
+                                  {...field}
+                                >
+                                  {district.map((item) => (
+                                    <option key={item.dis_id} value={item.dis_id}>
+                                      {item.dis_name}
+                                    </option>
+                                  ))}
+                                </Select>
+                                <FormErrorMessage>
+                                  {form.errors.id_district}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="id_subdistrict">
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.id_subdistrict &&
+                                  form.touched.id_subdistrict
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="id_subdistrict"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue(
+                                    'gray.700',
+                                    'gray.50',
+                                  )}
+                                >
+                                 Desa
+                                </FormLabel>
+                                <Select
+                                  id="id_subdistrict"
+                                  name="id_subdistrict"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  isRequired
+                                  disabled= {subDistrict.length === 0}
+                                  {...field}
+                                >
+                                  {subDistrict.map((item) => (
+                                    <option key={item.subdis_id} value={item.subdis_id}>
+                                      {item.subdis_name}
+                                    </option>
+                                  ))}
+                                </Select>
+                                <FormErrorMessage>
+                                  {form.errors.id_subdistrict}
                                 </FormErrorMessage>
                               </FormControl>
                             )}
