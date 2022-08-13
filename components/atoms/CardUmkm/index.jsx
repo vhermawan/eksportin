@@ -26,7 +26,8 @@ const CardUmkm = (props) => {
               alt={props.data.name_umkm}
               loading="lazy"
               objectFit="cover"
-              boxSize="full"
+              w="full"
+              h="200px"
               display={{ base: 'none', md: 'block' }}
             />
             <Avatar

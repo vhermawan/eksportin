@@ -46,7 +46,7 @@ const CardMateri = (props) => {
 
         <Box mt={2}>
           <Link
-            fontSize="2xl"
+            fontSize="lg"
             color={useColorModeValue('gray.700', 'white')}
             fontWeight="700"
             _hover={{

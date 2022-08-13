@@ -267,7 +267,7 @@ function Profil(props) {
                   Deskripsi
                 </Text>
               </CardHeader>
-              <CardBody px="5px">
+              <CardBody px="2px">
                 <Flex direction="column">
                   <div
                     id="description-course"
@@ -278,20 +278,7 @@ function Profil(props) {
                           : dataUmkm.description,
                     }}
                   />
-                  <Flex align="center" mb="18px">
-                    <Text
-                      fontSize="md"
-                      color={textColor}
-                      fontWeight="bold"
-                      me="10px"
-                    >
-                      Nama Umkm:{' '}
-                    </Text>
-                    <Text fontSize="md" color="gray.500" fontWeight="400">
-                      {dataUmkm.name === null ? '-' : dataUmkm.name}
-                    </Text>
-                  </Flex>
-                  <Flex align="center" mb="18px">
+                  <Flex mt="18px">
                     <Text
                       fontSize="md"
                       color={textColor}
@@ -300,11 +287,11 @@ function Profil(props) {
                     >
                       Nomor Telepon:{' '}
                     </Text>
-                    <Text fontSize="md" color="gray.500" fontWeight="400">
-                      {dataUmkm.phone === null ? '-' : dataUmkm.phone}
-                    </Text>
                   </Flex>
-                  <Flex align="center" mb="18px">
+                  <Text fontSize="md" color="gray.500" fontWeight="400"  mb="18px">
+                    {dataUmkm.phone === null ? '-' : dataUmkm.phone}
+                  </Text>
+                  <Flex>
                     <Text
                       fontSize="md"
                       color={textColor}
@@ -313,11 +300,11 @@ function Profil(props) {
                     >
                       Email:{' '}
                     </Text>
-                    <Text fontSize="md" color="gray.500" fontWeight="400">
-                      {dataUser.email === null ? '-' : dataUser.email}
-                    </Text>
                   </Flex>
-                  <Flex align="center" mb="18px">
+                  <Text fontSize="md" color="gray.500" fontWeight="400"  mb="18px">
+                    {dataUser.email === null ? '-' : dataUser.email}
+                  </Text>
+                  <Flex>
                     <Text
                       fontSize="md"
                       color={textColor}
@@ -326,10 +313,10 @@ function Profil(props) {
                     >
                       Alamat:{' '}
                     </Text>
-                    <Text fontSize="md" color="gray.500" fontWeight="400">
-                      {dataUmkm.address === null ? '-' : dataUmkm.address}
-                    </Text>
                   </Flex>
+                  <Text fontSize="md" color="gray.500" fontWeight="400" mb="18px">
+                    {dataUmkm.address === null ? '-' : dataUmkm.address}
+                  </Text>
                   <Flex align="center" mb="18px">
                     <Text
                       fontSize="md"
