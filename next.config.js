@@ -24,7 +24,6 @@ module.exports = withPWA({
   pwa: {
     disable: prod ? false : true,
     dest: 'public',
-    swSrc: 'service-worker.js',
     register: true,
     skipWaiting: true,
   },
