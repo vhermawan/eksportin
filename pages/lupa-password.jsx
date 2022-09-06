@@ -25,23 +25,34 @@ export default function LupaPassword() {
   const [loading, setLoading] = useState(false)
   const toast = createStandaloneToast()
 
-const submitEmail = (values) => {
-  setLoading(true)
-  const params = new FormData()
-  params.set('email', values.email)
-  API.post('/password/create', params)
-    .then((res) => {
-      if (res.status === 200) {
+  const submitEmail = (values) => {
+    setLoading(true)
+    const params = new FormData()
+    params.set('email', values.email)
+    API.post('/password/create', params)
+      .then((res) => {
+        if (res.status === 200) {
+          setLoading(false)
+          toast({
+            title: 'Pengiriman Email Berhasil',
+            position: `top-right`,
+            isClosable: true,
+            variant: `left-accent`,
+            status: `success`,
+          })
+          router.push('/login')
+        } else {
+          toast({
+            title: 'Pengiriman Email Gagal',
+            position: `top-right`,
+            isClosable: true,
+            variant: `left-accent`,
+            status: `error`,
+          })
+        }
+      })
+      .catch(() => {
         setLoading(false)
-        toast({
-          title: 'Pengiriman Email Berhasil',
-          position: `top-right`,
-          isClosable: true,
-          variant: `left-accent`,
-          status: `success`,
-        })
-        router.push('/login')
-      }else{
         toast({
           title: 'Pengiriman Email Gagal',
           position: `top-right`,
@@ -49,22 +60,11 @@ const submitEmail = (values) => {
           variant: `left-accent`,
           status: `error`,
         })
-      }
-    })
-    .catch(() => {
-      setLoading(false)
-      toast({
-        title: 'Pengiriman Email Gagal',
-        position: `top-right`,
-        isClosable: true,
-        variant: `left-accent`,
-        status: `error`,
       })
-    })
-}
+  }
 
   const ViewFormForgotPassword = () => {
-    return(
+    return (
       <>
         <Formik
           initialValues={{ email: '' }}
@@ -203,7 +203,7 @@ const submitEmail = (values) => {
             bg={bgColor}
             boxShadow="0 20px 27px 0 rgb(0 0 0 / 5%)"
           >
-            <ViewFormForgotPassword/>
+            <ViewFormForgotPassword />
             <Flex
               flexDirection="column"
               justifyContent="center"

@@ -32,7 +32,7 @@ export default function detailMateri() {
   const [detailCourse, setDetailCourse] = useState(null)
 
   useEffect(() => {
-    if(detailCourse){
+    if (detailCourse) {
       API.get(`/course-speaker/${detailCourse.id_speakers}?page=1`)
         .then((res) => {
           setData(res.data.data.course.data)

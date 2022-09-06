@@ -79,23 +79,13 @@ export default function SetPassword() {
           {() => (
             <Form>
               <FormControl>
-                <FormLabel
-                  ms="4px"
-                  fontSize="sm"
-                  fontWeight="normal"
-                  mt="7"
-                >
+                <FormLabel ms="4px" fontSize="sm" fontWeight="normal" mt="7">
                   Password Baru
                 </FormLabel>
-                <Field
-                  name="password"
-                  validate={validation.ValidatePassword}
-                >
+                <Field name="password" validate={validation.ValidatePassword}>
                   {({ field, form }) => (
                     <FormControl
-                      isInvalid={
-                        form.errors.password && form.touched.password
-                      }
+                      isInvalid={form.errors.password && form.touched.password}
                     >
                       <Input
                         fontSize="sm"
@@ -216,7 +206,7 @@ export default function SetPassword() {
             bg={bgColor}
             boxShadow="0 20px 27px 0 rgb(0 0 0 / 5%)"
           >
-           <ViewFormSetPassword/>
+            <ViewFormSetPassword />
           </Flex>
         </Flex>
       </Flex>

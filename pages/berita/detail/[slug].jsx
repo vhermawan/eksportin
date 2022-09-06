@@ -51,7 +51,7 @@ function detailBerita(props) {
     API.get(`/news-detail/${router.query.slug}`)
       .then((res) => {
         setDetailNews(res.data.data.news)
-        getTotalLike(res.data.data.news.id_news);
+        getTotalLike(res.data.data.news.id_news)
       })
       .catch((error) => {
         console.error('res', error)

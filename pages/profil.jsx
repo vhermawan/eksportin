@@ -94,9 +94,9 @@ function Profil(props) {
     API.delete(`/delete-course-umkm/${id}`)
       .then((res) => {
         if (res.status === 200) {
-          onClose();
-          setPage(1);
-          getCourse();
+          onClose()
+          setPage(1)
+          getCourse()
           toast({
             title: 'Sukses hapus materi',
             position: `top-right`,
@@ -116,7 +116,7 @@ function Profil(props) {
 
   const confirmDeleteCourse = (id) => {
     setIdCourse(id)
-    onOpen();
+    onOpen()
   }
 
   return dataUmkm && dataUser ? (
@@ -308,7 +308,12 @@ function Profil(props) {
                       Nomor Telepon:{' '}
                     </Text>
                   </Flex>
-                  <Text fontSize="md" color="gray.500" fontWeight="400"  mb="18px">
+                  <Text
+                    fontSize="md"
+                    color="gray.500"
+                    fontWeight="400"
+                    mb="18px"
+                  >
                     {dataUmkm.phone === null ? '-' : dataUmkm.phone}
                   </Text>
                   <Flex>
@@ -321,7 +326,12 @@ function Profil(props) {
                       Email:{' '}
                     </Text>
                   </Flex>
-                  <Text fontSize="md" color="gray.500" fontWeight="400"  mb="18px">
+                  <Text
+                    fontSize="md"
+                    color="gray.500"
+                    fontWeight="400"
+                    mb="18px"
+                  >
                     {dataUser.email === null ? '-' : dataUser.email}
                   </Text>
                   <Flex>
@@ -334,7 +344,12 @@ function Profil(props) {
                       Alamat:{' '}
                     </Text>
                   </Flex>
-                  <Text fontSize="md" color="gray.500" fontWeight="400" mb="18px">
+                  <Text
+                    fontSize="md"
+                    color="gray.500"
+                    fontWeight="400"
+                    mb="18px"
+                  >
                     {dataUmkm.address === null ? '-' : dataUmkm.address}
                   </Text>
                   <Flex align="center" mb="18px">
@@ -456,11 +471,9 @@ function Profil(props) {
         <ModalContent>
           <ModalHeader>Konfirmasi</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            Apakah yakin ingin menghapus data?
-          </ModalBody>
+          <ModalBody>Apakah yakin ingin menghapus data?</ModalBody>
           <ModalFooter>
-            <Button onClick={()=>deleteCourse(idCourse)}>Hapus</Button>
+            <Button onClick={() => deleteCourse(idCourse)}>Hapus</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

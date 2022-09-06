@@ -40,13 +40,13 @@ function EditProfil(props) {
   const [token] = useState(Cookies.get('token'))
   const [isError, setIsError] = useState(false)
   const [isType, setIsType] = useState(false)
-  
+
   const [province, setProvince] = useState([])
   const [city, setCity] = useState([])
   const [district, setDistrict] = useState([])
   const [subDistrict, setSubDistrict] = useState([])
   const [idProvince, setIdProvince] = useState('')
-  const [idCity, setIdCity] = useState('')  
+  const [idCity, setIdCity] = useState('')
   const [idDistrict, setIdDistrict] = useState('')
   const [idSubdistrict, setIdSubdistrict] = useState('')
 
@@ -100,97 +100,97 @@ function EditProfil(props) {
 
   const getProvince = () => {
     API.get(`/province`)
-    .then((res) => {
-      setProvince(res.data.data.province)
-    })
-    .catch((error) => {
-      console.log('err', error)
-    })
+      .then((res) => {
+        setProvince(res.data.data.province)
+      })
+      .catch((error) => {
+        console.log('err', error)
+      })
   }
 
   const getCity = (id) => {
     API.get(`/city/${id}`)
-    .then((res) => {
-      setCity(res.data.data.city)
-    })
-    .catch((error) => {
-      console.log('err', error)
-    })
+      .then((res) => {
+        setCity(res.data.data.city)
+      })
+      .catch((error) => {
+        console.log('err', error)
+      })
   }
 
   const getDistrict = (id) => {
     API.get(`/district/${id}`)
-    .then((res) => {
-      setDistrict(res.data.data.district)
-    })
-    .catch((error) => {
-      console.log('err', error)
-    })
+      .then((res) => {
+        setDistrict(res.data.data.district)
+      })
+      .catch((error) => {
+        console.log('err', error)
+      })
   }
 
   const getSubdistrict = (id) => {
     API.get(`/subdistrict/${id}`)
-    .then((res) => {
-      setSubDistrict(res.data.data.subdistrict)
-    })
-    .catch((error) => {
-      console.log('err', error)
-    })
+      .then((res) => {
+        setSubDistrict(res.data.data.subdistrict)
+      })
+      .catch((error) => {
+        console.log('err', error)
+      })
   }
 
   useEffect(() => {
     getProvince()
-  },[])
+  }, [])
 
   useEffect(() => {
-    if(idProvince !== '') {
+    if (idProvince !== '') {
       getCity(idProvince)
-    }else if(idProvince === "" && province.length !== 0){
+    } else if (idProvince === '' && province.length !== 0) {
       setIdProvince(province[0].prov_id)
     }
-  },[idProvince,province])
+  }, [idProvince, province])
 
   useEffect(() => {
-    if(idCity !== '') {
+    if (idCity !== '') {
       getDistrict(idCity)
-    }else if(idCity === "" && city.length !== 0){
+    } else if (idCity === '' && city.length !== 0) {
       setIdCity(city[0].city_id)
     }
-  },[idCity,city])
+  }, [idCity, city])
 
   useEffect(() => {
-    if(idDistrict !== '') {
+    if (idDistrict !== '') {
       getSubdistrict(idDistrict)
-    }else if(idDistrict === "" && district.length !== 0){
+    } else if (idDistrict === '' && district.length !== 0) {
       setIdDistrict(district[0].dis_id)
     }
-  },[idDistrict,district])
+  }, [idDistrict, district])
 
   useEffect(() => {
-    if(idSubdistrict === "" && subDistrict.length !== 0){
+    if (idSubdistrict === '' && subDistrict.length !== 0) {
       setIdSubdistrict(subDistrict[0].dis_id)
     }
-  },[subDistrict,idSubdistrict])
+  }, [subDistrict, idSubdistrict])
 
   const FormObserver = () => {
-    const { values } = useFormikContext();
-  
+    const { values } = useFormikContext()
+
     useEffect(() => {
-      if(values.id_province !== ""){
+      if (values.id_province !== '') {
         setIdProvince(values.id_province)
       }
 
-      if(values.id_city !== ""){
+      if (values.id_city !== '') {
         setIdCity(values.id_city)
       }
 
-      if(values.id_district !== ""){
+      if (values.id_district !== '') {
         setIdDistrict(values.id_district)
       }
-    }, [values]);
-  
-    return null;
-  };
+    }, [values])
+
+    return null
+  }
 
   const FormView = () => {
     return (
@@ -200,35 +200,44 @@ function EditProfil(props) {
             initialValues={{
               name: dataUser.name === null ? '' : dataUser.name,
               phone: dataUmkm.phone === null ? '' : dataUmkm.phone,
-              instagram:
-                dataUmkm.instagram === null ? '' : dataUmkm.instagram,
+              instagram: dataUmkm.instagram === null ? '' : dataUmkm.instagram,
               address: dataUmkm.address === null ? '' : dataUmkm.address,
               email: dataUser.email,
-              id_category_umkms: dataUmkm.id_category_umkms === null ? '' : dataUmkm.id_category_umkms,
-              tokopedia:
-                dataUmkm.tokopedia === null ? '' : dataUmkm.tokopedia,
-              facebook:
-                dataUmkm.facebook === null ? '' : dataUmkm.facebook,
+              id_category_umkms:
+                dataUmkm.id_category_umkms === null
+                  ? ''
+                  : dataUmkm.id_category_umkms,
+              tokopedia: dataUmkm.tokopedia === null ? '' : dataUmkm.tokopedia,
+              facebook: dataUmkm.facebook === null ? '' : dataUmkm.facebook,
               shopee: dataUmkm.shopee === null ? '' : dataUmkm.shopee,
-              id_province: dataUmkm.id_province === null ? idProvince : dataUmkm.id_province,
+              id_province:
+                dataUmkm.id_province === null
+                  ? idProvince
+                  : dataUmkm.id_province,
               id_city: dataUmkm.id_city === null ? idCity : dataUmkm.id_city,
-              id_district: dataUmkm.id_district === null ? idDistrict : dataUmkm.id_district,
-              id_subdistrict: dataUmkm.id_subdistrict === null ? idSubdistrict : dataUmkm.id_subdistrict,
+              id_district:
+                dataUmkm.id_district === null
+                  ? idDistrict
+                  : dataUmkm.id_district,
+              id_subdistrict:
+                dataUmkm.id_subdistrict === null
+                  ? idSubdistrict
+                  : dataUmkm.id_subdistrict,
             }}
             onSubmit={(values) => {
-              if(values.id_province === ""){
+              if (values.id_province === '') {
                 values.id_province = idProvince
               }
 
-              if(values.id_city === ""){
+              if (values.id_city === '') {
                 values.id_city = idCity
               }
 
-              if(values.id_district === ""){
+              if (values.id_district === '') {
                 values.id_district = idDistrict
               }
 
-              if(values.id_subdistrict === ""){
+              if (values.id_subdistrict === '') {
                 values.id_subdistrict = idSubdistrict
               }
 
@@ -249,7 +258,7 @@ function EditProfil(props) {
           >
             {() => (
               <Form>
-                <FormObserver/>
+                <FormObserver />
                 <Stack
                   px={4}
                   py={5}
@@ -263,19 +272,14 @@ function EditProfil(props) {
                         <FormControl
                           as={GridItem}
                           colSpan={[6]}
-                          isInvalid={
-                            form.errors.name && form.touched.name
-                          }
+                          isInvalid={form.errors.name && form.touched.name}
                           isRequired
                         >
                           <FormLabel
                             htmlFor="name"
                             fontSize="sm"
                             fontWeight="md"
-                            color={useColorModeValue(
-                              'gray.700',
-                              'gray.50',
-                            )}
+                            color={useColorModeValue('gray.700', 'gray.50')}
                           >
                             Nama UMKM
                           </FormLabel>
@@ -298,27 +302,19 @@ function EditProfil(props) {
                       )}
                     </Field>
 
-                    <Field
-                      name="email"
-                      validate={validation.ValidateEmail}
-                    >
+                    <Field name="email" validate={validation.ValidateEmail}>
                       {({ field, form }) => (
                         <FormControl
                           as={GridItem}
                           colSpan={[6]}
-                          isInvalid={
-                            form.errors.email && form.touched.email
-                          }
+                          isInvalid={form.errors.email && form.touched.email}
                           isRequired
                         >
                           <FormLabel
                             htmlFor="email"
                             fontSize="sm"
                             fontWeight="md"
-                            color={useColorModeValue(
-                              'gray.700',
-                              'gray.50',
-                            )}
+                            color={useColorModeValue('gray.700', 'gray.50')}
                           >
                             Email UMKM
                           </FormLabel>
@@ -348,19 +344,14 @@ function EditProfil(props) {
                         <FormControl
                           as={GridItem}
                           colSpan={[6]}
-                          isInvalid={
-                            form.errors.phone && form.touched.phone
-                          }
+                          isInvalid={form.errors.phone && form.touched.phone}
                           isRequired
                         >
                           <FormLabel
                             htmlFor="phone"
                             fontSize="sm"
                             fontWeight="md"
-                            color={useColorModeValue(
-                              'gray.700',
-                              'gray.50',
-                            )}
+                            color={useColorModeValue('gray.700', 'gray.50')}
                           >
                             Nomor Telepon
                           </FormLabel>
@@ -399,10 +390,7 @@ function EditProfil(props) {
                             htmlFor="id_category_umkms"
                             fontSize="sm"
                             fontWeight="md"
-                            color={useColorModeValue(
-                              'gray.700',
-                              'gray.50',
-                            )}
+                            color={useColorModeValue('gray.700', 'gray.50')}
                           >
                             Kategori Umkm
                           </FormLabel>
@@ -437,8 +425,7 @@ function EditProfil(props) {
                           as={GridItem}
                           colSpan={[6]}
                           isInvalid={
-                            form.errors.id_province &&
-                            form.touched.id_province
+                            form.errors.id_province && form.touched.id_province
                           }
                           isRequired
                         >
@@ -446,10 +433,7 @@ function EditProfil(props) {
                             htmlFor="id_province"
                             fontSize="sm"
                             fontWeight="md"
-                            color={useColorModeValue(
-                              'gray.700',
-                              'gray.50',
-                            )}
+                            color={useColorModeValue('gray.700', 'gray.50')}
                           >
                             Provinsi
                           </FormLabel>
@@ -485,8 +469,7 @@ function EditProfil(props) {
                           as={GridItem}
                           colSpan={[6]}
                           isInvalid={
-                            form.errors.id_city &&
-                            form.touched.id_city
+                            form.errors.id_city && form.touched.id_city
                           }
                           isRequired
                         >
@@ -494,10 +477,7 @@ function EditProfil(props) {
                             htmlFor="id_city"
                             fontSize="sm"
                             fontWeight="md"
-                            color={useColorModeValue(
-                              'gray.700',
-                              'gray.50',
-                            )}
+                            color={useColorModeValue('gray.700', 'gray.50')}
                           >
                             Kabupaten/Kota
                           </FormLabel>
@@ -512,7 +492,7 @@ function EditProfil(props) {
                             rounded="md"
                             isRequired
                             {...field}
-                            disabled= {city.length === 0}
+                            disabled={city.length === 0}
                           >
                             {city.map((item) => (
                               <option key={item.city_id} value={item.city_id}>
@@ -533,8 +513,7 @@ function EditProfil(props) {
                           as={GridItem}
                           colSpan={[6]}
                           isInvalid={
-                            form.errors.id_district &&
-                            form.touched.id_district
+                            form.errors.id_district && form.touched.id_district
                           }
                           isRequired
                         >
@@ -542,10 +521,7 @@ function EditProfil(props) {
                             htmlFor="id_district"
                             fontSize="sm"
                             fontWeight="md"
-                            color={useColorModeValue(
-                              'gray.700',
-                              'gray.50',
-                            )}
+                            color={useColorModeValue('gray.700', 'gray.50')}
                           >
                             Kecamatan
                           </FormLabel>
@@ -559,7 +535,7 @@ function EditProfil(props) {
                             w="full"
                             rounded="md"
                             isRequired
-                            disabled= {district.length === 0}
+                            disabled={district.length === 0}
                             {...field}
                           >
                             {district.map((item) => (
@@ -590,10 +566,7 @@ function EditProfil(props) {
                             htmlFor="id_subdistrict"
                             fontSize="sm"
                             fontWeight="md"
-                            color={useColorModeValue(
-                              'gray.700',
-                              'gray.50',
-                            )}
+                            color={useColorModeValue('gray.700', 'gray.50')}
                           >
                             Desa
                           </FormLabel>
@@ -607,11 +580,14 @@ function EditProfil(props) {
                             w="full"
                             rounded="md"
                             isRequired
-                            disabled= {subDistrict.length === 0}
+                            disabled={subDistrict.length === 0}
                             {...field}
                           >
                             {subDistrict.map((item) => (
-                              <option key={item.subdis_id} value={item.subdis_id}>
+                              <option
+                                key={item.subdis_id}
+                                value={item.subdis_id}
+                              >
                                 {item.subdis_name}
                               </option>
                             ))}
@@ -637,10 +613,7 @@ function EditProfil(props) {
                             htmlFor="address"
                             fontSize="sm"
                             fontWeight="md"
-                            color={useColorModeValue(
-                              'gray.700',
-                              'gray.50',
-                            )}
+                            color={useColorModeValue('gray.700', 'gray.50')}
                           >
                             Alamat
                           </FormLabel>
@@ -690,17 +663,13 @@ function EditProfil(props) {
                       )}
                     </FormControl>
 
-                    <Field
-                      name="instagram"
-                      validate={validation.Required}
-                    >
+                    <Field name="instagram" validate={validation.Required}>
                       {({ field, form }) => (
                         <FormControl
                           as={GridItem}
                           colSpan={[6]}
                           isInvalid={
-                            form.errors.instagram &&
-                            form.touched.instagram
+                            form.errors.instagram && form.touched.instagram
                           }
                           isRequired
                         >
@@ -708,10 +677,7 @@ function EditProfil(props) {
                             htmlFor="instagram"
                             fontSize="sm"
                             fontWeight="md"
-                            color={useColorModeValue(
-                              'gray.700',
-                              'gray.50',
-                            )}
+                            color={useColorModeValue('gray.700', 'gray.50')}
                           >
                             Instagram
                           </FormLabel>
@@ -739,19 +705,14 @@ function EditProfil(props) {
                         <FormControl
                           as={GridItem}
                           colSpan={[6]}
-                          isInvalid={
-                            form.errors.shopee && form.touched.shopee
-                          }
+                          isInvalid={form.errors.shopee && form.touched.shopee}
                           isRequired
                         >
                           <FormLabel
                             htmlFor="shopee"
                             fontSize="sm"
                             fontWeight="md"
-                            color={useColorModeValue(
-                              'gray.700',
-                              'gray.50',
-                            )}
+                            color={useColorModeValue('gray.700', 'gray.50')}
                           >
                             Shopee
                           </FormLabel>
@@ -774,17 +735,13 @@ function EditProfil(props) {
                       )}
                     </Field>
 
-                    <Field
-                      name="tokopedia"
-                      validate={validation.Required}
-                    >
+                    <Field name="tokopedia" validate={validation.Required}>
                       {({ field, form }) => (
                         <FormControl
                           as={GridItem}
                           colSpan={[6]}
                           isInvalid={
-                            form.errors.tokopedia &&
-                            form.touched.tokopedia
+                            form.errors.tokopedia && form.touched.tokopedia
                           }
                           isRequired
                         >
@@ -792,10 +749,7 @@ function EditProfil(props) {
                             htmlFor="tokopedia"
                             fontSize="sm"
                             fontWeight="md"
-                            color={useColorModeValue(
-                              'gray.700',
-                              'gray.50',
-                            )}
+                            color={useColorModeValue('gray.700', 'gray.50')}
                           >
                             Tokopedia
                           </FormLabel>
@@ -949,7 +903,7 @@ function EditProfil(props) {
               spacing={{ md: 6 }}
             >
               <GridItem mt={[5, null, 0]} colSpan={{ md: 3 }}>
-                <FormView/>
+                <FormView />
               </GridItem>
             </SimpleGrid>
           </Box>

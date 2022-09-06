@@ -125,10 +125,7 @@ function EditProfil() {
                           htmlFor="passwordBefore"
                           fontSize="sm"
                           fontWeight="md"
-                          color={useColorModeValue(
-                            'gray.700',
-                            'gray.50',
-                          )}
+                          color={useColorModeValue('gray.700', 'gray.50')}
                         >
                           Password Lama
                         </FormLabel>
@@ -161,18 +158,14 @@ function EditProfil() {
                         as={GridItem}
                         colSpan={[6]}
                         isInvalid={
-                          form.errors.passwordNew &&
-                          form.touched.passwordNew
+                          form.errors.passwordNew && form.touched.passwordNew
                         }
                       >
                         <FormLabel
                           htmlFor="passwordNew"
                           fontSize="sm"
                           fontWeight="md"
-                          color={useColorModeValue(
-                            'gray.700',
-                            'gray.50',
-                          )}
+                          color={useColorModeValue('gray.700', 'gray.50')}
                         >
                           Password Baru
                         </FormLabel>
@@ -307,17 +300,17 @@ function EditProfil() {
               </Flex>
             </Box>
           </Box>
-        <Box mt={[10, 0]}>
-          <SimpleGrid
-            display={{ base: 'initial', md: 'grid' }}
-            columns={{ md: 3 }}
-            spacing={{ md: 6 }}
-          >
-            <GridItem mt={[5, null, 0]} colSpan={{ md: 3 }}>
-              <ViewFormChangePassword/>                
-            </GridItem>
-          </SimpleGrid>
-        </Box>
+          <Box mt={[10, 0]}>
+            <SimpleGrid
+              display={{ base: 'initial', md: 'grid' }}
+              columns={{ md: 3 }}
+              spacing={{ md: 6 }}
+            >
+              <GridItem mt={[5, null, 0]} colSpan={{ md: 3 }}>
+                <ViewFormChangePassword />
+              </GridItem>
+            </SimpleGrid>
+          </Box>
         </Flex>
       </Layout>
     </>
