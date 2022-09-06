@@ -27,7 +27,6 @@ module.exports = withPWA({
     swSrc: 'service-worker.js',
     register: true,
     skipWaiting: true,
-    runtimeCaching,
   },
   devIndicators: {
     autoPrerender: false,
