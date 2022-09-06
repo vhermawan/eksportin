@@ -4,7 +4,6 @@ import draftToHtml from 'draftjs-to-html'
 import dynamic from 'next/dynamic'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import styles from '@/styles/TextEditor.module.css'
-import HtmlToDraft from 'html-to-draftjs'
 
 const Editor = dynamic(
   () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
@@ -13,7 +12,7 @@ const Editor = dynamic(
 
 let htmlToDraft = null
 if (typeof window === 'object') {
-  htmlToDraft = HtmlToDraft.default
+  htmlToDraft = require('html-to-draftjs').default // eslint-disable-line
 }
 
 export const TextEditor = ({ value, setFieldValue }) => {
