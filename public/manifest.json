@@ -6,7 +6,7 @@
   "display": "fullScreen",
   "orientation": "portrait",
   "scope": "/",
-  "start_url": "https://eksportin.vercel.app/",
+  "start_url": "/",
   "icons": [
     {
       "src": "icons/icon-72x72.png",
