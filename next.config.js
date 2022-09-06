@@ -22,7 +22,7 @@ const settings = {
 
 module.exports = withPWA({
   pwa: {
-    disable: prod ? false : true,
+    disable: prod ? true : false,
     dest: 'public',
     register: true,
     skipWaiting: true,
