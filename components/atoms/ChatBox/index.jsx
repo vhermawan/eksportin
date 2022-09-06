@@ -63,30 +63,30 @@ function SimpleForm(props) {
   const sendMessage = (event, step) => {
     handleReset()
 
-    // let question = event.steps[step].metadata.q
-    // let answer = event.steps[step].value
-    // let name
+    let question = event.steps[step].metadata.q
+    let answer = event.steps[step].value
+    let name
 
-    // if (!token) {
-    //   name = 'guest'
-    // } else {
-    //   name = props.datauser.user.name
-    // }
+    if (!token) {
+      name = 'guest'
+    } else {
+      name = props.datauser.user.name
+    }
 
-    // let params = {
-    //   question,
-    //   answer,
-    //   name,
-    //   sessionId,
-    // }
+    let params = {
+      question,
+      answer,
+      name,
+      sessionId,
+    }
 
-    // API.sendMessage(`/answer`, params)
-    //   .then((res) => {
-    //     console.log('res', res)
-    //   })
-    //   .catch((error) => {
-    //     console.log('err', error)
-    //   })
+    API.sendMessage(`/answer`, params)
+      .then((res) => {
+        console.log('res', res)
+      })
+      .catch((error) => {
+        console.log('err', error)
+      })
   }
 
   const theme = {

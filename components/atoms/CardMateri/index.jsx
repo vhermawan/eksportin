@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 import moment from 'moment'
 import { FaTrash } from 'react-icons/fa'
+import EllipsisText from 'react-ellipsis-text/lib/components/EllipsisText'
 
 const CardMateri = (props) => {
   return (
@@ -55,7 +56,7 @@ const CardMateri = (props) => {
             }}
             onClick={() => props.setSlugCourse(props.data.slug)}
           >
-            {props.data.title}
+            <EllipsisText text={props.data.title} length={50} />
           </Link>
           <Box>
             <div

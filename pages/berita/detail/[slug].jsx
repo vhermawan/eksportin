@@ -51,6 +51,7 @@ function detailBerita(props) {
     API.get(`/news-detail/${router.query.slug}`)
       .then((res) => {
         setDetailNews(res.data.data.news)
+        getTotalLike(res.data.data.news.id_news);
       })
       .catch((error) => {
         console.error('res', error)
@@ -71,29 +72,23 @@ function detailBerita(props) {
           console.log('err', error)
         })
     }
-  }, [])
+  }, [detailNews])
 
-  const getTotalLike = () => {
-    if (detailNews) {
-      API.get(`/get-like-news/${detailNews.id}`)
-        .then((res) => {
-          setTotalLike(res.data.data.count)
-        })
-        .catch((error) => {
-          console.log('err', error)
-        })
-    }
+  const getTotalLike = (id) => {
+    API.get(`/get-like-news/${id}`)
+      .then((res) => {
+        setTotalLike(res.data.data.count)
+      })
+      .catch((error) => {
+        console.log('err', error)
+      })
   }
-
-  useEffect(() => {
-    getTotalLike()
-  }, [])
 
   const hitLikeNews = () => {
     if (detailNews) {
-      API.post(`/like-news/${detailNews.id}`)
-        .then((res) => {
-          getTotalLike()
+      API.post(`/like-news/${detailNews.id_news}`)
+        .then(() => {
+          getTotalLike(detailNews.id_news)
         })
         .catch((error) => {
           console.log('err', error)
@@ -103,9 +98,9 @@ function detailBerita(props) {
 
   const hitUnLikeNews = () => {
     if (detailNews) {
-      API.post(`/unlike-news/${detailNews.id}`)
+      API.post(`/unlike-news/${detailNews.id_news}`)
         .then(() => {
-          getTotalLike()
+          getTotalLike(detailNews.id_news)
         })
         .catch((error) => {
           console.log('err', error)
@@ -118,12 +113,12 @@ function detailBerita(props) {
       let getLocalStorageId = localStorage.getItem('idnews')
       if (getLocalStorageId !== null) {
         let checkData = JSON.parse(getLocalStorageId).find(
-          (data) => data == detailNews.id,
+          (data) => data == detailNews.id_news,
         )
         if (checkData !== undefined) {
           let arrayIdNews = JSON.parse(getLocalStorageId)
           let newArray = arrayIdNews.filter(function (value) {
-            return value !== detailNews.id
+            return value !== detailNews.id_news
           })
           localStorage.setItem('idnews', JSON.stringify(newArray))
           hitUnLikeNews()
@@ -132,7 +127,7 @@ function detailBerita(props) {
         }
       } else {
         let arrayIdNews = []
-        arrayIdNews.push(detailNews.id)
+        arrayIdNews.push(detailNews.id_news)
         localStorage.setItem('idnews', JSON.stringify(arrayIdNews))
         hitLikeNews()
       }
@@ -354,7 +349,7 @@ function detailBerita(props) {
   )
 }
 
-const mapStateToProps = (state) => ({})
+const mapStateToProps = () => ({})
 
 const mapDispatchToProps = (dispatch) => {
   return {

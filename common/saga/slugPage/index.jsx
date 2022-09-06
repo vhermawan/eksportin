@@ -38,7 +38,6 @@ export function* setSlugBuyer(action) {
     })
     router.push(`/pembeli/detail/${action.slug}`)
   }
-  console.log('actions', action.slug)
 }
 
 export function* setSlugUmkm(action) {

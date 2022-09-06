@@ -56,8 +56,91 @@ export default function SetPassword() {
         }
       })
       .catch(() => {
+        toast({
+          title: 'Token Tidak Valid, Silahkan Masukan Email Anda Lagi',
+          position: `top-right`,
+          isClosable: true,
+          variant: `left-accent`,
+          status: `error`,
+        })
         setLoading(false)
       })
+  }
+
+  const ViewFormSetPassword = () => {
+    return (
+      <>
+        <Formik
+          initialValues={{ password: '' }}
+          onSubmit={(values) => {
+            submitPassword(values)
+          }}
+        >
+          {() => (
+            <Form>
+              <FormControl>
+                <FormLabel
+                  ms="4px"
+                  fontSize="sm"
+                  fontWeight="normal"
+                  mt="7"
+                >
+                  Password Baru
+                </FormLabel>
+                <Field
+                  name="password"
+                  validate={validation.ValidatePassword}
+                >
+                  {({ field, form }) => (
+                    <FormControl
+                      isInvalid={
+                        form.errors.password && form.touched.password
+                      }
+                    >
+                      <Input
+                        fontSize="sm"
+                        ms="4px"
+                        borderRadius="15px"
+                        type="password"
+                        placeholder="Password anda"
+                        mb={!form.errors.password ? '24px' : '0px'}
+                        size="lg"
+                        id="password"
+                        {...field}
+                      />
+                      <FormErrorMessage mb="24px">
+                        {form.errors.password}
+                      </FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+                <Button
+                  type="submit"
+                  bg="teal.300"
+                  fontSize="16px"
+                  color="white"
+                  fontWeight="bold"
+                  w="100%"
+                  h="45"
+                  mb="24px"
+                  aria-label="submit"
+                  _hover={{
+                    bg: 'teal.200',
+                  }}
+                  _active={{
+                    bg: 'teal.400',
+                  }}
+                  mt="6"
+                  isLoading={loading}
+                >
+                  Submit
+                </Button>
+              </FormControl>
+            </Form>
+          )}
+        </Formik>
+      </>
+    )
   }
 
   return (
@@ -133,75 +216,7 @@ export default function SetPassword() {
             bg={bgColor}
             boxShadow="0 20px 27px 0 rgb(0 0 0 / 5%)"
           >
-            <Formik
-              initialValues={{ password: '' }}
-              onSubmit={(values) => {
-                submitPassword(values)
-              }}
-            >
-              {() => (
-                <Form>
-                  <FormControl>
-                    <FormLabel
-                      ms="4px"
-                      fontSize="sm"
-                      fontWeight="normal"
-                      mt="7"
-                    >
-                      Password Baru
-                    </FormLabel>
-                    <Field
-                      name="password"
-                      validate={validation.ValidatePassword}
-                    >
-                      {({ field, form }) => (
-                        <FormControl
-                          isInvalid={
-                            form.errors.password && form.touched.password
-                          }
-                        >
-                          <Input
-                            fontSize="sm"
-                            ms="4px"
-                            borderRadius="15px"
-                            type="password"
-                            placeholder="Password anda"
-                            mb={!form.errors.password ? '24px' : '0px'}
-                            size="lg"
-                            id="password"
-                            {...field}
-                          />
-                          <FormErrorMessage mb="24px">
-                            {form.errors.password}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-                    <Button
-                      type="submit"
-                      bg="teal.300"
-                      fontSize="10px"
-                      color="white"
-                      fontWeight="bold"
-                      w="100%"
-                      h="45"
-                      mb="24px"
-                      aria-label="submit"
-                      _hover={{
-                        bg: 'teal.200',
-                      }}
-                      _active={{
-                        bg: 'teal.400',
-                      }}
-                      mt="6"
-                      isLoading={loading}
-                    >
-                      Submit
-                    </Button>
-                  </FormControl>
-                </Form>
-              )}
-            </Formik>
+           <ViewFormSetPassword/>
           </Flex>
         </Flex>
       </Flex>

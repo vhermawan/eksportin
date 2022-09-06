@@ -14,6 +14,15 @@ import {
   Text,
   useColorModeValue,
   useToast,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  createStandaloneToast,
 } from '@chakra-ui/react'
 import { FaUserAlt, FaEdit, FaFacebook, FaInstagram } from 'react-icons/fa'
 import Cookies from 'js-cookie'
@@ -37,10 +46,12 @@ function Profil(props) {
   const [dataUser, setDataUser] = useState(null)
   const [dataUmkm, setDataUmkm] = useState(null)
   const [courseUmkm, setCourseUmkm] = useState([])
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const textColor = useColorModeValue('gray.700', 'white')
   const [page, setPage] = useState(1)
   const [total, setTotal] = useState(1)
-  const toast = useToast()
+  const [idCourse, setIdCourse] = useState(null)
+  const toast = createStandaloneToast()
 
   const bgProfile = useColorModeValue(
     'hsla(0,0%,100%,.8)',
@@ -84,19 +95,29 @@ function Profil(props) {
     API.delete(`/delete-course-umkm/${id}`)
       .then((res) => {
         if (res.status === 200) {
+          onClose();
+          setPage(1);
+          getCourse();
           toast({
-            title: 'Delete Course.',
-            description: 'Delete course success.',
-            status: 'success',
-            duration: 9000,
+            title: 'Sukses hapus materi',
+            position: `top-right`,
             isClosable: true,
+            variant: `left-accent`,
+            status: `success`,
+            containerStyle: {
+              zIndex: 999999,
+            },
           })
-          setPage(1)
         }
       })
       .catch((error) => {
         console.log('err', error)
       })
+  }
+
+  const confirmDeleteCourse = (id) => {
+    setIdCourse(id)
+    onOpen();
   }
 
   return dataUmkm && dataUser ? (
@@ -412,7 +433,7 @@ function Profil(props) {
                           key={index}
                           data={item}
                           isProfile={true}
-                          deleteCourse={deleteCourse}
+                          deleteCourse={confirmDeleteCourse}
                         />
                       )
                     })
@@ -430,6 +451,20 @@ function Profil(props) {
           </Grid>
         </Flex>
       </Layout>
+
+      <Modal onClose={onClose} isOpen={isOpen} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Konfirmasi</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            Apakah yakin ingin menghapus data?
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={()=>deleteCourse(idCourse)}>Hapus</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   ) : (
     <>

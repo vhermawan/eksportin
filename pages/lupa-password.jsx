@@ -25,27 +25,108 @@ export default function LupaPassword() {
   const [loading, setLoading] = useState(false)
   const toast = createStandaloneToast()
 
-  const submitEmail = (values) => {
-    setLoading(true)
-    const params = new FormData()
-    params.set('email', values.email)
-    API.post('/password/create', params)
-      .then((res) => {
-        if (res.status === 200) {
-          setLoading(false)
-          toast({
-            title: 'Pengiriman Email Berhasil',
-            position: `top-right`,
-            isClosable: true,
-            variant: `left-accent`,
-            status: `success`,
-          })
-          router.push('/login')
-        }
-      })
-      .catch(() => {
+const submitEmail = (values) => {
+  setLoading(true)
+  const params = new FormData()
+  params.set('email', values.email)
+  API.post('/password/create', params)
+    .then((res) => {
+      if (res.status === 200) {
         setLoading(false)
+        toast({
+          title: 'Pengiriman Email Berhasil',
+          position: `top-right`,
+          isClosable: true,
+          variant: `left-accent`,
+          status: `success`,
+        })
+        router.push('/login')
+      }else{
+        toast({
+          title: 'Pengiriman Email Gagal',
+          position: `top-right`,
+          isClosable: true,
+          variant: `left-accent`,
+          status: `error`,
+        })
+      }
+    })
+    .catch(() => {
+      setLoading(false)
+      toast({
+        title: 'Pengiriman Email Gagal',
+        position: `top-right`,
+        isClosable: true,
+        variant: `left-accent`,
+        status: `error`,
       })
+    })
+}
+
+  const ViewFormForgotPassword = () => {
+    return(
+      <>
+        <Formik
+          initialValues={{ email: '' }}
+          onSubmit={(values) => {
+            submitEmail(values)
+          }}
+        >
+          {() => (
+            <Form>
+              <FormControl>
+                <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                  Email
+                </FormLabel>
+                <Field name="email" validate={validation.ValidateEmail}>
+                  {({ field, form }) => (
+                    <FormControl
+                      isInvalid={form.errors.email && form.touched.email}
+                    >
+                      <Input
+                        fontSize="sm"
+                        ms="4px"
+                        borderRadius="15px"
+                        type="email"
+                        placeholder="Alamat email anda"
+                        mb={!form.errors.email ? '24px' : '0px'}
+                        size="lg"
+                        id="email"
+                        {...field}
+                      />
+                      <FormErrorMessage mb="24px">
+                        {form.errors.email}
+                      </FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+                <Button
+                  type="submit"
+                  bg="teal.300"
+                  fontSize="16px"
+                  color="white"
+                  fontWeight="bold"
+                  w="100%"
+                  h="45"
+                  mb="24px"
+                  aria-label="submit"
+                  _hover={{
+                    bg: 'teal.200',
+                  }}
+                  _active={{
+                    bg: 'teal.400',
+                  }}
+                  mt="4"
+                  isLoading={loading}
+                >
+                  Submit
+                </Button>
+              </FormControl>
+            </Form>
+          )}
+        </Formik>
+      </>
+    )
   }
 
   return (
@@ -122,65 +203,7 @@ export default function LupaPassword() {
             bg={bgColor}
             boxShadow="0 20px 27px 0 rgb(0 0 0 / 5%)"
           >
-            <Formik
-              initialValues={{ email: '' }}
-              onSubmit={(values) => {
-                submitEmail(values)
-              }}
-            >
-              {() => (
-                <Form>
-                  <FormControl>
-                    <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
-                      Email
-                    </FormLabel>
-                    <Field name="email" validate={validation.ValidateEmail}>
-                      {({ field, form }) => (
-                        <FormControl
-                          isInvalid={form.errors.email && form.touched.email}
-                        >
-                          <Input
-                            fontSize="sm"
-                            ms="4px"
-                            borderRadius="15px"
-                            type="email"
-                            placeholder="Alamat email anda"
-                            mb={!form.errors.email ? '24px' : '0px'}
-                            size="lg"
-                            id="email"
-                            {...field}
-                          />
-                          <FormErrorMessage mb="24px">
-                            {form.errors.email}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-                    <Button
-                      type="submit"
-                      bg="teal.300"
-                      fontSize="16px"
-                      color="white"
-                      fontWeight="bold"
-                      w="100%"
-                      h="45"
-                      mb="24px"
-                      aria-label="submit"
-                      _hover={{
-                        bg: 'teal.200',
-                      }}
-                      _active={{
-                        bg: 'teal.400',
-                      }}
-                      mt="4"
-                      isLoading={loading}
-                    >
-                      Submit
-                    </Button>
-                  </FormControl>
-                </Form>
-              )}
-            </Formik>
+            <ViewFormForgotPassword/>
             <Flex
               flexDirection="column"
               justifyContent="center"

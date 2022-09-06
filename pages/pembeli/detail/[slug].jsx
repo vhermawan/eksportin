@@ -11,7 +11,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
 } from '@chakra-ui/react'
-import { useSelector } from 'react-redux'
 import { NextSeo } from 'next-seo'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { useRouter } from 'next/router'

@@ -15,10 +15,10 @@ import {
 } from '@chakra-ui/react'
 import moment from 'moment'
 import { API } from '@/common/api/api'
-import { useSelector } from 'react-redux'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { NextSeo } from 'next-seo'
 import { CircleSpinner } from 'react-spinners-kit'
+import router from 'next/router'
 
 const Layout = dynamic(() => import('@/components/organism/Layout/index'))
 const CardMateri = dynamic(() => import('@/components/atoms/CardMateri/index'))
@@ -32,14 +32,16 @@ export default function detailMateri() {
   const [detailCourse, setDetailCourse] = useState(null)
 
   useEffect(() => {
-    API.get(`/course-speaker/${detailCourse.id_speakers}?page=1`)
-      .then((res) => {
-        setData(res.data.data.course.data)
-      })
-      .catch((error) => {
-        console.log('err', error)
-      })
-  }, [])
+    if(detailCourse){
+      API.get(`/course-speaker/${detailCourse.id_speakers}?page=1`)
+        .then((res) => {
+          setData(res.data.data.course.data)
+        })
+        .catch((error) => {
+          console.log('err', error)
+        })
+    }
+  }, [detailCourse])
 
   useEffect(() => {
     API.get(`/course-detail/${router.query.slug}`)
@@ -119,6 +121,7 @@ export default function detailMateri() {
                     xl: '5xl',
                     '3xl': '6xl',
                   }}
+                  textAlign="center"
                 >
                   {detailCourse.title}
                 </Heading>
