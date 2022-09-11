@@ -10,7 +10,14 @@ import {
   useColorMode,
   BreadcrumbItem,
   BreadcrumbLink,
+  Box,
+  Link,
+  Stack,
+  Icon,
 } from '@chakra-ui/react'
+import { FaWhatsapp } from 'react-icons/fa'
+import { MdEmail } from 'react-icons/md'
+import NextLink from 'next/link'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { NextSeo } from 'next-seo'
 import { API } from '@/common/api/api'
@@ -131,6 +138,42 @@ export default function detailInstansi() {
                     __html: detailStakeholder.description,
                   }}
                 />
+              </Flex>
+              <Flex mt="3" w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}>
+                <Text
+                  color={colorMode === 'light' ? '#21383E' : 'white'}
+                  fontWeight="extrabold"
+                  letterSpacing={'-.0.001rem'}
+                  lineHeight={'-.0.001rem'}
+                  fontSize={{ base: 'sm', '3xl': '2xl' }}
+                >
+                  Narahubung:
+                </Text>
+              </Flex>
+              <Flex
+                align="center"
+                my="10px"
+                w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}
+              >
+                <Stack direction={['column', 'row']} spacing="12px">
+                  <NextLink
+                    href={`https://wa.me/${detailStakeholder.phone}`}
+                    passHref
+                  >
+                    <Link isExternal>
+                      <Box w="40px" h="40px">
+                        <Icon as={FaWhatsapp} w={10} h={10} />
+                      </Box>
+                    </Link>
+                  </NextLink>
+                  <NextLink href={`mailto:${detailStakeholder.email}`} passHref>
+                    <Link isExternal>
+                      <Box w="40px" h="40px">
+                        <Icon as={MdEmail} w={10} h={10} />
+                      </Box>
+                    </Link>
+                  </NextLink>
+                </Stack>
               </Flex>
             </Container>
           </Layout>

@@ -53,8 +53,8 @@ const CardUmkm = (props) => {
                 {props.data.category}
               </Text>
               <Text mr="2">-</Text>
-              <Text mr="2" color="#DEDEDE">
-                Yogyakarta
+              <Text mr="2" color="gray.600">
+                {props.data.prov_name}
               </Text>
             </Flex>
             <Flex

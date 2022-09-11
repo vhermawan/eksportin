@@ -78,7 +78,7 @@ export default function detailPanduan() {
             w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}
             wrap={{ base: 'wrap', '3xl': 'wrap' }}
           >
-            <Box maxW={{ base: 'full', '3xl': '60%' }}>
+            <Box w={{ base: 'full', '2xl': '60%' }}>
               <Heading
                 as="h1"
                 letterSpacing={'-.0.01rem'}
@@ -97,13 +97,14 @@ export default function detailPanduan() {
             <Box
               position="relative"
               my="auto"
-              maxW={{ base: 'full', '3xl': '40%' }}
+              w={{ base: 'full', '2xl': '40%' }}
             >
               <Text
                 color={colorMode === 'light' ? '#21383E' : 'white'}
                 letterSpacing={'-.0.001rem'}
                 lineHeight={'-.0.001rem'}
                 fontSize={{ base: 'sm', '3xl': '4xl' }}
+                float={{ base: 'left', '2xl': 'right' }}
               >
                 {data.sequence}
               </Text>
@@ -137,7 +138,7 @@ export default function detailPanduan() {
             </Box>
           </Flex>
           <Flex>
-            <Box w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }} pt="10">
+            <Box w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }} pt="2">
               <OrderedList
                 color={colorMode === 'light' ? '#21383E' : 'white'}
                 letterSpacing={'-.0.001rem'}
@@ -193,6 +194,10 @@ export default function detailPanduan() {
                 onClick={() =>
                   router.push(`/panduan-ekspor/${data.nextPage.slug}`)
                 }
+                _hover={{
+                  bg: 'none',
+                  textDecoration: 'underline',
+                }}
                 display={{ base: 'none', '2xl': 'flex', '3xl': 'flex' }}
               >
                 Selanjutnya
@@ -238,6 +243,9 @@ export default function detailPanduan() {
                 onClick={() =>
                   router.push(`/panduan-ekspor/${data.nextPage.slug}`)
                 }
+                _hover={{
+                  bg: 'none',
+                }}
               >
                 Selanjutnya
               </Button>

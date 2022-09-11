@@ -62,7 +62,7 @@ function EditProfil() {
             variant: `left-accent`,
             status: `success`,
           })
-          router.push('/profil')
+          setTimeout(() => router.push('/profil'), 1000)
         } else {
           setLoading(false)
           toast({

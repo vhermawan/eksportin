@@ -42,6 +42,7 @@ export default function LupaPassword() {
           })
           router.push('/login')
         } else {
+          setLoading(false)
           toast({
             title: 'Pengiriman Email Gagal',
             position: `top-right`,

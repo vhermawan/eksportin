@@ -136,8 +136,8 @@ const Section3 = () => {
                   <Image
                     boxSize={{ base: '50px', '3xl': '90px' }}
                     objectFit="contain"
-                    src="/assets/img/icon-calendar.png"
-                    alt="personal-assitant"
+                    src="/assets/img/icon-waktu.webp"
+                    alt="icon-waktu"
                     ml={{ base: '4', lg: '0' }}
                     loading="lazy"
                   />
@@ -168,8 +168,8 @@ const Section3 = () => {
                   <Image
                     boxSize={{ base: '50px', '3xl': '90px' }}
                     objectFit="contain"
-                    src="/assets/img/icon-calendar.png"
-                    alt="personal-assitant"
+                    src="/assets/img/icon-informasi.webp"
+                    alt="icon-informasi"
                     ml={{ base: '4', lg: '0' }}
                     loading="lazy"
                   />

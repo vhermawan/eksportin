@@ -11,13 +11,22 @@ import {
   useColorMode,
   BreadcrumbItem,
   BreadcrumbLink,
+  Stack,
+  Link,
+  Box,
+  Icon,
 } from '@chakra-ui/react'
+import { FaFacebook, FaInstagram } from 'react-icons/fa'
 import moment from 'moment'
+import NextLink from 'next/link'
 import { NextSeo } from 'next-seo'
 import { API } from '@/common/api/api'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { CircleSpinner } from 'react-spinners-kit'
 import { useRouter } from 'next/router'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { setSlugUmkm } from '@/common/reducer/slugPage/action'
 
 const CardUmkm = dynamic(() => import('@/components/atoms/CardUmkm/index'))
 const DataNotFound = dynamic(() =>
@@ -25,7 +34,7 @@ const DataNotFound = dynamic(() =>
 )
 const Layout = dynamic(() => import('@/components/organism/Layout/index'))
 
-export default function detailUmkm() {
+function detailUmkm(props) {
   const { colorMode } = useColorMode()
   const [data, setData] = useState([])
   const [detailUmkm, setDetailUmkm] = useState(null)
@@ -42,14 +51,18 @@ export default function detailUmkm() {
   }, [])
 
   useEffect(() => {
-    API.get(`/lasted-umkms/2?page=1`)
-      .then((res) => {
-        setData(res.data.data.umkm.data)
-      })
-      .catch((error) => {
-        console.log('err', error)
-      })
-  }, [])
+    if (detailUmkm) {
+      API.get(
+        `/lasted-umkms/${detailUmkm.id_category_umkms}/${detailUmkm.id}?page=1`,
+      )
+        .then((res) => {
+          setData(res.data.data.umkm.data)
+        })
+        .catch((error) => {
+          console.log('err', error)
+        })
+    }
+  }, [detailUmkm])
 
   return (
     <>
@@ -138,21 +151,20 @@ export default function detailUmkm() {
                 </Heading>
               </Flex>
               <Flex
-                mt="3"
                 w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}
                 justifyContent="center"
               >
                 <Flex
                   wrap="wrap"
                   mt="2"
-                  fontSize={{ base: '10', md: 'xs', '3xl': 'xl' }}
+                  fontSize={{ base: '10', md: 'xs', '2xl': 'md' }}
                 >
                   <Text mr="2" color="#F5556E">
                     {detailUmkm.category}
                   </Text>
                   <Text mr="2">-</Text>
-                  <Text mr="2" color="#DEDEDE">
-                    Yogyakarta
+                  <Text mr="2" color="gray.500">
+                    {detailUmkm.prov_name}
                   </Text>
                 </Flex>
               </Flex>
@@ -186,6 +198,75 @@ export default function detailUmkm() {
                   }}
                 />
               </Flex>
+              <Flex mt="3" w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}>
+                <Text
+                  color={colorMode === 'light' ? '#21383E' : 'white'}
+                  fontWeight="extrabold"
+                  letterSpacing={'-.0.001rem'}
+                  lineHeight={'-.0.001rem'}
+                  fontSize={{ base: 'sm', '3xl': '2xl' }}
+                >
+                  Sosial Media:
+                </Text>
+              </Flex>
+              <Flex
+                align="center"
+                my="10px"
+                w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}
+              >
+                <Stack direction={['column', 'row']} spacing="12px">
+                  <NextLink
+                    href={`https://www.facebook.com/${detailUmkm.facebook}`}
+                    passHref
+                  >
+                    <Link isExternal>
+                      <Box w="40px" h="40px">
+                        <Icon as={FaFacebook} w={10} h={10} />
+                      </Box>
+                    </Link>
+                  </NextLink>
+                  <NextLink
+                    href={`https://www.instagram.com/${detailUmkm.instagram}`}
+                    passHref
+                  >
+                    <Link isExternal>
+                      <Box w="40px" h="40px">
+                        <Icon as={FaInstagram} w={10} h={10} />
+                      </Box>
+                    </Link>
+                  </NextLink>
+                  <NextLink
+                    href={`https://www.tokopedia.com/${detailUmkm.tokopedia}`}
+                    passHref
+                  >
+                    <Link isExternal>
+                      <Box w="40px" h="40px">
+                        <Image
+                          src="/assets/icons/tokopedia.svg"
+                          w={10}
+                          h={10}
+                          loading="lazy"
+                        />
+                      </Box>
+                    </Link>
+                  </NextLink>
+                  <NextLink
+                    href={`https://shopee.co.id/${detailUmkm.shopee}`}
+                    passHref
+                  >
+                    <Link isExternal>
+                      <Box w="40px" h="40px">
+                        <Image
+                          src="/assets/icons/shopee.png"
+                          w={10}
+                          h={10}
+                          loading="lazy"
+                        />
+                      </Box>
+                    </Link>
+                  </NextLink>
+                </Stack>
+              </Flex>
               <Flex
                 top="5"
                 bottom="5"
@@ -218,7 +299,13 @@ export default function detailUmkm() {
                 >
                   {data && data.length > 0 ? (
                     data.map((item, index) => {
-                      return <CardUmkm key={index} data={item} />
+                      return (
+                        <CardUmkm
+                          key={index}
+                          data={item}
+                          setSlugUmkm={props.setSlugUmkm}
+                        />
+                      )
                     })
                   ) : (
                     <DataNotFound />
@@ -232,3 +319,13 @@ export default function detailUmkm() {
     </>
   )
 }
+
+const mapStateToProps = () => ({})
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setSlugUmkm: bindActionCreators(setSlugUmkm, dispatch),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(detailUmkm)

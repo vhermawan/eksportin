@@ -2,7 +2,7 @@ const Panduan = [
   {
     title: 'Sales Contant Process',
     slug: 'sales-contant-process',
-    image: '/assets/img/panduan.png',
+    image: '/assets/img/document.webp',
     sequence: 'Tahap Pertama',
     description: `
             Sales contract adalah dokumen/surat persetujuan antara penjual dan pembeli yang merupakan 
@@ -73,7 +73,7 @@ const Panduan = [
   {
     title: 'L/C Opening Process',
     slug: 'lc-opening-process',
-    image: '/assets/img/panduan.png',
+    image: '/assets/img/letter.webp',
     sequence: 'Tahap Kedua',
     description: `
             Letter of credit  (L/C) adalah Jaminan dari bank penerbit kepada eksportir 
@@ -125,7 +125,7 @@ const Panduan = [
   {
     title: 'Cargo Shipment Process',
     slug: 'cargo-shipment-process',
-    image: '/assets/img/panduan.png',
+    image: '/assets/img/panduan.webp',
     sequence: 'Tahap Ketiga',
     description: `
             Output penting dari proses ini adalah dokumen pengapalan yang 
@@ -189,7 +189,7 @@ const Panduan = [
   {
     title: 'Shipping Document Negotiation Process',
     slug: 'shipping-document-negotiation-process',
-    image: '/assets/img/panduan.png',
+    image: '/assets/img/shipping.webp',
     sequence: 'Tahap Keempat',
     description: `
             Proses ini adalah proses penguangan dokumen pengapalan 

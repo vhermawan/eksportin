@@ -142,6 +142,7 @@ const Section2 = (props) => {
                                   key={index}
                                   data={item}
                                   setSlugCourse={props.setSlugCourse}
+                                  isProfile={false}
                                 />
                               </Skeleton>
                             </>
