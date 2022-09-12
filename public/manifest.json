@@ -3,7 +3,7 @@
   "short_name": "eksportin",
   "theme_color": "#fff",
   "background_color": "#fff",
-  "display": "standalone",
+  "display": "fullScreen",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
