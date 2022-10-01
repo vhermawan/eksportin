@@ -1,9 +1,11 @@
 /* eslint-disable no-undef */
 /** @type {import('next').NextConfig} */
 const withPWA = require('next-pwa')
-const runtimeCaching = require('next-pwa/cache')
 const prod = process.env.NODE_ENV === 'production'
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 const settings = {
   config: [
@@ -36,4 +38,4 @@ module.exports = withPWA({
   },
   webpack5: true,
   plugins: [new ImageminWebpWebpackPlugin(settings)],
-})
+},withBundleAnalyzer({}))

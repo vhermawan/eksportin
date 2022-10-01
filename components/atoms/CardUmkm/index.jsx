@@ -72,7 +72,7 @@ const CardUmkm = (props) => {
                   color: useColorModeValue('gray.600', 'gray.200'),
                   textDecor: 'underline',
                 }}
-                onClick={() => props.setSlugUmkm(props.data.slug)}
+                href={`/umkm/detail/${props.data.slug}`}
               >
                 <EllipsisText text={props.data.name_umkm} length={40} />
               </Link>

@@ -61,32 +61,33 @@ function SimpleForm(props) {
   }, [timeLeft])
 
   const sendMessage = (event, step) => {
-    handleReset()
+    if(step !== 'choice' || step !== 'end_message'){
+      handleReset()
+      let question = event.steps[step-1].message
+      let answer = event.value
+      let name
 
-    let question = event.steps[step].metadata.q
-    let answer = event.steps[step].value
-    let name
+      if (!token) {
+        name = 'guest'
+      } else {
+        name = props.datauser.user.name
+      }
 
-    if (!token) {
-      name = 'guest'
-    } else {
-      name = props.datauser.user.name
+      let params = {
+        question,
+        answer,
+        name,
+        sessionId,
+      }
+
+      API.sendMessage(`/answer`, params)
+        .then((res) => {
+          console.log('res', res)
+        })
+        .catch((error) => {
+          console.log('err', error)
+        })
     }
-
-    let params = {
-      question,
-      answer,
-      name,
-      sessionId,
-    }
-
-    API.sendMessage(`/answer`, params)
-      .then((res) => {
-        console.log('res', res)
-      })
-      .catch((error) => {
-        console.log('err', error)
-      })
   }
 
   const theme = {
@@ -177,6 +178,12 @@ function SimpleForm(props) {
               ],
             },
             {
+              id: 'materi_answer',
+              message:
+                'Materi merupakan layanan yang diujukan untuk edukasi mengenai eskpor umkm dan anda bisa belajar secara gratis',
+              trigger: 'ask_again',
+            },
+            {
               id: 'berita_answer',
               message:
                 'Berita merupakan layanan yang diujukan untuk menjembantani informasi terbaru terkait eskpor',
@@ -227,7 +234,7 @@ function SimpleForm(props) {
           floating={true}
           opened={opened}
           href="#"
-          botAvatar={'/assets/avatars/avatar4.png'}
+          botAvatar={'/assets/img/logo.png'}
           userAvatar={
             props.datauser !== null
               ? props.datauser.umkm.image_URL

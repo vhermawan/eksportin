@@ -139,6 +139,7 @@ function Header(props) {
                         ? props.datauser.umkm.image_URL
                         : '/assets/avatars/avatar4.png'
                     }
+                    alt="profil-picture"
                   />
                 </MenuButton>
                 <MenuList>

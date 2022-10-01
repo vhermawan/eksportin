@@ -72,7 +72,7 @@ const Section1 = () => {
           <Image
             boxSize="full"
             objectFit="cover"
-            src="/assets/img/panduan-section1.png"
+            src="/assets/img/panduan-section1.webp"
             alt="logo-landing"
             loading="lazy"
           />

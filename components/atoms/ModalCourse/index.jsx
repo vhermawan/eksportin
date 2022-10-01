@@ -23,7 +23,7 @@ export default function ModalBegining(props) {
           <ModalBody>
             <Flex wrap="nowrap" mt="2">
               <Image
-                src="/assets/img/modal.png"
+                src="/assets/img/modal.webp"
                 alt="modal-image"
                 loading="lazy"
                 objectFit="cover"

@@ -149,7 +149,7 @@ function Profil(props) {
             align="center"
           >
             <Box
-              bgImage="/assets/img/ProfileBackground.png"
+              bgImage="/assets/img/ProfileBackground.webp"
               w="100%"
               h="300px"
               borderRadius="25px"

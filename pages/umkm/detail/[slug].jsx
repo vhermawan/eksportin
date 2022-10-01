@@ -243,6 +243,7 @@ function detailUmkm(props) {
                       <Box w="40px" h="40px">
                         <Image
                           src="/assets/icons/tokopedia.svg"
+                          alt="icon-tokopedia"
                           w={10}
                           h={10}
                           loading="lazy"
@@ -258,6 +259,7 @@ function detailUmkm(props) {
                       <Box w="40px" h="40px">
                         <Image
                           src="/assets/icons/shopee.png"
+                          alt="icon-shopee"
                           w={10}
                           h={10}
                           loading="lazy"
