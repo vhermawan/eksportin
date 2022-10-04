@@ -85,8 +85,8 @@ export function* logOutUser(action) {
       status: `error`,
     })
   } else if (content.status === 200) {
-    Cookies.remove('token', { path: '/', domain: 'localhost' })
-    Cookies.remove('loginTimes', { path: '/', domain: 'localhost' })
+    Cookies.remove('token', { path: '/'})
+    Cookies.remove('loginTimes', { path: '/'})
     yield put({
       type: actionTypes.LOGOUT_SUCCESS,
       auth: null,
