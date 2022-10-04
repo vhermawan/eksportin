@@ -234,7 +234,7 @@ function SimpleForm(props) {
           floating={true}
           opened={opened}
           href="#"
-          botAvatar={'/assets/img/logo.png'}
+          botAvatar={'/assets/img/Logo.png'}
           userAvatar={
             props.datauser !== null
               ? props.datauser.umkm.image_URL
