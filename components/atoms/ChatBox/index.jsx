@@ -61,7 +61,7 @@ function SimpleForm(props) {
   }, [timeLeft])
 
   const sendMessage = (event, step) => {
-    if(step !== 'choice' || step !== 'end_message'){
+    if(typeof(step) === 'number'){
       handleReset()
       let question = event.steps[step-1].message
       let answer = event.value
