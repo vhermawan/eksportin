@@ -12,6 +12,7 @@ import {
   useColorMode,
   BreadcrumbItem,
   BreadcrumbLink,
+  Image,
 } from '@chakra-ui/react'
 import moment from 'moment'
 import { API } from '@/common/api/api'
@@ -19,6 +20,7 @@ import { ChevronRightIcon } from '@chakra-ui/icons'
 import { NextSeo } from 'next-seo'
 import { CircleSpinner } from 'react-spinners-kit'
 import router from 'next/router'
+import { BASE_URL } from '@/common/init'
 
 const Layout = dynamic(() => import('@/components/organism/Layout/index'))
 const CardMateri = dynamic(() => import('@/components/atoms/CardMateri/index'))
@@ -161,6 +163,20 @@ export default function detailMateri() {
                 backgroundColor="gray.200"
                 mb="5"
               />
+               <Box w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}>
+                  <Image
+                    src={
+                      detailCourse.photo
+                        ? `https://eksportin.com/${detailCourse.photo}`
+                        : 'https://bit.ly/sage-adebayo'
+                    }
+                    alt={detailCourse.title}
+                    loading="lazy"
+                    objectFit="cover"
+                    w="full"
+                    h="300px"
+                  />
+                </Box>
               <Flex
                 mt="3"
                 as="section"
@@ -204,7 +220,7 @@ export default function detailMateri() {
                 >
                   {data && data.length > 0 ? (
                     data.map((item, index) => {
-                      return <CardMateri key={index} data={item} />
+                      return <CardMateri key={index} data={item} isDetail={true}/>
                     })
                   ) : (
                     <DataNotFound />

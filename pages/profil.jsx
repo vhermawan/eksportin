@@ -447,6 +447,7 @@ function Profil(props) {
                           key={index}
                           data={item}
                           isProfile={true}
+                          isDetail={true}
                           deleteCourse={confirmDeleteCourse}
                         />
                       )

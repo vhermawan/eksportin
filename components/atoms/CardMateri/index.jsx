@@ -41,7 +41,10 @@ const CardMateri = (props) => {
             rounded="md"
             _hover={{ bg: 'gray.500' }}
           >
-            {props.data.category}
+            <EllipsisText
+              text={props.data.category}
+              length={props.isDetail ? 9 : 19  }
+            />
           </Link>
         </Flex>
 
@@ -74,7 +77,7 @@ const CardMateri = (props) => {
             color={useColorModeValue('brand.600', 'brand.400')}
             _hover={{ textDecor: 'underline' }}
             onClick={() => props.setSlugCourse(props.data.slug)}
-            display={props.isProfile ? 'none' : 'flex'}
+            display={props.isDetail ? 'none' : 'flex'}
           >
             Read more
           </Link>
@@ -91,7 +94,7 @@ const CardMateri = (props) => {
             Delete Course
           </Button>
 
-          <Flex alignItems="center">
+          <Flex alignItems="center" display={props.isDetail ? "none" : "flex"}>
             <Image
               mx={4}
               w={10}
@@ -108,7 +111,10 @@ const CardMateri = (props) => {
               fontWeight="700"
               cursor="pointer"
             >
-              {props.data.speaker}
+              <EllipsisText
+                text={props.data.speaker}
+                length={25}
+              />
             </Link>
           </Flex>
         </Flex>
