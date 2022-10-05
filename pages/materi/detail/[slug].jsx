@@ -20,7 +20,6 @@ import { ChevronRightIcon } from '@chakra-ui/icons'
 import { NextSeo } from 'next-seo'
 import { CircleSpinner } from 'react-spinners-kit'
 import router from 'next/router'
-import { BASE_URL } from '@/common/init'
 
 const Layout = dynamic(() => import('@/components/organism/Layout/index'))
 const CardMateri = dynamic(() => import('@/components/atoms/CardMateri/index'))
