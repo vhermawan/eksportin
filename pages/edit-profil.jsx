@@ -812,16 +812,11 @@ function EditProfil(props) {
         title="Edit Profil | Eksportin"
         description="Eksportin Merupakan Sebuah Website yang bergerak pada bidang ekspor"
         openGraph={{
-          url: 'https://eksportin.co.id',
+          url: 'https://eksportin.vercel.app',
           title: 'Edit Profil | Eksportin',
           description:
             'Eksportin Merupakan Sebuah Website yang bergerak pada bidang ekspor',
-          images: [
-            {
-              // url: "https://kikiding.space/api/social-image?title=About Me&description=Know me more&path=https://kikiding.space/about",
-            },
-          ],
-          site_name: 'Eksportin.co.id',
+          site_name: 'Eksportin.vercel.app',
         }}
       />
       <Layout>

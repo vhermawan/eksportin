@@ -47,15 +47,10 @@ export default function detailMateri() {
             title={`Pembeli | ${detailBuyer.name}`}
             description={detailBuyer.description}
             openGraph={{
-              url: 'https://eksportin.co.id',
+              url: 'https://eksportin.vercel.app',
               title: `Pembeli | ${detailBuyer.name}`,
               description: detailBuyer.description,
-              images: [
-                {
-                  // url: "https://kikiding.space/api/social-image?title=About Me&description=Know me more&path=https://kikiding.space/about",
-                },
-              ],
-              site_name: 'Eksportin.co.id',
+              site_name: 'Eksportin.vercel.app',
             }}
           />
           <Layout>

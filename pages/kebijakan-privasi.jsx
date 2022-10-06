@@ -22,16 +22,11 @@ export default function KebijakanPrivasi() {
         title="Kebijakan Privasi | Eksportin"
         description="Eksportin Merupakan Sebuah Website yang bergerak pada bidang ekspor"
         openGraph={{
-          url: 'https://eksportin.co.id',
+          url: 'https://eksportin.vercel.app',
           title: 'Kebijakan Privasi | Eksportin',
           description:
             'Eksportin Merupakan Sebuah Website yang bergerak pada bidang ekspor',
-          images: [
-            {
-              // url: "https://kikiding.space/api/social-image?title=About Me&description=Know me more&path=https://kikiding.space/about",
-            },
-          ],
-          site_name: 'Eksportin.co.id',
+          site_name: 'Eksportin.vercel.app',
         }}
       />
       <Layout>
@@ -307,7 +302,7 @@ export default function KebijakanPrivasi() {
                 pengurangan seluruh ataupun sebagian ketentuan dari aturan
                 privasi ini dari waktu ke waktu tanpa pemberitahuan terlebih
                 dahulu dan segala perubahan yang Kami lakukan akan Kami
-                beritahukan melalui website www.broilerx.com. Kami mengharapkan
+                beritahukan melalui website www.eksportin.com. Kami mengharapkan
                 agar Anda dapat secara berkala memeriksa mengenai kebijakan ini.
                 Dengan mengakses dan menggunakan layanan Kami, maka Kami
                 menganggap Anda sudah mengerti dan menyetujui segala kebijakan

@@ -55,15 +55,10 @@ export default function detailInstansi() {
             title={`Instansi | ${detailStakeholder.name_stakeholder}`}
             description={detailStakeholder.description}
             openGraph={{
-              url: 'https://eksportin.co.id',
+              url: 'https://eksportin.vercel.app',
               title: `Instansi | ${detailStakeholder.name_stakeholder}`,
               description: detailStakeholder.description,
-              images: [
-                {
-                  // url: "https://kikiding.space/api/social-image?title=About Me&description=Know me more&path=https://kikiding.space/about",
-                },
-              ],
-              site_name: 'Eksportin.co.id',
+              site_name: 'Eksportin.vercel.app',
             }}
           />
           <Layout>

@@ -76,15 +76,10 @@ function detailUmkm(props) {
             title={`Umkm | ${detailUmkm.name}`}
             description={detailUmkm.description}
             openGraph={{
-              url: 'https://eksportin.co.id',
+              url: 'https://eksportin.vercel.app',
               title: `Umkm | ${detailUmkm.name}`,
               description: detailUmkm.description,
-              images: [
-                {
-                  // url: "https://kikiding.space/api/social-image?title=About Me&description=Know me more&path=https://kikiding.space/about",
-                },
-              ],
-              site_name: 'Eksportin.co.id',
+              site_name: 'Eksportin.vercel.app',
             }}
           />
           <Layout>

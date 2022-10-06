@@ -154,15 +154,10 @@ function detailBerita(props) {
             title={`Berita | ${detailNews.title}`}
             description={detailNews.description}
             openGraph={{
-              url: 'https://eksportin.co.id',
+              url: 'https://eksportin.vercel.app',
               title: `Berita | ${detailNews.title}`,
               description: detailNews.description,
-              images: [
-                {
-                  // url: "https://kikiding.space/api/social-image?title=About Me&description=Know me more&path=https://kikiding.space/about",
-                },
-              ],
-              site_name: 'Eksportin.co.id',
+              site_name: 'Eksportin.vercel.app',
             }}
           />
           <Layout loading={true}>

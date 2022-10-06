@@ -39,16 +39,11 @@ function SignUp(props) {
         title="Register | Eksportin"
         description="Eksportin Merupakan Sebuah Website yang bergerak pada bidang ekspor"
         openGraph={{
-          url: 'https://eksportin.co.id',
+          url: 'https://eksportin.vercel.app',
           title: 'Register | Eksportin',
           description:
             'Eksportin Merupakan Sebuah Website yang bergerak pada bidang ekspor',
-          images: [
-            {
-              // url: "https://kikiding.space/api/social-image?title=About Me&description=Know me more&path=https://kikiding.space/about",
-            },
-          ],
-          site_name: 'Eksportin.co.id',
+          site_name: 'Eksportin.vercel.app',
         }}
       />
       <Flex
@@ -130,7 +125,7 @@ function SignUp(props) {
                             borderRadius="15px"
                             type="text"
                             placeholder="Nama UMKM anda"
-                            mb={!form.errors.name ? '24px' : '0px'}
+                            mb={!form.errors.name ? '24px' : '10px'}
                             size="lg"
                             id="name"
                             {...field}
@@ -155,7 +150,7 @@ function SignUp(props) {
                             borderRadius="15px"
                             type="email"
                             placeholder="Alamat email anda"
-                            mb={!form.errors.email ? '24px' : '0px'}
+                            mb={!form.errors.email ? '24px' : '10px'}
                             size="lg"
                             id="email"
                             {...field}
@@ -185,7 +180,7 @@ function SignUp(props) {
                             borderRadius="15px"
                             type="password"
                             placeholder="Password anda"
-                            mb={!form.errors.password ? '24px' : '0px'}
+                            mb={!form.errors.password ? '24px' : '10px'}
                             size="lg"
                             id="password"
                             {...field}
