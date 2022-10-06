@@ -50,7 +50,7 @@ export default function SyaratKetentuan() {
                   '3xl': '6xl',
                 }}
               >
-                Kebijakan Privasi
+                Syarat Ketentuan
               </Heading>
             </Box>
             <Box w="full" pt="10">
@@ -60,19 +60,10 @@ export default function SyaratKetentuan() {
                 lineHeight={'-.0.001rem'}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
               >
-                Ketentuan privasi menjelaskan tentang infomasi yang kami
-                kumpulkan dari anda serta bagaimana informasi tersebut digunakan
-                dan dijaga oleh Eksportin. Ketentuan ini berlaku pada setiap
-                informasi mengenai anda yang dikumpulkan oleh Eksportin melalui
-                beberapa metode, termasuk melalui website (“situs”), aplikasi
-                web (“web app”). Dengan membuka situs, mengakses, mengunduh,
-                atau menggunakan layanan Eksportin, anda dianggap dengan sadar
-                telah memahami adanya aktivitas pengumpulan, pemrosesan,
-                pertukaran informasi anda, termasuk informasi pribadi dan data
-                pengguna. Privasi anda adalah hal yang penting bagi kami, maka
-                mohon untuk pahami bagaimana ketentuan privasi kami berkerja dan
-                hubungi kami jika dirasa ada hal yang kurang dipahami. Anda
-                dapat menguhubungi kami di eksportin@gmail.com.
+                Syarat dan ketentuan berikut menjelaskan peraturan dan ketentuan penggunaan Website Eksportin dengan alamat https://eksportin.vercel.app. 
+                Dengan mengakses website ini, kami menganggap Anda telah menyetujui syarat dan ketentuan ini. 
+                Jangan lanjutkan penggunaan Eksportin jika Anda menolak untuk menyetujui semua syarat dan 
+                ketentuan yang tercantum di halaman ini. 
               </Text>
             </Box>
             <Box maxW={{ base: 'full', '3xl': '60%' }} pt="7">
@@ -87,7 +78,7 @@ export default function SyaratKetentuan() {
                   '3xl': '4xl',
                 }}
               >
-                Tentang Eksportin
+                Cookie
               </Heading>
             </Box>
             <Box w="full" pt="4">
@@ -97,12 +88,11 @@ export default function SyaratKetentuan() {
                 lineHeight={'-.0.001rem'}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
               >
-                Selamat datang di Website Eksportin.com. Website ini dimiliki,
-                dioperasikan, diselenggarakan oleh Eksportin. Eksportin
-                menyediakan website dan layanan yang tersedia secara online
-                melalui website: www.eksportin.com , situs-situs turunannya
-                serta aplikasi mobile dan aplikasi web Eksportin (selanjutnya
-                disebut sebagai “Situs”).
+                Website ini menggunakan cookie untuk mempersonalisasi pengalaman online Anda. Dengan mengakses Eksportin, Anda menyetujui penggunaan cookie yang diperlukan. 
+                Cookie merupakan file teks yang ditempatkan pada hard disk Anda oleh server halaman web. Cookie tidak dapat digunakan untuk menjalankan program atau mengirimkan virus 
+                ke komputer Anda. Cookie yang diberikan telah disesuaikan untuk Anda dan hanya dapat dibaca oleh web server pada domain yang mengirimkan cookie tersebut kepada Anda. 
+                Kami dapat menggunakan cookie untuk mengumpulkan, menyimpan, dan melacak informasi untuk keperluan statistik dan pemasaran untuk mengoperasikan website kami. Ada beberapa Cookie wajib yang diperlukan untuk pengoperasian website kami. Cookie ini tidak memerlukan persetujuan Anda karena akan selalu aktif. Perlu diketahui bahwa dengan menyetujui Cookie wajib, Anda juga menyetujui Cookie pihak ketiga, yang mungkin digunakan melalui layanan yang disediakan oleh pihak ketiga jika Anda menggunakan layanan tersebut di website kami, 
+                misalnya, jendela tampilan video yang disediakan oleh pihak ketiga dan terintegrasi dengan website kami. 
               </Text>
             </Box>
             <Box maxW={{ base: 'full', '3xl': '60%' }} pt="7">
@@ -117,7 +107,7 @@ export default function SyaratKetentuan() {
                   '3xl': '4xl',
                 }}
               >
-                Aturan Privasi Eksportin
+                Lisensi
               </Heading>
             </Box>
             <Box w="full" pt="4">
@@ -127,40 +117,9 @@ export default function SyaratKetentuan() {
                 lineHeight={'-.0.001rem'}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
               >
-                Kebijakan Privasi ini mengatur dan/atau menjelaskan seluruh
-                layanan yang sudah Kami sediakan untuk Anda (“Pengguna”)
-                gunakan, yaitu layanan yang Kami operasikan sendiri. Untuk
-                menjaga kepercayaan Anda kepada Kami, maka Kami akan menjaga
-                segala kerahasiaan yang terdapat dalam data pribadi Anda, karena
-                Kami menganggap privasi Anda sangat penting bagi Kami. Pada saat
-                Anda membuat pemesanan dan atau akun pribadi pada Situs
-                Eksportin, maka Kami akan mencatat dan menyimpan informasi dan
-                data pribadi Anda. Dimana pada prinsipnya, setiap data yang Anda
-                berikan dari waktu ke waktu akan Kami simpan dan Kami gunakan
-                untuk kepentingan penyediaan produk dan layanan Kami kepada
-                Anda, yaitu antara lain untuk keperluan audit, atau pembayaran,
-                Oleh karena pentingnya aturan privasi ini dan ketentuan lainnya
-                dalam penggunaan Situs Kami, maka untuk menjaga keamanan data
-                pribadi Anda, maka mohon untuk dibaca secara seksama seluruh
-                ketentuan dalam aturan privasi ini dan ketentuan lainnya dalam
-                website Kami.
+               Kecuali dinyatakan lain, Eksportin dan/atau pemberi lisensinya memiliki hak kekayaan intelektual atas semua materi di Eksportin. Semua hak kekayaan intelektual dilindungi undang-undang. Anda dapat mengaksesnya dari Eksportin untuk penggunaan pribadi Anda sendiri dengan batasan yang diatur dalam syarat dan ketentuan ini. 
               </Text>
             </Box>
-            <Box maxW={{ base: 'full', '3xl': '60%' }} pt="7">
-              <Heading
-                as="h1"
-                letterSpacing={'-.0.01rem'}
-                fontSize={{
-                  base: '3xl',
-                  md: '3xl',
-                  lg: '4xl',
-                  xl: '4xl',
-                  '3xl': '4xl',
-                }}
-              >
-                Informasi Yang Kami Kumpulkan
-              </Heading>
-            </Box>
             <Box w="full" pt="4">
               <Text
                 color={colorMode === 'light' ? '#21383E' : 'white'}
@@ -168,9 +127,7 @@ export default function SyaratKetentuan() {
                 lineHeight={'-.0.001rem'}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
               >
-                Pada saat Anda mengakses Situs dan atau layanan online yang Kami
-                sediakan, maka semua informasi dan data pribadi Anda akan Kami
-                kumpulkan dengan ketentuan sebagai berikut :
+                Anda dilarang untuk
               </Text>
             </Box>
             <Box w="full" pt="4">
@@ -181,52 +138,19 @@ export default function SyaratKetentuan() {
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
               >
                 <ListItem>
-                  Kami akan meminta Anda untuk mengisi data-data pribadi Anda
-                  secara benar, jelas, lengkap, akurat dan tidak menyesatkan,
-                  seperti nama, alamat email, nomor telepon, informasi yang
-                  digunakan untuk pembayaran, dan data-data lain yang Kami
-                  perlukan untuk melakukan transaksi melalui website dan layanan
-                  online lainnya.
+                  Menyalin atau menerbitkan ulang materi dari Eksportin 
                 </ListItem>
                 <ListItem>
-                  Dalam menggunakan layanan Kami, informasi yang Anda berikan
-                  dapat Kami gunakan dan berikan kepada pihak ketiga yang
-                  bekerjasama dengan Kami, sejauh untuk kepentingan dan
-                  penggunaan layanan Kami.
+                  Menjual, menyewakan, atau mensublisensikan materi dari Eksportin
                 </ListItem>
                 <ListItem>
-                  Segala informasi yang Kami terima dapat Kami gunakan untuk
-                  melindungi diri Kami terhadap segala tuntutan dan hukum yang
-                  berlaku terkait dengan penggunaan layanan dan pelanggaran yang
-                  Anda lakukan pada Situs Kami.
+                  Memproduksi ulang, menggandakan, atau menyalin materi dari Eksportin
                 </ListItem>
                 <ListItem>
-                  Anda bertanggung jawab atas kerahasiaan informasi dan data
-                  pribadi Anda. Demi keamanan data rahasia Anda, Kami sangat
-                  menyarankan agar Anda menyimpan akun dan kata sandi yang Anda
-                  miliki dengan sebaik-baiknya. Setiap penggunaan yang tidak sah
-                  dan tanpa sepengetahuan dan izin Anda menjadi tanggung jawab
-                  Anda sendiri dan Kami tidak bertanggung-jawab atas segala
-                  kerugian yang ditimbulkan sebagai akibat dari kelalaian yang
-                  Anda lakukan.
+                  Mendistribusikan ulang konten dari Eksportin 
                 </ListItem>
               </OrderedList>
             </Box>
-            <Box maxW={{ base: 'full', '3xl': '60%' }} pt="7">
-              <Heading
-                as="h1"
-                letterSpacing={'-.0.01rem'}
-                fontSize={{
-                  base: '3xl',
-                  md: '3xl',
-                  lg: '4xl',
-                  xl: '4xl',
-                  '3xl': '4xl',
-                }}
-              >
-                Penggunaan Situs
-              </Heading>
-            </Box>
             <Box w="full" pt="4">
               <Text
                 color={colorMode === 'light' ? '#21383E' : 'white'}
@@ -234,79 +158,17 @@ export default function SyaratKetentuan() {
                 lineHeight={'-.0.001rem'}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
               >
-                Situs Eskportin dapat menggunakan keseluruhan atau sebagian data
-                yang diperoleh dan dikumpulkan dari Pengguna untuk hal-hal :
+                Beberapa bagian website ini menawarkan kesempatan bagi pengguna untuk memposting serta bertukar pendapat dan informasi di area website tertentu. Eksportin tidak akan memfilter, mengedit, memublikasikan, atau meninjau Komentar di hadapan pengguna di website. Komentar tidak mencerminkan pandangan dan pendapat Eksportin, agennya, dan/atau afiliasinya. Komentar mencerminkan pandangan dan pendapat individu yang memposting pandangan dan pendapatnya. Selama diizinkan oleh undang-undang yang berlaku, Eksportin tidak akan bertanggung jawab atas Komentar atau kewajiban, kerugian, atau pengeluaran yang disebabkan dan/atau ditanggung sebagai akibat dari penggunaan dan/atau penempatan dan/atau penayangan Komentar di website ini. 
               </Text>
             </Box>
             <Box w="full" pt="4">
-              <OrderedList
-                color={colorMode === 'light' ? '#21383E' : 'white'}
-                letterSpacing={'-.0.001rem'}
-                lineHeight={'-.0.001rem'}
-                fontSize={{ base: 'sm', '3xl': 'xl' }}
-              >
-                <ListItem>
-                  Memproses segala bentuk permintaan, aktivasi maupun transaksi
-                  yang dilakukan oleh Pengguna melalui Situs, termasuk untuk
-                  keperluan pemantauan kandang kepada Pengguna;
-                </ListItem>
-                <ListItem>
-                  Melakukan kegiatan internal yang diperlukan untuk menyediakan
-                  Layanan pada Website Eksportin.com, seperti pemecahan masalah
-                  software, bug, dan untuk memantau dan menganalisis
-                  kecenderungan penggunaan Website.
-                </ListItem>
-                <ListItem>
-                  Menghubungi Pengguna melalui email, telepon, dan lain-lain,
-                  namun tidak terbatas, untuk membantu dan/atau menyelesaikan
-                  proses transaksi maupun proses penyelesaian kendala.
-                </ListItem>
-                <ListItem>
-                  Menggunakan informasi yang diperoleh dari Pengguna untuk
-                  tujuan analisis, pengembangan dan pengujian produk guna
-                  meningkatkan keamanan dan keamanan layanan-layanan pada
-                  Website.
-                </ListItem>
-                <ListItem>
-                  Dalam keadaan tertentu, Eksportin mungkin perlu untuk
-                  menggunakan ataupun mengungkapkan data Pengguna untuk tujuan
-                  penegakan hukum atau untuk pemenuhan persyaratan hukum dan
-                  peraturan yang berlaku, termasuk dalam hal terjadinya sengketa
-                  atau proses hukum antara Pengguna dan Eksportin.
-                </ListItem>
-              </OrderedList>
-            </Box>
-            <Box maxW={{ base: 'full', '3xl': '60%' }} pt="7">
-              <Heading
-                as="h1"
-                letterSpacing={'-.0.01rem'}
-                fontSize={{
-                  base: '3xl',
-                  md: '3xl',
-                  lg: '4xl',
-                  xl: '4xl',
-                  '3xl': '4xl',
-                }}
-              >
-                Pembaruan Aturan Privasi
-              </Heading>
-            </Box>
-            <Box w="full" pt="4">
               <Text
                 color={colorMode === 'light' ? '#21383E' : 'white'}
                 letterSpacing={'-.0.001rem'}
                 lineHeight={'-.0.001rem'}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
               >
-                Kami berhak untuk melakukan pembaruan, penambahan dan atau
-                pengurangan seluruh ataupun sebagian ketentuan dari aturan
-                privasi ini dari waktu ke waktu tanpa pemberitahuan terlebih
-                dahulu dan segala perubahan yang Kami lakukan akan Kami
-                beritahukan melalui website www.eksportin.com. Kami mengharapkan
-                agar Anda dapat secara berkala memeriksa mengenai kebijakan ini.
-                Dengan mengakses dan menggunakan layanan Kami, maka Kami
-                menganggap Anda sudah mengerti dan menyetujui segala kebijakan
-                privasi yang tertera di halaman Situs Kami saat itu juga.
+                Eksportin berhak memantau semua Komentar dan menghapus Komentar apa pun yang dianggap tidak pantas, menyinggung, atau menyebabkan pelanggaran terhadap Syarat dan Ketentuan ini.   
               </Text>
             </Box>
             <Box maxW={{ base: 'full', '3xl': '60%' }} pt="7">
@@ -321,7 +183,7 @@ export default function SyaratKetentuan() {
                   '3xl': '4xl',
                 }}
               >
-                Aturan Privasi Cookie
+                Tanggung Jawab Atas Konten
               </Heading>
             </Box>
             <Box w="full" pt="4">
@@ -331,15 +193,11 @@ export default function SyaratKetentuan() {
                 lineHeight={'-.0.001rem'}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
               >
-                Cookies adalah file kecil yang secara otomatis akan mengambil
-                tempat di dalam perangkat Pengguna yang menjalankan fungsi dalam
-                menyimpan preferensi maupun konfigurasi Pengguna selama
-                mengunjungi suatu Situs. Kami menggunakan cookie untuk berbagai
-                alasan, seperti untuk melacak data Anda jika dibutuhkan untuk
-                digunakan, pelacakan transaksi Anda, mengingat preferensi Anda
-                dan pada umumnya meningkatkan pengalaman Anda saat menggunakan
-                sebuah website. Anda dapat mengatur browser Anda untuk menerima
-                atau tidak menerima suatu cookie
+               Kami tidak akan bertanggung jawab atas konten yang muncul di Website Anda. 
+               Anda setuju untuk melindungi dan membela kami terhadap semua klaim yang diajukan 
+               atas Website Anda. Tidak ada tautan yang muncul di Website mana pun yang dapat dianggap 
+               sebagai memfitnah, cabul, atau kriminal, atau yang menyalahi, 
+               atau melanggar, atau mendukung pelanggaran lain terhadap hak pihak ketiga. 
               </Text>
             </Box>
             <Box maxW={{ base: 'full', '3xl': '60%' }} pt="7">
@@ -354,7 +212,7 @@ export default function SyaratKetentuan() {
                   '3xl': '4xl',
                 }}
               >
-                Persetujuan
+                Pernyataan Kepemilikan Hak
               </Heading>
             </Box>
             <Box w="full" pt="4">
@@ -364,14 +222,10 @@ export default function SyaratKetentuan() {
                 lineHeight={'-.0.001rem'}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
               >
-                Dengan membaca seluruh ketentuan ini, mengakses dan menggunakan
-                Situs serta layanan Kami, maka Anda dianggap telah membaca,
-                memahami, menyetujui, dan menyatakan tunduk pada aturan privasi
-                ini beserta perubahan-perubahan yang mungkin Kami lakukan dari
-                waktu ke waktu. Apabila Anda tidak dapat menyetujui aturan
-                privasi ini, baik secara keseluruhan ataupun sebagian, maka Anda
-                tidak diperbolehkan untuk mengakses Website ini ataupun
-                menggunakan Layanan yang Kami sediakan.
+               Kami berhak meminta Anda menghapus semua tautan atau tautan tertentu yang menuju ke Website kami. 
+               Anda setuju untuk segera menghapus semua tautan ke Website kami sesuai permintaan. 
+               Kami juga berhak mengubah syarat ketentuan ini dan kebijakan penautannya kapan saja. 
+               Dengan terus menautkan ke Website kami, Anda setuju untuk terikat dan mematuhi syarat dan ketentuan penautan ini
               </Text>
             </Box>
             <Box maxW={{ base: 'full', '3xl': '60%' }} pt="7">
@@ -386,7 +240,7 @@ export default function SyaratKetentuan() {
                   '3xl': '4xl',
                 }}
               >
-                Tanya Jawab
+                Penghapusan tautan dari website kami
               </Heading>
             </Box>
             <Box w="full" pt="4">
@@ -396,9 +250,12 @@ export default function SyaratKetentuan() {
                 lineHeight={'-.0.001rem'}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
               >
-                Jika Anda memiliki pertanyaan atau membutuhkan informasi lebih
-                lanjut mengenai pesanan Anda, Anda dapat mengirimkan email ke
-                eksrpotin@gmail.com.
+                Jika Anda menemukan tautan di Website kami yang bersifat menyinggung karena alasan apa pun, 
+                Anda bebas menghubungi dan memberi tahu kami kapan saja. Kami akan mempertimbangkan permintaan 
+                untuk menghapus tautan, tetapi kami tidak berkewajiban untuk menanggapi Anda secara langsung. 
+                Kami tidak memastikan bahwa informasi di website ini benar. Kami tidak menjamin kelengkapan atau 
+                keakuratannya, dan kami juga tidak berjanji untuk memastikan bahwa website tetap tersedia atau 
+                materi di website selalu diperbarui.   
               </Text>
             </Box>
           </Flex>

@@ -398,7 +398,7 @@ export default function KebijakanPrivasi() {
               >
                 Jika Anda memiliki pertanyaan atau membutuhkan informasi lebih
                 lanjut mengenai pesanan Anda, Anda dapat mengirimkan email ke
-                eksrpotin@gmail.com.
+                eksportin@gmail.com.
               </Text>
             </Box>
           </Flex>
