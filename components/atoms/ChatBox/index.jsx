@@ -101,149 +101,147 @@ function SimpleForm(props) {
     userFontColor: '#4a4a4a',
   }
 
-  const steps = [
-    {
-      id: '1',
-      message:
-        'Selamat datang di eskportin, ada yang bisa dibantu, terkait layanan kami?',
-      trigger: '2',
-    },
-    {
-      id: '2',
-      options: [
-        {
-          value: 'materi',
-          label: 'Materi',
-          metadata: {
-            q: 'Selamat datang di eskportin, ada yang bisa dibantu, terkait layanan kami?',
-          },
-          trigger: (input) => {
-            sendMessage(input, 2)
-            return 'materi_answer'
-          },
-        },
-        {
-          value: 'berita',
-          label: 'Berita',
-          metadata: {
-            q: 'Selamat datang di eskportin, ada yang bisa dibantu, terkait layanan kami?',
-          },
-          trigger: (input) => {
-            sendMessage(input, 2)
-            return 'berita_answer'
-          },
-        },
-        {
-          value: 'umkm',
-          label: 'Umkm',
-          metadata: {
-            q: 'Selamat datang di eskportin, ada yang bisa dibantu, terkait layanan kami?',
-          },
-          trigger: (input) => {
-            sendMessage(input, 2)
-            return 'umkm_answer'
-          },
-        },
-        {
-          value: 'pembeli',
-          label: 'Pembeli',
-          metadata: {
-            q: 'Selamat datang di eskportin, ada yang bisa dibantu, terkait layanan kami?',
-          },
-          trigger: (input) => {
-            sendMessage(input, 2)
-            return 'pembeli_answer'
-          },
-        },
-        {
-          value: 'instansi',
-          label: 'Instansi',
-          metadata: {
-            q: 'Selamat datang di eskportin, ada yang bisa dibantu, terkait layanan kami?',
-          },
-          trigger: (input) => {
-            if (timeLeft === null) {
-              return '7'
-            } else {
-              sendMessage(input)
-              return 'instansi-answer'
-            }
-          },
-        },
-      ],
-    },
-    {
-      id: 'materi_answer',
-      message:
-        'Materi merupakan layanan yang diujukan untuk edukasi mengenai eskpor umkm dan anda bisa belajar secara gratis',
-      trigger: 'ask_again',
-    },
-    {
-      id: 'berita_answer',
-      message:
-        'Berita merupakan layanan yang diujukan untuk menjembantani informasi terbaru terkait eskpor',
-      trigger: 'ask_again',
-    },
-    {
-      id: 'umkm_answer',
-      message:
-        'Umkm merupakan layanan yang menampilkan daftar umkm yang telah terdaftar bersama eksportin',
-      trigger: 'ask_again',
-    },
-    {
-      id: 'ask_again',
-      message: 'Apakah ada yang ingin ditanyakan kembali?',
-      trigger: 'choice',
-    },
-    {
-      id: 'choice',
-      options: [
-        {
-          value: 'ya',
-          label: 'Ya',
-          metadata: { q: 'Apakah ada yang ingin ditanyakan kembali?' },
-          trigger: (input) => {
-            sendMessage(input, 'choice')
-            return '2'
-          },
-        },
-        {
-          value: 'tidak',
-          label: 'Tidak',
-          metadata: { q: 'Apakah ada yang ingin ditanyakan kembali?' },
-          trigger: (input) => {
-            sendMessage(input, 'choice')
-            return 'end_message'
-          },
-        },
-      ],
-    },
-    {
-      id: 'end_message',
-      message:
-        'Terimakasih atas pertanyaannnya, silahkan kembali lagi jika ingin ada pertanyaan kembali',
-      end: true,
-    },
-  ]
-
   return (
     <>
-<ThemeProvider theme={theme}>
-  <ChatBot
-    headerTitle="Eskportin Bot"
-    steps={steps}
-    toggleFloating={toggleFloating}
-    floating={true}
-    opened={opened}
-    href="#"
-    botAvatar={'/assets/img/Logo.png'}
-    userAvatar={
-      props.datauser !== null
-        ? props.datauser.umkm.image_URL
-        : '/assets/avatars/avatar4.png'
-    }
-  />
-</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <ChatBot
+          headerTitle="Eskportin Bot"
+          steps={[
+            {
+              id: '1',
+              message:
+                'Selamat datang di eskportin, ada yang bisa dibantu, terkait layanan kami?',
+              trigger: '2',
+            },
+            {
+              id: '2',
+              options: [
+                {
+                  value: 'materi',
+                  label: 'Materi',
+                  metadata: {
+                    q: 'Selamat datang di eskportin, ada yang bisa dibantu, terkait layanan kami?',
+                  },
+                  trigger: (input) => {
+                    sendMessage(input, 2)
+                    return 'materi_answer'
+                  },
+                },
+                {
+                  value: 'berita',
+                  label: 'Berita',
+                  metadata: {
+                    q: 'Selamat datang di eskportin, ada yang bisa dibantu, terkait layanan kami?',
+                  },
+                  trigger: (input) => {
+                    sendMessage(input, 2)
+                    return 'berita_answer'
+                  },
+                },
+                {
+                  value: 'umkm',
+                  label: 'Umkm',
+                  metadata: {
+                    q: 'Selamat datang di eskportin, ada yang bisa dibantu, terkait layanan kami?',
+                  },
+                  trigger: (input) => {
+                    sendMessage(input, 2)
+                    return 'umkm_answer'
+                  },
+                },
+                {
+                  value: 'pembeli',
+                  label: 'Pembeli',
+                  metadata: {
+                    q: 'Selamat datang di eskportin, ada yang bisa dibantu, terkait layanan kami?',
+                  },
+                  trigger: (input) => {
+                    sendMessage(input, 2)
+                    return 'pembeli_answer'
+                  },
+                },
+                {
+                  value: 'instansi',
+                  label: 'Instansi',
+                  metadata: {
+                    q: 'Selamat datang di eskportin, ada yang bisa dibantu, terkait layanan kami?',
+                  },
+                  trigger: (input) => {
+                    if (timeLeft === null) {
+                      return '7'
+                    } else {
+                      sendMessage(input)
+                      return 'instansi-answer'
+                    }
+                  },
+                },
+              ],
+            },
+            {
+              id: 'materi_answer',
+              message:
+                'Materi merupakan layanan yang diujukan untuk edukasi mengenai eskpor umkm dan anda bisa belajar secara gratis',
+              trigger: 'ask_again',
+            },
+            {
+              id: 'berita_answer',
+              message:
+                'Berita merupakan layanan yang diujukan untuk menjembantani informasi terbaru terkait eskpor',
+              trigger: 'ask_again',
+            },
+            {
+              id: 'umkm_answer',
+              message:
+                'Umkm merupakan layanan yang menampilkan daftar umkm yang telah terdaftar bersama eksportin',
+              trigger: 'ask_again',
+            },
+            {
+              id: 'ask_again',
+              message: 'Apakah ada yang ingin ditanyakan kembali?',
+              trigger: 'choice',
+            },
+            {
+              id: 'choice',
+              options: [
+                {
+                  value: 'ya',
+                  label: 'Ya',
+                  metadata: { q: 'Apakah ada yang ingin ditanyakan kembali?' },
+                  trigger: (input) => {
+                    sendMessage(input, 'choice')
+                    return '2'
+                  },
+                },
+                {
+                  value: 'tidak',
+                  label: 'Tidak',
+                  metadata: { q: 'Apakah ada yang ingin ditanyakan kembali?' },
+                  trigger: (input) => {
+                    sendMessage(input, 'choice')
+                    return 'end_message'
+                  },
+                },
+              ],
+            },
+            {
+              id: 'end_message',
+              message:
+                'Terimakasih atas pertanyaannnya, silahkan kembali lagi jika ingin ada pertanyaan kembali',
+              end: true,
+            },
+          ]}
+          toggleFloating={toggleFloating}
+          floating={true}
+          opened={opened}
+          href="#"
+          botAvatar={'/assets/img/Logo.png'}
+          userAvatar={
+            props.datauser !== null
+              ? props.datauser.umkm.image_URL
+              : '/assets/avatars/avatar4.png'
+          }
+        />
+      </ThemeProvider>
     </>
   )
 }
