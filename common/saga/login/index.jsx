@@ -134,6 +134,7 @@ export function* changeProfileUser(action) {
       title: 'Ubah Profil Berhasil',
       position: `top-right`,
       isClosable: true,
+      duration: 7000,
       variant: `left-accent`,
       status: `success`,
     })
