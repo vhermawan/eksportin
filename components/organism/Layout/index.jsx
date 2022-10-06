@@ -21,6 +21,7 @@ const Layout = (props) => {
 
   useEffect(() => {
     if (dataUser !== null) {
+      console.log('data user', dataUser.umkm)
       const isNullish = Object.values(dataUser.umkm).includes(null)
       setResult(isNullish)
     }

@@ -192,620 +192,6 @@ function EditProfil(props) {
     return null
   }
 
-  const FormView = () => {
-    return (
-      <>
-        <GridItem mt={[5, null, 0]} colSpan={{ md: 3 }}>
-          <Formik
-            initialValues={{
-              name: dataUser.name === null ? '' : dataUser.name,
-              phone: dataUmkm.phone === null ? '' : dataUmkm.phone,
-              instagram: dataUmkm.instagram === null ? '' : dataUmkm.instagram,
-              address: dataUmkm.address === null ? '' : dataUmkm.address,
-              email: dataUser.email,
-              id_category_umkms:
-                dataUmkm.id_category_umkms === null
-                  ? ''
-                  : dataUmkm.id_category_umkms,
-              tokopedia: dataUmkm.tokopedia === null ? '' : dataUmkm.tokopedia,
-              facebook: dataUmkm.facebook === null ? '' : dataUmkm.facebook,
-              shopee: dataUmkm.shopee === null ? '' : dataUmkm.shopee,
-              id_province:
-                dataUmkm.id_province === null
-                  ? idProvince
-                  : dataUmkm.id_province,
-              id_city: dataUmkm.id_city === null ? idCity : dataUmkm.id_city,
-              id_district:
-                dataUmkm.id_district === null
-                  ? idDistrict
-                  : dataUmkm.id_district,
-              id_subdistrict:
-                dataUmkm.id_subdistrict === null
-                  ? idSubdistrict
-                  : dataUmkm.id_subdistrict,
-            }}
-            onSubmit={(values) => {
-              if (values.id_province === '') {
-                values.id_province = idProvince
-              }
-
-              if (values.id_city === '') {
-                values.id_city = idCity
-              }
-
-              if (values.id_district === '') {
-                values.id_district = idDistrict
-              }
-
-              if (values.id_subdistrict === '') {
-                values.id_subdistrict = idSubdistrict
-              }
-
-              if (description === null) {
-                setIsError(true)
-              } else if (description.length === 8) {
-                setIsError(true)
-                setIsType(true)
-              } else {
-                props.changeProfileUser(
-                  `/change-profile/${dataUmkm.id}`,
-                  values,
-                  file,
-                  description,
-                )
-              }
-            }}
-          >
-            {() => (
-              <Form>
-                <FormObserver />
-                <Stack
-                  px={4}
-                  py={5}
-                  p={[null, 6]}
-                  bg={useColorModeValue('white', 'gray.700')}
-                  spacing={6}
-                >
-                  <SimpleGrid columns={6} spacing={6}>
-                    <Field name="name" validate={validation.Required}>
-                      {({ field, form }) => (
-                        <FormControl
-                          as={GridItem}
-                          colSpan={[6]}
-                          isInvalid={form.errors.name && form.touched.name}
-                          isRequired
-                        >
-                          <FormLabel
-                            htmlFor="name"
-                            fontSize="sm"
-                            fontWeight="md"
-                            color={useColorModeValue('gray.700', 'gray.50')}
-                          >
-                            Nama UMKM
-                          </FormLabel>
-                          <Input
-                            type="text"
-                            id="name"
-                            mt={1}
-                            focusBorderColor="brand.400"
-                            shadow="sm"
-                            size="sm"
-                            w="full"
-                            rounded="md"
-                            placeholder="Nama UMKM"
-                            {...field}
-                          />
-                          <FormErrorMessage>
-                            {form.errors.name}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-
-                    <Field name="email" validate={validation.ValidateEmail}>
-                      {({ field, form }) => (
-                        <FormControl
-                          as={GridItem}
-                          colSpan={[6]}
-                          isInvalid={form.errors.email && form.touched.email}
-                          isRequired
-                        >
-                          <FormLabel
-                            htmlFor="email"
-                            fontSize="sm"
-                            fontWeight="md"
-                            color={useColorModeValue('gray.700', 'gray.50')}
-                          >
-                            Email UMKM
-                          </FormLabel>
-                          <Input
-                            type="text"
-                            name="email"
-                            id="email"
-                            autoComplete="family-name"
-                            mt={1}
-                            focusBorderColor="brand.400"
-                            shadow="sm"
-                            size="sm"
-                            w="full"
-                            rounded="md"
-                            placeholder="Email UMKM"
-                            {...field}
-                          />
-                          <FormErrorMessage>
-                            {form.errors.email}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-
-                    <Field name="phone" validate={validation.Required}>
-                      {({ field, form }) => (
-                        <FormControl
-                          as={GridItem}
-                          colSpan={[6]}
-                          isInvalid={form.errors.phone && form.touched.phone}
-                          isRequired
-                        >
-                          <FormLabel
-                            htmlFor="phone"
-                            fontSize="sm"
-                            fontWeight="md"
-                            color={useColorModeValue('gray.700', 'gray.50')}
-                          >
-                            Nomor Telepon
-                          </FormLabel>
-                          <Input
-                            type="text"
-                            name="phone"
-                            id="phone"
-                            mt={1}
-                            focusBorderColor="brand.400"
-                            shadow="sm"
-                            size="sm"
-                            w="full"
-                            rounded="md"
-                            placeholder="08xxxxxxxxxx"
-                            {...field}
-                          />
-                          <FormErrorMessage>
-                            {form.errors.phone}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-
-                    <Field name="id_category_umkms">
-                      {({ field, form }) => (
-                        <FormControl
-                          as={GridItem}
-                          colSpan={[6]}
-                          isInvalid={
-                            form.errors.id_category_umkms &&
-                            form.touched.id_category_umkms
-                          }
-                          isRequired
-                        >
-                          <FormLabel
-                            htmlFor="id_category_umkms"
-                            fontSize="sm"
-                            fontWeight="md"
-                            color={useColorModeValue('gray.700', 'gray.50')}
-                          >
-                            Kategori Umkm
-                          </FormLabel>
-                          <Select
-                            id="id_category_umkms"
-                            name="id_category_umkms"
-                            mt={1}
-                            focusBorderColor="brand.400"
-                            shadow="sm"
-                            size="sm"
-                            w="full"
-                            rounded="md"
-                            isRequired
-                            {...field}
-                          >
-                            {category.map((item) => (
-                              <option key={item.id} value={item.id}>
-                                {item.name}
-                              </option>
-                            ))}
-                          </Select>
-                          <FormErrorMessage>
-                            {form.errors.id_category_umkms}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-
-                    <Field name="id_province">
-                      {({ field, form }) => (
-                        <FormControl
-                          as={GridItem}
-                          colSpan={[6]}
-                          isInvalid={
-                            form.errors.id_province && form.touched.id_province
-                          }
-                          isRequired
-                        >
-                          <FormLabel
-                            htmlFor="id_province"
-                            fontSize="sm"
-                            fontWeight="md"
-                            color={useColorModeValue('gray.700', 'gray.50')}
-                          >
-                            Provinsi
-                          </FormLabel>
-                          <Select
-                            id="id_province"
-                            name="id_province"
-                            mt={1}
-                            focusBorderColor="brand.400"
-                            shadow="sm"
-                            size="sm"
-                            w="full"
-                            rounded="md"
-                            onChange={form.onChange}
-                            isRequired
-                            {...field}
-                          >
-                            {province.map((item) => (
-                              <option key={item.prov_id} value={item.prov_id}>
-                                {item.prov_name}
-                              </option>
-                            ))}
-                          </Select>
-                          <FormErrorMessage>
-                            {form.errors.id_province}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-
-                    <Field name="id_city">
-                      {({ field, form }) => (
-                        <FormControl
-                          as={GridItem}
-                          colSpan={[6]}
-                          isInvalid={
-                            form.errors.id_city && form.touched.id_city
-                          }
-                          isRequired
-                        >
-                          <FormLabel
-                            htmlFor="id_city"
-                            fontSize="sm"
-                            fontWeight="md"
-                            color={useColorModeValue('gray.700', 'gray.50')}
-                          >
-                            Kabupaten/Kota
-                          </FormLabel>
-                          <Select
-                            id="id_city"
-                            name="id_city"
-                            mt={1}
-                            focusBorderColor="brand.400"
-                            shadow="sm"
-                            size="sm"
-                            w="full"
-                            rounded="md"
-                            isRequired
-                            {...field}
-                            disabled={city.length === 0}
-                          >
-                            {city.map((item) => (
-                              <option key={item.city_id} value={item.city_id}>
-                                {item.city_name}
-                              </option>
-                            ))}
-                          </Select>
-                          <FormErrorMessage>
-                            {form.errors.id_city}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-
-                    <Field name="id_district">
-                      {({ field, form }) => (
-                        <FormControl
-                          as={GridItem}
-                          colSpan={[6]}
-                          isInvalid={
-                            form.errors.id_district && form.touched.id_district
-                          }
-                          isRequired
-                        >
-                          <FormLabel
-                            htmlFor="id_district"
-                            fontSize="sm"
-                            fontWeight="md"
-                            color={useColorModeValue('gray.700', 'gray.50')}
-                          >
-                            Kecamatan
-                          </FormLabel>
-                          <Select
-                            id="id_district"
-                            name="id_district"
-                            mt={1}
-                            focusBorderColor="brand.400"
-                            shadow="sm"
-                            size="sm"
-                            w="full"
-                            rounded="md"
-                            isRequired
-                            disabled={district.length === 0}
-                            {...field}
-                          >
-                            {district.map((item) => (
-                              <option key={item.dis_id} value={item.dis_id}>
-                                {item.dis_name}
-                              </option>
-                            ))}
-                          </Select>
-                          <FormErrorMessage>
-                            {form.errors.id_district}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-
-                    <Field name="id_subdistrict">
-                      {({ field, form }) => (
-                        <FormControl
-                          as={GridItem}
-                          colSpan={[6]}
-                          isInvalid={
-                            form.errors.id_subdistrict &&
-                            form.touched.id_subdistrict
-                          }
-                          isRequired
-                        >
-                          <FormLabel
-                            htmlFor="id_subdistrict"
-                            fontSize="sm"
-                            fontWeight="md"
-                            color={useColorModeValue('gray.700', 'gray.50')}
-                          >
-                            Desa
-                          </FormLabel>
-                          <Select
-                            id="id_subdistrict"
-                            name="id_subdistrict"
-                            mt={1}
-                            focusBorderColor="brand.400"
-                            shadow="sm"
-                            size="sm"
-                            w="full"
-                            rounded="md"
-                            isRequired
-                            disabled={subDistrict.length === 0}
-                            {...field}
-                          >
-                            {subDistrict.map((item) => (
-                              <option
-                                key={item.subdis_id}
-                                value={item.subdis_id}
-                              >
-                                {item.subdis_name}
-                              </option>
-                            ))}
-                          </Select>
-                          <FormErrorMessage>
-                            {form.errors.id_subdistrict}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-
-                    <Field name="address" validate={validation.Required}>
-                      {({ field, form }) => (
-                        <FormControl
-                          as={GridItem}
-                          colSpan={[6]}
-                          isInvalid={
-                            form.errors.address && form.touched.address
-                          }
-                          isRequired
-                        >
-                          <FormLabel
-                            htmlFor="address"
-                            fontSize="sm"
-                            fontWeight="md"
-                            color={useColorModeValue('gray.700', 'gray.50')}
-                          >
-                            Alamat
-                          </FormLabel>
-                          <Textarea
-                            type="text"
-                            name="address"
-                            id="address"
-                            autoComplete="email"
-                            mt={1}
-                            focusBorderColor="brand.400"
-                            shadow="sm"
-                            size="sm"
-                            w="full"
-                            rounded="md"
-                            placeholder="Jl. Raya Kedungkandang No.1"
-                            {...field}
-                          />
-                          <FormErrorMessage>
-                            {form.errors.address}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-
-                    <FormControl
-                      as={GridItem}
-                      colSpan={[6]}
-                      isInvalid={isError}
-                      isRequired
-                    >
-                      <FormLabel
-                        htmlFor="description"
-                        fontSize="sm"
-                        fontWeight="md"
-                        color={useColorModeValue('gray.700', 'gray.50')}
-                      >
-                        Deskripsi
-                      </FormLabel>
-                      <TextEditor
-                        setFieldValue={(val) => parseDescription(val)}
-                        value={description}
-                      />
-                      {!isError ? (
-                        <></>
-                      ) : (
-                        <FormErrorMessage>Silahkan isi.</FormErrorMessage>
-                      )}
-                    </FormControl>
-
-                    <Field name="instagram" validate={validation.Required}>
-                      {({ field, form }) => (
-                        <FormControl
-                          as={GridItem}
-                          colSpan={[6]}
-                          isInvalid={
-                            form.errors.instagram && form.touched.instagram
-                          }
-                          isRequired
-                        >
-                          <FormLabel
-                            htmlFor="instagram"
-                            fontSize="sm"
-                            fontWeight="md"
-                            color={useColorModeValue('gray.700', 'gray.50')}
-                          >
-                            Instagram
-                          </FormLabel>
-                          <Input
-                            type="text"
-                            id="instagram"
-                            mt={1}
-                            focusBorderColor="brand.400"
-                            shadow="sm"
-                            size="sm"
-                            w="full"
-                            rounded="md"
-                            placeholder="link instagram"
-                            {...field}
-                          />
-                          <FormErrorMessage>
-                            {form.errors.instagram}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-
-                    <Field name="shopee" validate={validation.Required}>
-                      {({ field, form }) => (
-                        <FormControl
-                          as={GridItem}
-                          colSpan={[6]}
-                          isInvalid={form.errors.shopee && form.touched.shopee}
-                          isRequired
-                        >
-                          <FormLabel
-                            htmlFor="shopee"
-                            fontSize="sm"
-                            fontWeight="md"
-                            color={useColorModeValue('gray.700', 'gray.50')}
-                          >
-                            Shopee
-                          </FormLabel>
-                          <Input
-                            type="text"
-                            id="shopee"
-                            mt={1}
-                            focusBorderColor="brand.400"
-                            shadow="sm"
-                            size="sm"
-                            w="full"
-                            rounded="md"
-                            placeholder="link shopee"
-                            {...field}
-                          />
-                          <FormErrorMessage>
-                            {form.errors.shopee}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-
-                    <Field name="tokopedia" validate={validation.Required}>
-                      {({ field, form }) => (
-                        <FormControl
-                          as={GridItem}
-                          colSpan={[6]}
-                          isInvalid={
-                            form.errors.tokopedia && form.touched.tokopedia
-                          }
-                          isRequired
-                        >
-                          <FormLabel
-                            htmlFor="tokopedia"
-                            fontSize="sm"
-                            fontWeight="md"
-                            color={useColorModeValue('gray.700', 'gray.50')}
-                          >
-                            Tokopedia
-                          </FormLabel>
-                          <Input
-                            type="text"
-                            id="tokopedia"
-                            mt={1}
-                            focusBorderColor="brand.400"
-                            shadow="sm"
-                            size="sm"
-                            w="full"
-                            rounded="md"
-                            placeholder="link tokopedia"
-                            {...field}
-                          />
-                          <FormErrorMessage>
-                            {form.errors.tokopedia}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-
-                    <FormControl as={GridItem} colSpan={[6]}>
-                      <FormLabel
-                        htmlFor="photo"
-                        fontSize="sm"
-                        fontWeight="md"
-                        color={useColorModeValue('gray.700', 'gray.50')}
-                        isRequired
-                      >
-                        Upload foto
-                      </FormLabel>
-                      <UploadFile file={file} setFile={setFile} />
-                    </FormControl>
-                  </SimpleGrid>
-                </Stack>
-                <Box px={{ base: 4, sm: 6 }} py={3} textAlign="right">
-                  <Button
-                    type="submit"
-                    color="white"
-                    bgColor="#4FD1C5"
-                    _focus={{ shadow: '' }}
-                    fontWeight="md"
-                    aria-label="simpan"
-                  >
-                    Simpan
-                  </Button>
-                </Box>
-              </Form>
-            )}
-          </Formik>
-        </GridItem>
-      </>
-    )
-  }
-
   return dataUser && dataUmkm ? (
     <>
       <NextSeo
@@ -898,7 +284,650 @@ function EditProfil(props) {
               spacing={{ md: 6 }}
             >
               <GridItem mt={[5, null, 0]} colSpan={{ md: 3 }}>
-                <FormView />
+                <Formik
+                  initialValues={{
+                    name: dataUser.name === null ? '' : dataUser.name,
+                    phone: dataUmkm.phone === null ? '' : dataUmkm.phone,
+                    instagram: dataUmkm.instagram === null ? '' : dataUmkm.instagram,
+                    address: dataUmkm.address === null ? '' : dataUmkm.address,
+                    email: dataUser.email,
+                    id_category_umkms:
+                      dataUmkm.id_category_umkms === null
+                        ? ''
+                        : dataUmkm.id_category_umkms,
+                    tokopedia: dataUmkm.tokopedia === null ? '' : dataUmkm.tokopedia,
+                    facebook: dataUmkm.facebook === null ? '' : dataUmkm.facebook,
+                    shopee: dataUmkm.shopee === null ? '' : dataUmkm.shopee,
+                    id_province:
+                      dataUmkm.id_province === null
+                        ? idProvince
+                        : dataUmkm.id_province,
+                    id_city: dataUmkm.id_city === null ? idCity : dataUmkm.id_city,
+                    id_district:
+                      dataUmkm.id_district === null
+                        ? idDistrict
+                        : dataUmkm.id_district,
+                    id_subdistrict:
+                      dataUmkm.id_subdistrict === null
+                        ? idSubdistrict
+                        : dataUmkm.id_subdistrict,
+                  }}
+                  onSubmit={(values) => {
+                    if (values.id_province === '') {
+                      values.id_province = idProvince
+                    }
+
+                    if (values.id_city === '') {
+                      values.id_city = idCity
+                    }
+
+                    if (values.id_district === '') {
+                      values.id_district = idDistrict
+                    }
+
+                    if (values.id_subdistrict === '') {
+                      values.id_subdistrict = idSubdistrict
+                    }
+
+                    if (description === null) {
+                      setIsError(true)
+                    } else if (description.length === 8) {
+                      setIsError(true)
+                      setIsType(true)
+                    } else {
+                      props.changeProfileUser(
+                        `/change-profile/${dataUmkm.id}`,
+                        values,
+                        file,
+                        description,
+                      )
+                    }
+                  }}
+                >
+                  {() => (
+                    <Form>
+                      <FormObserver />
+                      <Stack
+                        px={4}
+                        py={5}
+                        p={[null, 6]}
+                        bg={useColorModeValue('white', 'gray.700')}
+                        spacing={6}
+                      >
+                        <SimpleGrid columns={6} spacing={6}>
+                          <Field name="name" validate={validation.Required}>
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={form.errors.name && form.touched.name}
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="name"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Nama UMKM
+                                </FormLabel>
+                                <Input
+                                  type="text"
+                                  id="name"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  placeholder="Nama UMKM"
+                                  {...field}
+                                />
+                                <FormErrorMessage>
+                                  {form.errors.name}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="email" validate={validation.ValidateEmail}>
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={form.errors.email && form.touched.email}
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="email"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Email UMKM
+                                </FormLabel>
+                                <Input
+                                  type="text"
+                                  name="email"
+                                  id="email"
+                                  autoComplete="family-name"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  placeholder="Email UMKM"
+                                  {...field}
+                                />
+                                <FormErrorMessage>
+                                  {form.errors.email}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="phone" validate={validation.Required}>
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={form.errors.phone && form.touched.phone}
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="phone"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Nomor Telepon
+                                </FormLabel>
+                                <Input
+                                  type="text"
+                                  name="phone"
+                                  id="phone"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  placeholder="08xxxxxxxxxx"
+                                  {...field}
+                                />
+                                <FormErrorMessage>
+                                  {form.errors.phone}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="id_category_umkms">
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.id_category_umkms &&
+                                  form.touched.id_category_umkms
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="id_category_umkms"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Kategori Umkm
+                                </FormLabel>
+                                <Select
+                                  id="id_category_umkms"
+                                  name="id_category_umkms"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  isRequired
+                                  {...field}
+                                >
+                                  {category.map((item) => (
+                                    <option key={item.id} value={item.id}>
+                                      {item.name}
+                                    </option>
+                                  ))}
+                                </Select>
+                                <FormErrorMessage>
+                                  {form.errors.id_category_umkms}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="id_province">
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.id_province && form.touched.id_province
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="id_province"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Provinsi
+                                </FormLabel>
+                                <Select
+                                  id="id_province"
+                                  name="id_province"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  onChange={form.onChange}
+                                  isRequired
+                                  {...field}
+                                >
+                                  {province.map((item) => (
+                                    <option key={item.prov_id} value={item.prov_id}>
+                                      {item.prov_name}
+                                    </option>
+                                  ))}
+                                </Select>
+                                <FormErrorMessage>
+                                  {form.errors.id_province}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="id_city">
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.id_city && form.touched.id_city
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="id_city"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Kabupaten/Kota
+                                </FormLabel>
+                                <Select
+                                  id="id_city"
+                                  name="id_city"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  isRequired
+                                  {...field}
+                                  disabled={city.length === 0}
+                                >
+                                  {city.map((item) => (
+                                    <option key={item.city_id} value={item.city_id}>
+                                      {item.city_name}
+                                    </option>
+                                  ))}
+                                </Select>
+                                <FormErrorMessage>
+                                  {form.errors.id_city}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="id_district">
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.id_district && form.touched.id_district
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="id_district"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Kecamatan
+                                </FormLabel>
+                                <Select
+                                  id="id_district"
+                                  name="id_district"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  isRequired
+                                  disabled={district.length === 0}
+                                  {...field}
+                                >
+                                  {district.map((item) => (
+                                    <option key={item.dis_id} value={item.dis_id}>
+                                      {item.dis_name}
+                                    </option>
+                                  ))}
+                                </Select>
+                                <FormErrorMessage>
+                                  {form.errors.id_district}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="id_subdistrict">
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.id_subdistrict &&
+                                  form.touched.id_subdistrict
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="id_subdistrict"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Desa
+                                </FormLabel>
+                                <Select
+                                  id="id_subdistrict"
+                                  name="id_subdistrict"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  isRequired
+                                  disabled={subDistrict.length === 0}
+                                  {...field}
+                                >
+                                  {subDistrict.map((item) => (
+                                    <option
+                                      key={item.subdis_id}
+                                      value={item.subdis_id}
+                                    >
+                                      {item.subdis_name}
+                                    </option>
+                                  ))}
+                                </Select>
+                                <FormErrorMessage>
+                                  {form.errors.id_subdistrict}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="address" validate={validation.Required}>
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.address && form.touched.address
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="address"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Alamat
+                                </FormLabel>
+                                <Textarea
+                                  type="text"
+                                  name="address"
+                                  id="address"
+                                  autoComplete="email"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  placeholder="Jl. Raya Kedungkandang No.1"
+                                  {...field}
+                                />
+                                <FormErrorMessage>
+                                  {form.errors.address}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <FormControl
+                            as={GridItem}
+                            colSpan={[6]}
+                            isInvalid={isError}
+                            isRequired
+                          >
+                            <FormLabel
+                              htmlFor="description"
+                              fontSize="sm"
+                              fontWeight="md"
+                              color={useColorModeValue('gray.700', 'gray.50')}
+                            >
+                              Deskripsi
+                            </FormLabel>
+                            <TextEditor
+                              setFieldValue={(val) => parseDescription(val)}
+                              value={description}
+                            />
+                            {!isError ? (
+                              <></>
+                            ) : (
+                              <FormErrorMessage>Silahkan isi.</FormErrorMessage>
+                            )}
+                          </FormControl>
+
+                          <Field name="instagram" validate={validation.Required}>
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.instagram && form.touched.instagram
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="instagram"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Instagram
+                                </FormLabel>
+                                <Input
+                                  type="text"
+                                  id="instagram"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  placeholder="link instagram"
+                                  {...field}
+                                />
+                                <FormErrorMessage>
+                                  {form.errors.instagram}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="shopee" validate={validation.Required}>
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={form.errors.shopee && form.touched.shopee}
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="shopee"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Shopee
+                                </FormLabel>
+                                <Input
+                                  type="text"
+                                  id="shopee"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  placeholder="link shopee"
+                                  {...field}
+                                />
+                                <FormErrorMessage>
+                                  {form.errors.shopee}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="tokopedia" validate={validation.Required}>
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.tokopedia && form.touched.tokopedia
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="tokopedia"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Tokopedia
+                                </FormLabel>
+                                <Input
+                                  type="text"
+                                  id="tokopedia"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  placeholder="link tokopedia"
+                                  {...field}
+                                />
+                                <FormErrorMessage>
+                                  {form.errors.tokopedia}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field name="facebook" validate={validation.Required}>
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.facebook && form.touched.facebook
+                                }
+                                isRequired
+                              >
+                                <FormLabel
+                                  htmlFor="facebook"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Facebook
+                                </FormLabel>
+                                <Input
+                                  type="text"
+                                  id="facebook"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  placeholder="link facebook"
+                                  {...field}
+                                />
+                                <FormErrorMessage>
+                                  {form.errors.facebook}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <FormControl as={GridItem} colSpan={[6]}>
+                            <FormLabel
+                              htmlFor="photo"
+                              fontSize="sm"
+                              fontWeight="md"
+                              color={useColorModeValue('gray.700', 'gray.50')}
+                              isRequired
+                            >
+                              Upload foto
+                            </FormLabel>
+                            <UploadFile file={file} setFile={setFile} />
+                          </FormControl>
+                        </SimpleGrid>
+                      </Stack>
+                      <Box px={{ base: 4, sm: 6 }} py={3} textAlign="right">
+                        <Button
+                          type="submit"
+                          color="white"
+                          bgColor="#4FD1C5"
+                          _focus={{ shadow: '' }}
+                          fontWeight="md"
+                          aria-label="simpan"
+                          isLoading = {props.loading}
+                          loadingText='simpan'
+                        >
+                          Simpan
+                        </Button>
+                      </Box>
+                    </Form>
+                  )}
+                </Formik>
               </GridItem>
             </SimpleGrid>
           </Box>
@@ -912,6 +941,7 @@ function EditProfil(props) {
 
 const mapStateToProps = (state) => ({
   auth: state.auth.auth,
+  loading: state.auth.loading,
   categoryUmkms: state.masterData.categoryUmkms,
 })
 

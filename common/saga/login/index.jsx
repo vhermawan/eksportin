@@ -96,7 +96,6 @@ export function* logOutUser(action) {
 }
 
 export function* changeProfileUser(action) {
-  let timeOut
   const toast = createStandaloneToast()
   const params = new FormData()
   params.set('email', action.params.email)
@@ -107,6 +106,7 @@ export function* changeProfileUser(action) {
   params.set('shopee', action.params.shopee)
   params.set('tokopedia', action.params.tokopedia)
   params.set('instagram', action.params.instagram)
+  params.set('facebook', action.params.facebook)
   params.set('id_province', action.params.id_province)
   params.set('id_city', action.params.id_city)
   params.set('id_district', action.params.id_district)
@@ -137,7 +137,7 @@ export function* changeProfileUser(action) {
       variant: `left-accent`,
       status: `success`,
     })
-    setTimeout(() => router.push('/profil'), 1000)
+    router.push('/profil')
   } else {
     yield put({
       type: actionTypes.CHANGE_PROFILE_FAIL,
