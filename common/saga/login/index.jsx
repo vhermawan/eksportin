@@ -96,7 +96,7 @@ export function* logOutUser(action) {
 }
 
 export function* changeProfileUser(action) {
-  const toast = createStandaloneToast()
+  const toast = createStandaloneToast();
   const params = new FormData()
   params.set('email', action.params.email)
   params.set('address', action.params.address)
@@ -113,7 +113,8 @@ export function* changeProfileUser(action) {
   params.set('id_subdistrict', action.params.id_subdistrict)
   params.set('id_category_umkms', action.params.id_category_umkms)
   params.append('photo', action.file)
-  const content = yield API.post(action.endpoint, params)
+  const content = yield API.post(action.endpoint, params);
+  let isUpdated = false;
   if (content.status === 400) {
     yield put({
       type: actionTypes.CHANGE_PROFILE_FAIL,
@@ -138,7 +139,7 @@ export function* changeProfileUser(action) {
       variant: `left-accent`,
       status: `success`,
     })
-    router.push('/profil')
+    isUpdated = true;
   } else {
     yield put({
       type: actionTypes.CHANGE_PROFILE_FAIL,
@@ -151,4 +152,14 @@ export function* changeProfileUser(action) {
       status: `error`,
     })
   }
+  
+  // tetep harus reload tiap nang edit-profile
+  // tapi atleast nggk langsung ilang notif.e
+  // ben muncul sik lagi redirect
+  setTimeout(() => {
+    if(isUpdated){
+      isUpdated=false;
+      router.push('/profil')
+    }
+  }, 1800);
 }
