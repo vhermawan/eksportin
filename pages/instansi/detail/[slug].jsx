@@ -14,6 +14,8 @@ import {
   Link,
   Stack,
   Icon,
+  HStack,
+  Tag,
 } from '@chakra-ui/react'
 import { FaWhatsapp } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
@@ -132,12 +134,61 @@ export default function detailInstansi() {
                 />
               </Flex>
               <Flex mt="3" w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}>
-                <div
-                  id="description-stakeholder"
-                  dangerouslySetInnerHTML={{
-                    __html: detailStakeholder.description,
-                  }}
-                />
+                <div className='detail-course'>
+                  <div
+                    id="description-stakeholder"
+                    dangerouslySetInnerHTML={{
+                      __html: detailStakeholder.description,
+                    }}
+                  />
+                </div>
+              </Flex>
+              <Flex mt="3" w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}>
+                <Text
+                  color={colorMode === 'light' ? '#21383E' : 'white'}
+                  fontWeight="extrabold"
+                  letterSpacing={'-.0.001rem'}
+                  lineHeight={'-.0.001rem'}
+                  fontSize={{ base: 'sm', '3xl': '2xl' }}
+                >
+                  Alamat: 
+                </Text>
+              </Flex>
+              <Flex mt="3" w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}>
+                <Text
+                  color={colorMode === 'light' ? '#21383E' : 'white'}
+                  fontWeight="medium"
+                  letterSpacing={'-.0.001rem'}
+                  lineHeight={'-.0.001rem'}
+                  fontSize={{ base: 'sm', '3xl': '2xl' }}
+                >
+                  {detailStakeholder.address}
+                </Text>
+              </Flex>
+              <Flex mt="3" w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}>
+                <Text
+                  color={colorMode === 'light' ? '#21383E' : 'white'}
+                  fontWeight="extrabold"
+                  letterSpacing={'-.0.001rem'}
+                  lineHeight={'-.0.001rem'}
+                  fontSize={{ base: 'sm', '3xl': '2xl' }}
+                >
+                  Layanan: 
+                </Text>
+              </Flex>
+              <Flex mt="3" w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}>
+                <HStack spacing={4} mt="2">
+                  {detailStakeholder.services.split('|').map((services) => (
+                    <Tag
+                      size="md"
+                      key={services}
+                      variant="solid"
+                      colorScheme="teal"
+                    >
+                      {services}
+                    </Tag>
+                  ))}
+                </HStack>
               </Flex>
               <Flex mt="3" w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}>
                 <Text

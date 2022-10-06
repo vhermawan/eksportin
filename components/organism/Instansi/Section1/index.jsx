@@ -79,7 +79,7 @@ const Section1 = (props) => {
               fontSize={{ '3xl': 'xl' }}
             >
               Temukan daftar instansi yang terafiliasi bersama eksportin dan
-              pasarkan produk yang sesuai
+              temukan koneksi untuk pemasaran produk anda
             </Text>
             <InputGroup
               bg="white"

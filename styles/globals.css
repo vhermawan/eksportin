@@ -15,6 +15,18 @@ a {
   box-sizing: border-box;
 }
 
+.detail-course ul {
+ margin-left: 38px;
+}
+
+.detail-course ol {
+  margin-left: 38px;
+ }
+
+.detail-course h2 {
+  font-size: 24px;
+}
+
 #description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -23,3 +35,8 @@ a {
   width: 100%;
   max-height: 72px;
 }
+
+#description ol > ul > li a {
+  margin-left: 10px;
+ }
+ 

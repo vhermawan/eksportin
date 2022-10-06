@@ -11,8 +11,10 @@ import {
 import moment from 'moment'
 import { FaTrash } from 'react-icons/fa'
 import EllipsisText from 'react-ellipsis-text/lib/components/EllipsisText'
+import { useMediaQuery } from '@chakra-ui/react'
 
 const CardMateri = (props) => {
+  const [isLargerThan360] = useMediaQuery('(min-width: 1080px)')
   return (
     <Flex w="full" alignItems="center" justifyContent="center">
       <Box
@@ -94,7 +96,7 @@ const CardMateri = (props) => {
             Delete Course
           </Button>
 
-          <Flex alignItems="center" display={props.isDetail ? "none" : "flex"}>
+          <Flex alignItems="center" display={props.isDetail || !isLargerThan360 ? "none" : "flex"}>
             <Image
               mx={4}
               w={10}
@@ -103,7 +105,11 @@ const CardMateri = (props) => {
               fit="cover"
               loading="lazy"
               display={{ base: 'none', sm: 'block' }}
-              src="https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=40&q=80"
+              src= {
+                props.data.photos ? 
+                `https://eksportin.com/${props.data.photos}` :
+                "https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=40&q=80"
+              }
               alt="avatar"
             />
             <Link
@@ -113,7 +119,7 @@ const CardMateri = (props) => {
             >
               <EllipsisText
                 text={props.data.speaker}
-                length={25}
+                length={12}
               />
             </Link>
           </Flex>

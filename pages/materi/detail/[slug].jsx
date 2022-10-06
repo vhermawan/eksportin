@@ -146,8 +146,11 @@ export default function detailMateri() {
               <Flex mt="3">
                 <Flex wrap="wrap" alignItems="center">
                   <Avatar
-                    name="Dan Abrahmov"
-                    src="https://bit.ly/dan-abramov"
+                    name={detailCourse.speaker}
+                    src={
+                      detailCourse.photos
+                        ? `https://eksportin.com/${detailCourse.photos}` : 
+                        "https://bit.ly/dan-abramov"}
                     size="sm"
                   />
                   <Text ml="3">{detailCourse.speaker}</Text>
@@ -182,10 +185,12 @@ export default function detailMateri() {
                 wrap="wrap"
                 w={{ base: 'full', '2xl': '4xl', '3xl': '7xl' }}
               >
-                <div
-                  id="description-course"
-                  dangerouslySetInnerHTML={{ __html: detailCourse.description }}
-                />
+                <div className='detail-course'>
+                  <div
+                    id="description-course"
+                    dangerouslySetInnerHTML={{ __html: detailCourse.description }}
+                  />
+                </div>
               </Flex>
               <Flex
                 top="5"
