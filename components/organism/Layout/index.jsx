@@ -21,7 +21,6 @@ const Layout = (props) => {
 
   useEffect(() => {
     if (dataUser !== null) {
-      console.log('data user', dataUser.umkm)
       const isNullish = Object.values(dataUser.umkm).includes(null)
       setResult(isNullish)
     }
@@ -29,8 +28,8 @@ const Layout = (props) => {
 
   useEffect(() => {
     if (checkSessionTimes()) {
-      Cookies.remove('token', { path: '/', domain: 'localhost' })
-      Cookies.remove('loginTimes', { path: '/', domain: 'localhost' })
+      Cookies.remove('token', { path: '/'})
+      Cookies.remove('loginTimes', { path: '/'})
       localStorage.removeItem('checkModal')
       router.push('/')
     }
@@ -48,7 +47,7 @@ const Layout = (props) => {
         clearTimeout(time)
       }
     }
-  })
+  },[])
 
   useEffect(() => {
     if (result) {

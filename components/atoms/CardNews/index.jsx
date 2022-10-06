@@ -76,8 +76,8 @@ const CardNews = (props) => {
               <Box>
                 <Flex wrap="wrap" alignItems="center">
                   <Avatar
-                    name="Dan Abrahmov"
-                    src="https://bit.ly/dan-abramov"
+                    name={props.data.author}
+                    src="/assets/img/Logo.png"
                     size="sm"
                   />
                   <Text ml="3" fontSize={13}>

@@ -47,9 +47,9 @@ const Section4 = () => {
               <ol>
                 <WrapItem>
                   <Avatar
-                    name="Dan Abrahmov"
+                    name="Pak Sunaryo"
                     size="xl"
-                    src="https://bit.ly/dan-abramov"
+                    src="/assets/img/people-1.jpg"
                   />
                 </WrapItem>
               </ol>
@@ -71,15 +71,15 @@ const Section4 = () => {
           <Box>
             <Text fontSize={{ base: 'sm', lg: 'lg', '3xl': '3xl' }}>
               Belajar ekspor di eksportin sangat menyenangkan karena materinya
-              semua gratis, serta dapat diakses darimana saja dan kapan saja
+              semua gratis, serta dapat diakses darimana saja dan kapan saja.
             </Text>
             <Flex w="full" wrap={{ base: 'nowrap', lg: 'wrap' }} mt="8">
               <ol>
                 <WrapItem>
                   <Avatar
-                    name="Dan Abrahmov"
+                    name="Pak Andika"
                     size="xl"
-                    src="https://bit.ly/dan-abramov"
+                    src="/assets/img/people-2.jpg"
                   />
                 </WrapItem>
               </ol>
@@ -89,7 +89,7 @@ const Section4 = () => {
                   fontWeight="bold"
                   mb="2"
                 >
-                  Bu Inayah
+                  Pak Andika
                 </Text>
                 <Text fontSize={{ base: 'sm', lg: 'md', '3xl': 'xl' }}>
                   Pedangan Kain Batik
