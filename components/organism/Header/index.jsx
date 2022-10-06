@@ -150,20 +150,23 @@ function Header(props) {
                     Ganti Password
                   </MenuItem>
                   <MenuDivider />
-                  <Button
-                    mt={{ base: 5, md: 0 }}
-                    ml={{ base: 6, '3xl': '5px' }}
-                    size="sm"
-                    variant="ghost"
-                    _hover={'none'}
-                    p="0"
-                    backgroundColor="transparent"
-                    aria-label="button-header"
-                    fontSize={{ base: 'sm', xl: '12px', '3xl': '14px' }}
-                    onClick={() => props.logoutuser('/auth/logout')}
-                  >
-                    Log Out
-                  </Button>
+                  <Box w="full" bgColor="white" h="full">
+                    <Button
+                      mt={{ base: 5, md: 0 }}
+                      ml={{ base: 6, '3xl': '5px' }}
+                      size="sm"
+                      variant="ghost"
+                      _hover={'none'}
+                      p="0"
+                      backgroundColor="white"
+                      aria-label="button-header"
+                      fontSize={{ base: 'sm', xl: '12px', '3xl': '14px' }}
+                      onClick={() => props.logoutuser('/auth/logout')}
+                    >
+                      Log Out
+                    </Button>
+
+                  </Box>
                 </MenuList>
               </Menu>
             </Flex>
