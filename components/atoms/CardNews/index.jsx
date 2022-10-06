@@ -54,7 +54,7 @@ const CardNews = (props) => {
                 }}
                 onClick={() => props.setSlugNews(props.data.slug)}
               >
-                <EllipsisText text={props.data.title} length={35} />
+                <EllipsisText text={props.data.title} length={props.isDetail? 30 : 35 } />
               </Link>
             </Flex>
             <Box minH={'70px'} maxW={'300px'}>

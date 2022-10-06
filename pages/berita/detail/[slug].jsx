@@ -217,8 +217,8 @@ function detailBerita(props) {
                   <Box>
                     <Flex wrap="wrap" alignItems="center">
                       <Avatar
-                        name="Dan Abrahmov"
-                        src="https://bit.ly/dan-abramov"
+                        name={detailNews.author}
+                        src="/assets/img/Logo.png"
                         size="sm"
                       />
                       <Text ml="3">{detailNews.author}</Text>
@@ -324,6 +324,7 @@ function detailBerita(props) {
                               key={index}
                               data={item}
                               setSlugNews={props.setSlugNews}
+                              isDetail={true}
                             />
                           </Skeleton>
                         </>
