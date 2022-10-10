@@ -35,7 +35,7 @@ const CardNews = (props) => {
               fontSize={{ base: 'xs', '3xl': 'xl' }}
               letterSpacing={'-.0.01rem'}
             >
-              <Text mr="2" color="#1EA59A">
+              <Text mr="2" color="#10214B">
                 {props.data.category}
               </Text>
               <Text mr="2">-</Text>
@@ -89,7 +89,7 @@ const CardNews = (props) => {
                 size="sm"
                 variant="ghost"
                 p="0"
-                color="#4FD1C5"
+                color="#10214B"
                 _hover={{ textDecor: 'underline' }}
                 aria-label={`Berita ${props.data.title}`}
                 onClick={() => props.setSlugNews(props.data.slug)}

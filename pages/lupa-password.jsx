@@ -23,7 +23,7 @@ export default function LupaPassword() {
   const textColor = useColorModeValue('gray.700', 'white')
   const bgColor = useColorModeValue('white', 'gray.700')
   const [loading, setLoading] = useState(false)
-  const toast = createStandaloneToast()
+  const {toast} = createStandaloneToast()
 
   const submitEmail = (values) => {
     setLoading(true)

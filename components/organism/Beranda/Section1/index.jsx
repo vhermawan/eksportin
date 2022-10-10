@@ -30,11 +30,12 @@ const Section1 = (props) => {
             <Heading
               as="h1"
               letterSpacing={'-.0.01rem'}
+              fontWeight="bold"
               fontSize={{
                 base: '4xl',
                 md: '6xl',
-                xl: '5xl',
-                '2xl': '5xl',
+                xl: '6xl',
+                '2xl': '6xl',
                 '3xl': '85px',
               }}
             >
@@ -54,7 +55,7 @@ const Section1 = (props) => {
             </Text>
             <Box display={props.dataUser ? 'none' : 'block'}>
               <Button
-                bgColor="#4FD1C5"
+                bgColor="#10214B"
                 size="md"
                 color="white"
                 p={{ base: '4', md: '8', xl: '6', '3xl': '8' }}

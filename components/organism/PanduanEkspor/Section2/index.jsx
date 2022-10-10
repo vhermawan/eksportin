@@ -31,7 +31,7 @@ const Section2 = () => {
           >
             <Text
               fontSize={{ base: 'xl', lg: '3xl', '3xl': '4xl' }}
-              fontWeight="extrabold"
+              fontWeight="bold"
               w="max-content"
               mt="12"
             >

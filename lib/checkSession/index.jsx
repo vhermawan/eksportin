@@ -12,3 +12,16 @@ export function checkSessionTimes() {
     else return false
   }
 }
+
+export function checkModalTimes() {
+  const currentDateTime = new Date()
+  const currentTimestamp = Math.floor(currentDateTime.getTime() / 1000)
+  if (Cookies.get('modalTimes') != null) {
+    const modalTimes = JSON.parse(
+      Buffer.from(Cookies.get('modalTimes'), 'base64').toString(),
+    )
+    if (currentTimestamp >= modalTimes.expirationTime) return true
+    else return false
+  }
+}
+

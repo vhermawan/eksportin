@@ -58,7 +58,7 @@ const Section3 = () => {
             <Heading
               mt={{ base: '10', lg: '20' }}
               fontSize={{ base: '6xl', lg: '8xl', '3xl': '9xl' }}
-              color="#1EA59A"
+              color="#10214B"
               pl={{ base: '4', md: '0' }}
               w="max-content"
             >
@@ -74,7 +74,7 @@ const Section3 = () => {
             <Heading
               mt={{ base: '10', lg: '16' }}
               fontSize={{ base: '6xl', lg: '8xl', '3xl': '9xl' }}
-              color="#1EA59A"
+              color="#10214B"
               pl={{ base: '4', md: '0' }}
               w="max-content"
             >

@@ -37,7 +37,7 @@ const CardInstansi = (props) => {
           </Box>
           <Box>
             <Flex wrap="wrap" mt="6" fontSize={{ base: 'xs', '3xl': 'xl' }}>
-              <Text mr="2" color="#1EA59A" letterSpacing={'-.0.01rem'}>
+              <Text mr="2" color="#10214B" letterSpacing={'-.0.01rem'}>
                 {props.data.category.toUpperCase()}
               </Text>
             </Flex>
@@ -62,7 +62,7 @@ const CardInstansi = (props) => {
               variant="solid"
               p={{ base: '3', '2xl': '5' }}
               color="white"
-              bg="#1EA59A"
+              bg="#10214B"
               aria-label={`Instansi ${props.data.name}`}
               _hover={{ textDecor: 'underline' }}
               onClick={() => props.setSlugStakeholder(props.data.slug)}

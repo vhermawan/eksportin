@@ -10,6 +10,10 @@ export default class Document extends NextDocument {
         <Head>
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap"
+            rel="stylesheet"
+          />
           <meta name="theme-color" content="#fff" />
         </Head>
         <body>

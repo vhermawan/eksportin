@@ -14,6 +14,12 @@ import {
 import router from 'next/router'
 
 export default function ModalBegining(props) {
+
+  const redirectCourse = () => {
+    props.onClose()
+    router.push('/materi')
+  }
+
   return (
     <>
       <Modal isOpen={props.isOpen} onClose={props.onClose}>
@@ -37,11 +43,11 @@ export default function ModalBegining(props) {
             </Text>
             <Center>
               <Button
-                bgColor="#4FD1C5"
+                bgColor="#10214B"
                 size="sm"
                 color="white"
                 p="5"
-                onClick={() => router.push('/materi')}
+                onClick={redirectCourse}
                 aria-label="login"
                 my="4"
               >

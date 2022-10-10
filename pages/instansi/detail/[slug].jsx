@@ -47,7 +47,7 @@ export default function detailInstansi() {
     <>
       {!detailStakeholder ? (
         <Flex h="100vh" alignItems="center" justifyContent="center">
-          <CircleSpinner size={70} color="#1EA59A" loading={true} />
+          <CircleSpinner size={70} color="#10214B" loading={true} />
         </Flex>
       ) : (
         <>
@@ -80,7 +80,7 @@ export default function detailInstansi() {
 
                   <BreadcrumbItem
                     isCurrentPage
-                    color={colorMode === 'light' ? '#1EA59A' : 'blue.200'}
+                    color={colorMode === 'light' ? '#10214B' : 'blue.200'}
                   >
                     <BreadcrumbLink>
                       {detailStakeholder.name_stakeholder}

@@ -69,15 +69,16 @@ const Section2 = (props) => {
         })
     } else {
       API.get(`/courses/${tabs}?page=${page}`)
-        .then((res) => {
-          setData(res.data.data.courses.data)
-          setLastPage(res.data.data.courses.last_page)
-          setLoaded(true)
-        })
-        .catch((error) => {
-          console.log('err', error)
-          setLoaded(true)
-        })
+      .then((res) => {
+        const allData = data.concat(res.data.data.courses.data)
+        setData(allData)
+        setLastPage(res.data.data.courses.last_page)
+        setLoaded(true)
+      })
+      .catch((error) => {
+        console.log('err', error)
+        setLoaded(true)
+      })
     }
   }, [tabs, page])
 
@@ -111,7 +112,7 @@ const Section2 = (props) => {
                 return (
                   <>
                     <Tab
-                      _selected={{ color: '#1EA59A', fontWeight: 'bold' }}
+                      _selected={{ color: '#10214B', fontWeight: 'bold' }}
                       key={item.label}
                     >
                       {item.label}
@@ -166,7 +167,7 @@ const Section2 = (props) => {
           }
         >
           <Button
-            bgColor="#4FD1C5"
+            bgColor="#10214B"
             size="sm"
             color="white"
             p={{ base: '4', md: '8', xl: '6', '3xl': '6' }}

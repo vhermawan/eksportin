@@ -85,7 +85,7 @@ const CardUmkm = (props) => {
                   size="md"
                   key={products}
                   variant="solid"
-                  colorScheme="teal"
+                  colorScheme="facebook"
                 >
                   {products}
                 </Tag>

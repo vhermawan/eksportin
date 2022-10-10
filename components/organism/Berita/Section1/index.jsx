@@ -47,7 +47,7 @@ const Section1 = () => {
           >
             <Heading
               as="h1"
-              fontSize={{ base: '4xl', '3xl': '7xl' }}
+              fontSize={{ base: '4xl','2xl': '5xl' ,'3xl': '7xl' }}
               fontWeight="bold"
             >
               Kabar Kegiatan Eskpor Barang Indonesia

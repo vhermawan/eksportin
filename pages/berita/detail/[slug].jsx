@@ -146,7 +146,7 @@ function detailBerita(props) {
     <>
       {!detailNews ? (
         <Flex h="100vh" alignItems="center" justifyContent="center">
-          <CircleSpinner size={70} color="#1EA59A" loading={true} />
+          <CircleSpinner size={70} color="#10214B" loading={true} />
         </Flex>
       ) : (
         <>
@@ -179,7 +179,7 @@ function detailBerita(props) {
 
                   <BreadcrumbItem
                     isCurrentPage
-                    color={colorMode === 'light' ? '#1EA59A' : 'blue.200'}
+                    color={colorMode === 'light' ? '#10214B' : 'blue.200'}
                   >
                     <BreadcrumbLink>{detailNews.title}</BreadcrumbLink>
                   </BreadcrumbItem>

@@ -7,13 +7,13 @@ import { createStandaloneToast } from '@chakra-ui/react'
 import router from 'next/router'
 
 export function* registerUser(action) {
-  const toast = createStandaloneToast()
+  const {toast} = createStandaloneToast()
   const params = new FormData()
   params.set('name', action.params.name)
   params.set('email', action.params.email)
   params.set('password', action.params.password)
   params.set('password_confirmation', action.params.password)
-
+  let isUpdated = false
   const content = yield API.post(action.endpoint, params)
   if (content.status === 400) {
     yield put({
@@ -24,7 +24,6 @@ export function* registerUser(action) {
     yield put({
       type: actionTypes.REGISTER_SUCCESS,
     })
-    router.push('/')
     toast({
       title: 'Register Berhasil Silahkan Cek Email Untuk Melakukan Aktivasi!',
       position: `top-right`,
@@ -35,6 +34,7 @@ export function* registerUser(action) {
         zIndex: 999999,
       },
     })
+    isUpdated=true
   } else if (content.status === 422) {
     if (content.data.errors.email) {
       yield put({
@@ -49,4 +49,11 @@ export function* registerUser(action) {
       })
     }
   }
+
+  setTimeout(() => {
+    if(isUpdated){
+      isUpdated=false;
+      router.push('/')
+    }
+  }, 1800);
 }

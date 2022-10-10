@@ -62,7 +62,7 @@ export default function detailPanduan() {
 
               <BreadcrumbItem
                 isCurrentPage
-                color={colorMode === 'light' ? '#1EA59A' : 'blue.200'}
+                color={colorMode === 'light' ? '#10214B' : 'blue.200'}
               >
                 <BreadcrumbLink>{data.title}</BreadcrumbLink>
               </BreadcrumbItem>
@@ -98,7 +98,7 @@ export default function detailPanduan() {
                 color={colorMode === 'light' ? '#21383E' : 'white'}
                 letterSpacing={'-.0.001rem'}
                 lineHeight={'-.0.001rem'}
-                fontSize={{ base: 'sm', '3xl': '4xl' }}
+                fontSize={{ base: 'sm','2xl': '3xl' , '3xl': '4xl' }}
                 float={{ base: 'left', '2xl': 'right' }}
               >
                 {data.sequence}

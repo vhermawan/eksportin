@@ -21,7 +21,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  createStandaloneToast,
+  useToast,
 } from '@chakra-ui/react'
 import { FaUserAlt, FaEdit, FaFacebook, FaInstagram } from 'react-icons/fa'
 import Cookies from 'js-cookie'
@@ -50,7 +50,7 @@ function Profil(props) {
   const [page, setPage] = useState(1)
   const [total, setTotal] = useState(1)
   const [idCourse, setIdCourse] = useState(null)
-  const toast = createStandaloneToast()
+  const toast = useToast()
 
   const bgProfile = useColorModeValue(
     'hsla(0,0%,100%,.8)',
@@ -96,12 +96,11 @@ function Profil(props) {
         if (res.status === 200) {
           onClose()
           setPage(1)
-          getCourse()
           toast({
             title: 'Sukses hapus materi',
             position: `top-right`,
             isClosable: true,
-            variant: `left-accent`,
+            variant: `left-accent`,  
             status: `success`,
             containerStyle: {
               zIndex: 999999,
@@ -111,6 +110,16 @@ function Profil(props) {
       })
       .catch((error) => {
         console.log('err', error)
+        toast({
+          title: 'Gagal hapus materi',
+          position: `top-right`,
+          isClosable: true,
+          variant: `left-accent`,  
+          status: `error`,
+          containerStyle: {
+            zIndex: 999999,
+          },
+        })
       })
   }
 

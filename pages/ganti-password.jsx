@@ -26,7 +26,7 @@ const Layout = dynamic(() => import('@/components/organism/Layout/index'))
 
 function EditProfil() {
   const [token] = useState(Cookies.get('token'))
-  const toast = createStandaloneToast()
+  const {toast} = createStandaloneToast()
   const [loading, setLoading] = useState(false)
   const textColor = useColorModeValue('gray.700', 'white')
   const bgProfile = useColorModeValue(
@@ -194,7 +194,7 @@ function EditProfil() {
                 <Button
                   type="submit"
                   color="white"
-                  bgColor="#4FD1C5"
+                  bgColor="#10214B"
                   _focus={{ shadow: '' }}
                   fontWeight="md"
                   isLoading={loading}

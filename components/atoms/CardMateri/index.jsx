@@ -61,10 +61,11 @@ const CardMateri = (props) => {
             }}
             onClick={() => props.setSlugCourse(props.data.slug)}
           >
-            <EllipsisText
+            {/* <EllipsisText
               text={props.data.title}
               length={props.isProfile ? 50 : 30}
-            />
+            /> */}
+            {props.data.title}
           </Link>
           <Box>
             <div

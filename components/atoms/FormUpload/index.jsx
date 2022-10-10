@@ -9,7 +9,7 @@ import {
 import { AiFillFileAdd } from 'react-icons/ai'
 
 export default function Dropzone(props) {
-  const toast = createStandaloneToast()
+  const {toast} = createStandaloneToast()
   const onDrop = useCallback(
     (files) => props.setFile(files[0]),
     [props.setFile],

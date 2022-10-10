@@ -915,7 +915,7 @@ function EditProfil(props) {
                         <Button
                           type="submit"
                           color="white"
-                          bgColor="#4FD1C5"
+                          bgColor="#10214B"
                           _focus={{ shadow: '' }}
                           fontWeight="md"
                           aria-label="simpan"

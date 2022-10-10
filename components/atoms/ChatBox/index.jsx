@@ -92,10 +92,10 @@ function SimpleForm(props) {
 
   const theme = {
     background: '#f5f8fb',
-    headerBgColor: '#1EA59A',
+    headerBgColor: '#10214B',
     headerFontColor: '#fff',
     headerFontSize: '15px',
-    botBubbleColor: '#1EA59A',
+    botBubbleColor: '#10214B',
     botFontColor: '#fff',
     userBubbleColor: '#fff',
     userFontColor: '#4a4a4a',

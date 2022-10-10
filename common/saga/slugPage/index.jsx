@@ -52,11 +52,10 @@ export function* setSlugUmkm(action) {
 }
 
 export function* setSlugCourse(action) {
-  const toast = createStandaloneToast()
+  const {toast} = createStandaloneToast()
   let token = Cookies.get('token')
-
+  let isUpdated = false;
   if (token === undefined) {
-    router.push('/')
     toast({
       title: 'Anda belum login, silahkan login untuk mengakses materi!',
       position: `top-right`,
@@ -64,6 +63,7 @@ export function* setSlugCourse(action) {
       variant: `left-accent`,
       status: `error`,
     })
+    isUpdated=true
   } else {
     const content = yield API.get(`/course-detail/${action.slug}`)
     if (content.status === 200) {
@@ -74,4 +74,11 @@ export function* setSlugCourse(action) {
       router.push(`/materi/detail/${action.slug}`)
     }
   }
+
+  setTimeout(() => {
+    if(isUpdated){
+      isUpdated=false;
+      router.push('/')
+    }
+  }, 1000);
 }

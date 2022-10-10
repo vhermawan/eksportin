@@ -65,7 +65,7 @@ const Section2 = () => {
             </Center>
             <Text
               mt="4"
-              fontWeight="800"
+              fontWeight="700"
               fontSize={{ base: 'xl', '3xl': '2xl' }}
             >
               Personal Assistant Admin
@@ -76,17 +76,19 @@ const Section2 = () => {
             <Text mt="1" fontSize={{ base: 'sm', '3xl': 'xl' }}>
               responsif menjawab pertanyaanmu
             </Text>
-            <Button
-              mt="2"
-              bg="transparent"
-              color="#1EA59A"
-              fontSize={{ base: 'sm', '3xl': 'xl' }}
-              onClick={() => router.push('/login')}
-              display={token ? 'block' : 'none'}
-              aria-label="button-section-2"
-            >
-              Pelajari Fitur Selengkapnya
-            </Button>
+            <Center>
+              <Button
+                mt="2"
+                bg="transparent"
+                color="#10214B"
+                fontSize={{ base: 'sm', '3xl': 'xl' }}
+                onClick={() => router.push('/login')}
+                display={!token ? 'block' : 'none'}
+                aria-label="button-section-2"
+              >
+                Pelajari Fitur Selengkapnya
+              </Button>
+            </Center>
           </GridItem>
           <GridItem
             rowSpan={3}
@@ -105,7 +107,7 @@ const Section2 = () => {
             </Center>
             <Text
               mt="4"
-              fontWeight="800"
+              fontWeight="700"
               fontSize={{ base: 'xl', '3xl': '2xl' }}
             >
               Terhubung dengan Stakeholder
@@ -116,17 +118,19 @@ const Section2 = () => {
             <Text mt="1" fontSize={{ base: 'sm', '3xl': 'xl' }}>
               kamu dengan stakeholder terkait
             </Text>
-            <Button
-              mt="2"
-              bg="transparent"
-              color="#1EA59A"
-              fontSize={{ base: 'sm', '3xl': 'xl' }}
-              onClick={() => router.push('/login')}
-              display={token ? 'block' : 'none'}
-              aria-label="pelajari-fitur"
-            >
-              Pelajari Fitur Selengkapnya
-            </Button>
+            <Center>
+              <Button
+                mt="2"
+                bg="transparent"
+                color="#10214B"
+                fontSize={{ base: 'sm', '3xl': 'xl' }}
+                onClick={() => router.push('/login')}
+                display={!token ? 'block' : 'none'}
+                aria-label="pelajari-fitur"
+              >
+                Pelajari Fitur Selengkapnya
+              </Button>
+            </Center>
           </GridItem>
           <GridItem
             rowSpan={3}
@@ -145,7 +149,7 @@ const Section2 = () => {
             </Center>
             <Text
               mt="4"
-              fontWeight="800"
+              fontWeight="700"
               fontSize={{ base: 'xl', '3xl': '2xl' }}
             >
               Materi Ekspor
@@ -156,17 +160,19 @@ const Section2 = () => {
             <Text mt="1" fontSize={{ base: 'sm', '3xl': 'xl' }}>
               langsung dari ahlinya
             </Text>
-            <Button
-              mt="2"
-              bg="transparent"
-              color="#1EA59A"
-              fontSize={{ base: 'sm', '3xl': 'xl' }}
-              onClick={() => router.push('/login')}
-              display={token ? 'block' : 'none'}
-              aria-label="pelajari-fitur"
-            >
-              Pelajari Fitur Selengkapnya
-            </Button>
+            <Center>
+              <Button
+                mt="2"
+                bg="transparent"
+                color="#10214B"
+                fontSize={{ base: 'sm', '3xl': 'xl' }}
+                onClick={() => router.push('/login')}
+                display={!token ? 'block' : 'none'}
+                aria-label="pelajari-fitur"
+              >
+                Pelajari Fitur Selengkapnya
+              </Button>
+            </Center>
           </GridItem>
         </Grid>
       </Container>

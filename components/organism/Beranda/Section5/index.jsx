@@ -18,7 +18,7 @@ const Section5 = () => {
           wrap={{ base: 'wrap', md: 'nowrap' }}
           gridGap="10"
           mt={{ base: '4', lg: '10' }}
-          bg="#1EA59A"
+          bg="#10214B"
         >
           <Box zIndex="91" mt="-20" w="full">
             <Image
@@ -49,7 +49,7 @@ const Section5 = () => {
               <Button
                 bgColor="white"
                 size="md"
-                color="#1EA59A"
+                color="#10214B"
                 p={{ base: '4', md: '8' }}
                 fontSize="smaller"
                 onClick={() => router.push('/login')}

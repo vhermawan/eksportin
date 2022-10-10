@@ -10,7 +10,7 @@ import router from 'next/router'
 import Cookies from 'js-cookie'
 
 export function* loginUser(action) {
-  const toast = createStandaloneToast()
+  const {toast} = createStandaloneToast()
   const params = new FormData()
   params.set('email', action.params.email)
   params.set('password', action.params.password)
@@ -71,7 +71,7 @@ export function* loginUser(action) {
 }
 
 export function* logOutUser(action) {
-  const toast = createStandaloneToast()
+  const {toast} = createStandaloneToast()
   const content = yield API.post(action.endpoint)
   if (content.status === 400) {
     yield put({
@@ -96,7 +96,7 @@ export function* logOutUser(action) {
 }
 
 export function* changeProfileUser(action) {
-  const toast = createStandaloneToast();
+  const {toast} = createStandaloneToast();
   const params = new FormData()
   params.set('email', action.params.email)
   params.set('address', action.params.address)

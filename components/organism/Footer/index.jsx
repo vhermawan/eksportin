@@ -76,7 +76,7 @@ const Footer = () => {
             <Flex>
               <Heading
                 as="h1"
-                color="#1EA59A"
+                color="#10214B"
                 letterSpacing={'-.0.01rem'}
                 fontSize={{
                   base: 'sm',
@@ -144,7 +144,7 @@ const Footer = () => {
             <Flex>
               <Heading
                 as="h1"
-                color="#1EA59A"
+                color="#10214B"
                 letterSpacing={'-.0.01rem'}
                 fontSize={{
                   base: 'sm',
@@ -184,7 +184,7 @@ const Footer = () => {
             <Flex>
               <Heading
                 as="h1"
-                color="#1EA59A"
+                color="#10214B"
                 letterSpacing={'-.0.01rem'}
                 fontSize={{
                   base: 'sm',

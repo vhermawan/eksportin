@@ -121,7 +121,7 @@ function Section2(props) {
                 return (
                   <>
                     <Tab
-                      _selected={{ color: '#1EA59A', fontWeight: 'bold' }}
+                      _selected={{ color: '#10214B', fontWeight: 'bold' }}
                       key={index}
                     >
                       {item.label}
@@ -175,7 +175,7 @@ function Section2(props) {
           }
         >
           <Button
-            bgColor="#4FD1C5"
+            bgColor="#10214B"
             size="sm"
             color="white"
             p={{ base: '4', md: '8', xl: '6', '3xl': '6' }}

@@ -141,7 +141,7 @@ const Section3 = (props) => {
               {category.map((item) => {
                 return (
                   <>
-                    <Tab _selected={{ color: '#1EA59A', fontWeight: 'bold' }}>
+                    <Tab _selected={{ color: '#10214B', fontWeight: 'bold' }}>
                       {item.label}
                     </Tab>
                   </>
@@ -193,7 +193,7 @@ const Section3 = (props) => {
           }
         >
           <Button
-            bgColor="#4FD1C5"
+            bgColor="#10214B"
             size="sm"
             color="white"
             p={{ base: '4', md: '8', xl: '6', '3xl': '6' }}

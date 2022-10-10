@@ -19,13 +19,13 @@ const MenuItems = ({ children }) => {
 
     if (colorMode === 'light') {
       if (router.asPath === '/' && children === 'Beranda') {
-        setColor('#1EA59A')
+        setColor('#10214B')
         setActive('underline')
       } else if (router.asPath === `/${pathRouter}`) {
-        setColor('#1EA59A')
+        setColor('#10214B')
         setActive('underline')
       } else if (splitPath[1] === pathRouter) {
-        setColor('#1EA59A')
+        setColor('#10214B')
         setActive('underline')
       } else {
         setColor('gray.800')
@@ -60,7 +60,7 @@ const MenuItems = ({ children }) => {
         textDecoration={active}
         aria-label="button-header"
         href={'/' + pathRouter}
-        fontSize={{ base: 'sm', xl: '12px', '3xl': '14px' }}
+        fontSize={{ base: 'sm', xl: '12px','2xl': '15px' ,'3xl': '15px' }}
       >
         {children}
       </Link>

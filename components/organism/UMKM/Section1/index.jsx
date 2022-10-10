@@ -52,7 +52,7 @@ const Section1 = () => {
           </Text>
           <Box>
             <Button
-              bgColor="#4FD1C5"
+              bgColor="#10214B"
               size="xs"
               color="white"
               p={{ base: '4', md: '6', '3xl': '8' }}

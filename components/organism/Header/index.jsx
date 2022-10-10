@@ -71,9 +71,9 @@ function Header(props) {
           <Heading
             as="h1"
             size="md"
-            color="#1EA59A"
+            color="#10214B"
             letterSpacing={'-.0.01rem'}
-            fontSize={{ base: 'sm', md: 'md', sm: 'md', lg: 'md', '3xl': 'lg' }}
+            fontSize={{ base: 'sm', md: 'md', sm: 'md', lg: '16px', '2xl':'16px', '3xl': 'lg' }}
           >
             <Link href="/">Eksportin</Link>
           </Heading>

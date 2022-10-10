@@ -33,7 +33,7 @@ const Section2 = (props) => {
         h="max-content"
       >
         <Box
-          bg="#1EA59A"
+          bg="#10214B"
           borderRadius="12"
           px={{ base: '5', md: '12' }}
           pb="10"

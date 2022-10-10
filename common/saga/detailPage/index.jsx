@@ -8,8 +8,6 @@ import Cookies from 'js-cookie'
 import router from 'next/router'
 
 export function* getDetailNews(action) {
-  console.log('slug tes', action.slug)
-
   const content = yield API.get(`/news-detail/${action.slug}`)
   if (content.status === 200) {
     yield put({
@@ -50,11 +48,10 @@ export function* getDetailUmkm(action) {
 }
 
 export function* getDetailCourse(action) {
-  const toast = createStandaloneToast()
+  const {toast} = createStandaloneToast()
   let token = Cookies.get('token')
 
   if (token === undefined) {
-    router.push('/')
     toast({
       title: 'Anda belum login, silahkan login untuk mengakses materi!',
       position: `top-right`,
@@ -62,6 +59,8 @@ export function* getDetailCourse(action) {
       variant: `left-accent`,
       status: `error`,
     })
+    
+    router.push('/')
   } else {
     const content = yield API.get(`/course-detail/${action.slug}`)
     if (content.status === 200) {

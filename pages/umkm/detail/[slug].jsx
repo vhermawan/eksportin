@@ -68,7 +68,7 @@ function detailUmkm(props) {
     <>
       {!detailUmkm ? (
         <Flex h="100vh" alignItems="center" justifyContent="center">
-          <CircleSpinner size={70} color="#1EA59A" loading={true} />
+          <CircleSpinner size={70} color="#10214B" loading={true} />
         </Flex>
       ) : (
         <>
@@ -102,7 +102,7 @@ function detailUmkm(props) {
 
                   <BreadcrumbItem
                     isCurrentPage
-                    color={colorMode === 'light' ? '#1EA59A' : 'blue.200'}
+                    color={colorMode === 'light' ? '#10214B' : 'blue.200'}
                   >
                     <BreadcrumbLink>{detailUmkm.name}</BreadcrumbLink>
                   </BreadcrumbItem>
@@ -115,7 +115,7 @@ function detailUmkm(props) {
               >
                 <Text
                   color={colorMode === 'light' ? '#21383E' : 'white'}
-                  fontWeight="extrabold"
+                  fontWeight="bold"
                   letterSpacing={'-.0.001rem'}
                   lineHeight={'-.0.001rem'}
                   fontSize={{ base: 'sm', '3xl': 'xl' }}

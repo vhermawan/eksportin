@@ -20,7 +20,7 @@ import { NextSeo } from 'next-seo'
 export default function SetPassword() {
   const bgColor = useColorModeValue('white', 'gray.700')
   const [loading, setLoading] = useState(false)
-  const toast = createStandaloneToast()
+  const {toast} = createStandaloneToast()
 
   const submitPassword = (values) => {
     let pathArray = window.location.pathname.split('/')
