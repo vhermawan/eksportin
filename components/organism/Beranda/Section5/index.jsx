@@ -1,9 +1,10 @@
 import React from 'react'
 import { Container, Text, Box } from '@chakra-ui/layout'
-import { Image, Flex, HStack, Button } from '@chakra-ui/react'
+import { Image, Flex, HStack, Button, useColorMode } from '@chakra-ui/react'
 import router from 'next/router'
 
 const Section5 = () => {
+  const { colorMode } = useColorMode()
   return (
     <>
       <Container
@@ -18,7 +19,7 @@ const Section5 = () => {
           wrap={{ base: 'wrap', md: 'nowrap' }}
           gridGap="10"
           mt={{ base: '4', lg: '10' }}
-          bg="#10214B"
+          bg={colorMode === 'light' ?  "#10214B" : "#EE7C24"}
         >
           <Box zIndex="91" mt="-20" w="full">
             <Image
@@ -63,6 +64,10 @@ const Section5 = () => {
                 variant="outline"
                 color="white"
                 p={{ base: '4', md: '8' }}
+                _hover={{
+                  color:"#10214B",
+                  bg:"white"
+                }}
                 fontSize="smaller"
                 aria-label="hubungi-kami"
               >

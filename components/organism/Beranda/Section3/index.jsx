@@ -58,7 +58,7 @@ const Section3 = () => {
             <Heading
               mt={{ base: '10', lg: '20' }}
               fontSize={{ base: '6xl', lg: '8xl', '3xl': '9xl' }}
-              color="#10214B"
+              color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
               pl={{ base: '4', md: '0' }}
               w="max-content"
             >
@@ -74,7 +74,7 @@ const Section3 = () => {
             <Heading
               mt={{ base: '10', lg: '16' }}
               fontSize={{ base: '6xl', lg: '8xl', '3xl': '9xl' }}
-              color="#10214B"
+              color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
               pl={{ base: '4', md: '0' }}
               w="max-content"
             >
@@ -90,7 +90,7 @@ const Section3 = () => {
           </Box>
           <Spacer display={{ base: 'none', md: 'block' }} />
           <Box
-            bg={colorMode === 'light' ? '#F6FAFA' : '#0F3032'}
+            bg={colorMode === 'light' ? '#F6FAFA' : '#EE7C24'}
             w="full"
             pb={{ base: '40', md: '10', lg: '0' }}
           >
@@ -136,7 +136,7 @@ const Section3 = () => {
                   <Image
                     boxSize={{ base: '50px', '3xl': '90px' }}
                     objectFit="contain"
-                    src="/assets/img/icon-waktu.webp"
+                    src="/assets/img/icon-waktu.png"
                     alt="icon-waktu"
                     ml={{ base: '4', lg: '0' }}
                     loading="lazy"
@@ -168,7 +168,7 @@ const Section3 = () => {
                   <Image
                     boxSize={{ base: '50px', '3xl': '90px' }}
                     objectFit="contain"
-                    src="/assets/img/icon-informasi.webp"
+                    src="/assets/img/icon-informasi.png"
                     alt="icon-informasi"
                     ml={{ base: '4', lg: '0' }}
                     loading="lazy"

@@ -7,6 +7,7 @@ const MenuItems = ({ children }) => {
   let string = String(children)
   const [color, setColor] = React.useState('')
   const [active, setActive] = React.useState('underline')
+  const [weight, setWeight] = React.useState('medium')
   const { colorMode } = useColorMode()
 
   let stringLower = string.toLowerCase()
@@ -21,12 +22,15 @@ const MenuItems = ({ children }) => {
       if (router.asPath === '/' && children === 'Beranda') {
         setColor('#10214B')
         setActive('underline')
+        setWeight("bold")
       } else if (router.asPath === `/${pathRouter}`) {
         setColor('#10214B')
         setActive('underline')
+        setWeight("bold")
       } else if (splitPath[1] === pathRouter) {
         setColor('#10214B')
         setActive('underline')
+        setWeight("bold")
       } else {
         setColor('gray.800')
         setActive('none')
@@ -35,12 +39,15 @@ const MenuItems = ({ children }) => {
       if (router.asPath === '/' && children === 'Beranda') {
         setColor('blue.200')
         setActive('underline')
+        setWeight("bold")
       } else if (router.asPath === `/${pathRouter}`) {
         setColor('blue.200')
         setActive('underline')
+        setWeight("bold")
       } else if (splitPath[1] === pathRouter) {
         setColor('blue.200')
         setActive('underline')
+        setWeight("bold")
       } else {
         setColor('white')
         setActive('none')
@@ -55,6 +62,7 @@ const MenuItems = ({ children }) => {
         mr={{ base: 6, '3xl': 8 }}
         display="block"
         size="xs"
+        fontWeight={weight}
         backgroundColor="transparent"
         color={color}
         textDecoration={active}

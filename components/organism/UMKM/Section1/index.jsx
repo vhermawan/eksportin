@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Container, Text } from '@chakra-ui/layout'
-import { Box, Button, Flex, Heading } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, useColorMode } from '@chakra-ui/react'
 import router from 'next/router'
 import Cookies from 'js-cookie'
 
 const Section1 = () => {
   const [token] = useState(Cookies.get('token'))
+  const { colorMode } = useColorMode()
   return (
     <>
       <Container
@@ -52,12 +53,17 @@ const Section1 = () => {
           </Text>
           <Box>
             <Button
-              bgColor="#10214B"
+              bgColor={colorMode === 'light' ? '#10214B' : "#EE7C24"}
               size="xs"
               color="white"
               p={{ base: '4', md: '6', '3xl': '8' }}
               fontSize={{ base: 'sm', '3xl': 'xl' }}
               aria-label="mulai-belajar"
+              variant='outline'
+              _hover={{
+                bg:"white",
+                color:"#10214B"
+              }}
               onClick={
                 token
                   ? () => router.push('/materi')

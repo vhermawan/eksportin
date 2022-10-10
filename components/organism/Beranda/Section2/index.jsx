@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Cookies from 'js-cookie'
 import { Container, Grid, GridItem, Text, Center } from '@chakra-ui/layout'
-import { Button, Image, Flex } from '@chakra-ui/react'
+import { Button, Image, Flex, useColorMode } from '@chakra-ui/react'
 import router from 'next/router'
 
 const Section2 = () => {
   const [token] = useState(Cookies.get('token'))
+  const { colorMode } = useColorMode()
   return (
     <>
       <Container
@@ -80,7 +81,7 @@ const Section2 = () => {
               <Button
                 mt="2"
                 bg="transparent"
-                color="#10214B"
+                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
                 onClick={() => router.push('/login')}
                 display={!token ? 'block' : 'none'}
@@ -122,7 +123,7 @@ const Section2 = () => {
               <Button
                 mt="2"
                 bg="transparent"
-                color="#10214B"
+                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
                 onClick={() => router.push('/login')}
                 display={!token ? 'block' : 'none'}
@@ -164,7 +165,7 @@ const Section2 = () => {
               <Button
                 mt="2"
                 bg="transparent"
-                color="#10214B"
+                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
                 onClick={() => router.push('/login')}
                 display={!token ? 'block' : 'none'}

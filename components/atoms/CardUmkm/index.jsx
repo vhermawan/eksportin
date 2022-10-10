@@ -9,9 +9,11 @@ import {
   Avatar,
   Link,
   useColorModeValue,
+  useColorMode,
 } from '@chakra-ui/react'
 
 const CardUmkm = (props) => {
+  const { colorMode } = useColorMode()
   return (
     <>
       <Box width="full">
@@ -87,7 +89,7 @@ const CardUmkm = (props) => {
               size="xs"
               variant="ghost"
               p="0"
-              color="#10214B"
+              color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
               _hover={{ textDecoration: 'underline' }}
               fontSize={{ base: 'x-small', md: 'xs', '3xl': 'lg' }}
               mt={{ base: '2', '3xl': '5' }}

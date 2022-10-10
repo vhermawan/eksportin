@@ -1,8 +1,9 @@
 import React from 'react'
 import { Container, Text, Box } from '@chakra-ui/layout'
-import { Image, Avatar, Flex, Spacer, WrapItem } from '@chakra-ui/react'
+import { Image, Avatar, Flex, Spacer, WrapItem, useColorMode } from '@chakra-ui/react'
 
 const Section4 = () => {
+  const { colorMode } = useColorMode()
   return (
     <>
       <Container
@@ -16,7 +17,7 @@ const Section4 = () => {
           <Image
             boxSize={{ base: '60px', lg: '90px' }}
             objectFit="contain"
-            src="/assets/img/quote.png"
+            src={colorMode === 'light' ? "/assets/img/quote.png" : "/assets/img/Quote-darkmode.png"}
             alt="quote"
             zIndex="1"
             loading="lazy"

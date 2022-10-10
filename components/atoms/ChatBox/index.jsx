@@ -4,6 +4,7 @@ import { useIdleTimer } from 'react-idle-timer'
 import Cookies from 'js-cookie'
 import { ThemeProvider } from 'styled-components'
 import { API } from '@/common/api/api'
+import { useColorMode } from '@chakra-ui/react'
 
 function makeIdSession(length) {
   var result = ''
@@ -22,6 +23,7 @@ function SimpleForm(props) {
   const [timeLeft, setTimeLeft] = useState(null)
   const [sessionId, setSessionId] = useState(makeIdSession(5))
   const [token] = useState(Cookies.get('token'))
+  const { colorMode } = useColorMode()
 
   const toggleFloating = ({ opened }) => {
     setOpened(opened)
@@ -90,12 +92,14 @@ function SimpleForm(props) {
     }
   }
 
+  const colorTheme = colorMode === 'light' ? "#10214B" : "#EE7C24"
+
   const theme = {
     background: '#f5f8fb',
-    headerBgColor: '#10214B',
+    headerBgColor: colorTheme,
     headerFontColor: '#fff',
     headerFontSize: '15px',
-    botBubbleColor: '#10214B',
+    botBubbleColor: colorTheme,
     botFontColor: '#fff',
     userBubbleColor: '#fff',
     userFontColor: '#4a4a4a',
@@ -234,7 +238,7 @@ function SimpleForm(props) {
           floating={true}
           opened={opened}
           href="#"
-          botAvatar={'/assets/img/Logo.png'}
+          botAvatar={colorMode === 'light' ? '/assets/img/Logo.png' : '/assets/img/Logo-darkmode.png'}
           userAvatar={
             props.datauser !== null
               ? props.datauser.umkm.image_URL

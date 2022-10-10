@@ -10,9 +10,11 @@ import {
   Avatar,
   Link,
   useColorModeValue,
+  useColorMode,
 } from '@chakra-ui/react'
 
 const CardNews = (props) => {
+  const { colorMode } = useColorMode()
   return (
     <>
       <Box width="full" maxW={'350px'}>
@@ -89,7 +91,7 @@ const CardNews = (props) => {
                 size="sm"
                 variant="ghost"
                 p="0"
-                color="#10214B"
+                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
                 _hover={{ textDecor: 'underline' }}
                 aria-label={`Berita ${props.data.title}`}
                 onClick={() => props.setSlugNews(props.data.slug)}

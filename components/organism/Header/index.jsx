@@ -57,13 +57,14 @@ function Header(props) {
         px={{ base: '5', md: '16', lg: '40', xl: '20', '3xl': '24' }}
         bg={colorMode === 'light' ? 'white' : 'gray.800'}
         color={colorMode === 'light' ? 'black' : 'white'}
+        alignItems="center"
         {...props}
       >
         <Flex align="center" mr={5}>
           <Image
             borderRadius="full"
-            boxSize="25px"
-            src="/assets/img/Logo.png"
+            boxSize="35px"
+            src={colorMode === 'light' ? "/assets/img/Logo.png" : "/assets/img/Logo-darkmode.png"}
             alt="logo-eksportin"
             mr={4}
             loading="lazy"
@@ -71,7 +72,7 @@ function Header(props) {
           <Heading
             as="h1"
             size="md"
-            color="#10214B"
+            color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
             letterSpacing={'-.0.01rem'}
             fontSize={{ base: 'sm', md: 'md', sm: 'md', lg: '16px', '2xl':'16px', '3xl': 'lg' }}
           >
@@ -101,8 +102,8 @@ function Header(props) {
           mt={{ base: 4, md: 0 }}
           alignContent="center"
         >
-          <MenuItems>Login</MenuItems>
-          <MenuItems>Register</MenuItems>
+          <MenuItems>Masuk</MenuItems>
+          <MenuItems>Pendaftaran</MenuItems>
           <IconButton
             ml={{ base: 4, md: 2 }}
             size="xs"

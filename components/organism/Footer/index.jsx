@@ -46,7 +46,7 @@ const Footer = () => {
               <Image
                 borderRadius="full"
                 boxSize={{ base: '45px', '3xl': '60px' }}
-                src="/assets/img/Logo.png"
+                src={colorMode === 'light' ? "/assets/img/Logo.png" : "/assets/img/Logo-darkmode.png"}
                 alt="logo-eksportin"
                 loading="lazy"
                 mr={4}
@@ -76,7 +76,7 @@ const Footer = () => {
             <Flex>
               <Heading
                 as="h1"
-                color="#10214B"
+                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
                 letterSpacing={'-.0.01rem'}
                 fontSize={{
                   base: 'sm',
@@ -144,7 +144,7 @@ const Footer = () => {
             <Flex>
               <Heading
                 as="h1"
-                color="#10214B"
+                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
                 letterSpacing={'-.0.01rem'}
                 fontSize={{
                   base: 'sm',
@@ -184,7 +184,7 @@ const Footer = () => {
             <Flex>
               <Heading
                 as="h1"
-                color="#10214B"
+                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
                 letterSpacing={'-.0.01rem'}
                 fontSize={{
                   base: 'sm',
