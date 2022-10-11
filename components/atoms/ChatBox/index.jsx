@@ -92,7 +92,7 @@ function SimpleForm(props) {
     }
   }
 
-  const colorTheme = colorMode === 'light' ? "#10214B" : "#EE7C24"
+  const colorTheme = colorMode === 'light' ? "#10214B" : "#90CDF4"
 
   const theme = {
     background: '#f5f8fb',

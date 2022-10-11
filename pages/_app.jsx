@@ -1,7 +1,7 @@
 import { PersistGate } from 'redux-persist/integration/react'
 import { wrapper } from '../common/store/index'
 import { useStore } from 'react-redux'
-import { ChakraProvider, extendTheme, Flex, createStandaloneToast } from '@chakra-ui/react'
+import { ChakraProvider, extendTheme, Flex, createStandaloneToast, useColorMode } from '@chakra-ui/react'
 import 'moment/locale/id'
 import '../styles/globals.css'
 import { Router } from 'next/router'
@@ -18,7 +18,9 @@ const WrappedApp = ({ Component, pageProps }) => {
   const [loading, setLoading] = useState(false)
   const { ToastContainer } = createStandaloneToast()
   const store = useStore()
+  const { colorMode } = useColorMode()
 
+  
   const breakpoints = {
     sm: '320px',
     md: '768px',
@@ -52,7 +54,7 @@ const WrappedApp = ({ Component, pageProps }) => {
         <Global styles={fonts} />
         {loading ? (
           <Flex h="100vh" alignItems="center" justifyContent="center">
-            <CircleSpinner size={70} color="#10214B" loading={true} />
+            <CircleSpinner size={70} color={colorMode === 'light' ?  "#10214B" : "#90CDF4"} loading={true} />
           </Flex>
         ) : (
           <>

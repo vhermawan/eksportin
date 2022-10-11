@@ -1,8 +1,9 @@
 import React from 'react'
 import { Container, Text } from '@chakra-ui/layout'
-import { Flex, Heading } from '@chakra-ui/react'
+import { Flex, Heading, useColorMode } from '@chakra-ui/react'
 
 const Section1 = () => {
+  const { colorMode } = useColorMode()
   return (
     <>
       <Container
@@ -36,7 +37,7 @@ const Section1 = () => {
         >
           <Text
             my="3"
-            color="#21383E"
+            color={colorMode === 'light' ? "#21383E" : "blue.200"}
             letterSpacing={'-.0.001rem'}
             lineHeight={'-.0.001rem'}
             fontSize={{ base: 'sm', md: 'sm', lg: 'md' }}

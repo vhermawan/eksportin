@@ -1,5 +1,5 @@
 import React from 'react'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, useColorModeValue } from '@chakra-ui/react'
 import {
   Paginator,
   Container,
@@ -45,12 +45,12 @@ const Demo = (props) => {
         activeStyles={activeStyles}
       >
         <Container align="center" justify="space-between" w="full" p={4}>
-          <Previous>
+          <Previous bgColor={useColorModeValue("#10214B", "blue.200")}>
             Previous
             {/* Or an icon from `react-icons` */}
           </Previous>
           <PageGroup isInline align="center" />
-          <Next>
+          <Next bgColor={useColorModeValue("#10214B", "blue.200")}>
             Next
             {/* Or an icon from `react-icons` */}
           </Next>

@@ -89,7 +89,7 @@ const CardUmkm = (props) => {
               size="xs"
               variant="ghost"
               p="0"
-              color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
+              color={colorMode === 'light' ? "#10214B" : "blue.200"}
               _hover={{ textDecoration: 'underline' }}
               fontSize={{ base: 'x-small', md: 'xs', '3xl': 'lg' }}
               mt={{ base: '2', '3xl': '5' }}

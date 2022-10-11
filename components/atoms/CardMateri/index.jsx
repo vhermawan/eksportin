@@ -23,13 +23,14 @@ const CardMateri = (props) => {
         py={4}
         rounded="lg"
         shadow="lg"
-        bg={useColorModeValue('white', 'gray.800')}
+        color="black"
+        bg={useColorModeValue('white', 'blue.200')}
         maxW="2xl"
       >
         <Flex justifyContent="space-between" alignItems="center">
           <chakra.span
             fontSize="sm"
-            color={useColorModeValue('gray.600', 'gray.400')}
+            color={useColorModeValue('gray.600', 'black')}
           >
             {moment(props.data.created_at).format('DD MMMM YYYY')}
           </chakra.span>
@@ -53,7 +54,7 @@ const CardMateri = (props) => {
         <Box mt={2}>
           <Link
             fontSize="lg"
-            color={useColorModeValue('gray.700', 'white')}
+            color={useColorModeValue('gray.700', 'gray.900')}
             fontWeight="700"
             _hover={{
               color: useColorModeValue('gray.600', 'gray.200'),
@@ -61,10 +62,6 @@ const CardMateri = (props) => {
             }}
             onClick={() => props.setSlugCourse(props.data.slug)}
           >
-            {/* <EllipsisText
-              text={props.data.title}
-              length={props.isProfile ? 50 : 30}
-            /> */}
             {props.data.title}
           </Link>
           <Box>
@@ -114,7 +111,7 @@ const CardMateri = (props) => {
               alt="avatar"
             />
             <Link
-              color={useColorModeValue('gray.700', 'gray.200')}
+              color={useColorModeValue('gray.700', 'gray.900')}
               fontWeight="700"
               cursor="pointer"
             >

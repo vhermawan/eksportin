@@ -183,7 +183,7 @@ export default function detailPanduan() {
                 rightIcon={<ArrowForwardIcon />}
                 border="none"
                 fontSize="xl"
-                colorScheme="teal"
+                color={colorMode === 'light' ?  "#10214B" : "blue.200"}
                 variant="outline"
                 aria-label="panduan-eskpor"
                 onClick={() =>
@@ -231,7 +231,8 @@ export default function detailPanduan() {
               <Button
                 rightIcon={<ArrowForwardIcon />}
                 size="sm"
-                colorScheme="teal"
+                // colorScheme={colorMode === 'light' ?  : "teal"}
+                bgColor={colorMode === 'light' ?  "#10214B" : "blue.200"}
                 display={{ base: 'flex', '2xl': 'none' }}
                 variant="outline"
                 aria-label="panduan-eskpor"

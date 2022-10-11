@@ -1,13 +1,14 @@
 import dynamic from 'next/dynamic'
 import { API } from '@/common/api/api'
 import React, { useState, useEffect } from 'react'
-import { Container, Box, Heading, Flex, Skeleton } from '@chakra-ui/react'
+import { Container, Box, Heading, Flex, Skeleton, useColorMode } from '@chakra-ui/react'
 
 const CardNewsLastest = dynamic(() =>
   import('@/components/atoms/CardNewsLastest/index'),
 )
 
 const Section2 = (props) => {
+  const { colorMode } = useColorMode()
   const [data, setData] = useState(null)
   const [loaded, setLoaded] = useState(false)
 
@@ -33,7 +34,7 @@ const Section2 = (props) => {
         h="max-content"
       >
         <Box
-          bg="#10214B"
+          bg={colorMode === 'light' ? '#10214B' : "blue.200"}
           borderRadius="12"
           px={{ base: '5', md: '12' }}
           pb="10"

@@ -12,6 +12,7 @@ import {
   Tab,
   TabPanel,
   Skeleton,
+  useColorMode,
 } from '@chakra-ui/react'
 
 const CardInstansi = dynamic(() =>
@@ -22,6 +23,7 @@ const DataNotFound = dynamic(() =>
 )
 
 const Section2 = (props) => {
+  const { colorMode } = useColorMode()
   let dataCategory = props.category
   const [index, setIndex] = useState(0)
   const [tabs, setTabs] = useState('all')
@@ -121,7 +123,7 @@ const Section2 = (props) => {
                 return (
                   <>
                     <Tab
-                      _selected={{ color: '#10214B', fontWeight: 'bold' }}
+                      _selected={{ color: colorMode === 'light' ? '#10214B' : "blue.200", fontWeight: 'bold' }}
                       key={item.label}
                     >
                       {item.label}
@@ -176,7 +178,7 @@ const Section2 = (props) => {
           }
         >
           <Button
-            bgColor="#10214B"
+            bgColor={colorMode === 'light' ? '#10214B' : "blue.200"}
             size="sm"
             color="white"
             p={{ base: '4', md: '8', xl: '6', '3xl': '6' }}

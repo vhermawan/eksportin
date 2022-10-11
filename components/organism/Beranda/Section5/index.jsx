@@ -19,7 +19,7 @@ const Section5 = () => {
           wrap={{ base: 'wrap', md: 'nowrap' }}
           gridGap="10"
           mt={{ base: '4', lg: '10' }}
-          bg={colorMode === 'light' ?  "#10214B" : "#EE7C24"}
+          bg={colorMode === 'light' ?  "#10214B" : "blue.200"}
         >
           <Box zIndex="91" mt="-20" w="full">
             <Image
@@ -52,6 +52,10 @@ const Section5 = () => {
                 size="md"
                 color="#10214B"
                 p={{ base: '4', md: '8' }}
+                _hover={{
+                  bgColor:"#10214B",
+                  color:"white"
+                }}
                 fontSize="smaller"
                 onClick={() => router.push('/login')}
                 aria-label="mulai-sekarang"
@@ -62,6 +66,7 @@ const Section5 = () => {
                 bgColor="transparent"
                 size="md"
                 variant="outline"
+                border="2px"
                 color="white"
                 p={{ base: '4', md: '8' }}
                 _hover={{

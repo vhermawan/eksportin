@@ -11,6 +11,7 @@ import {
   Box,
   Button,
   Skeleton,
+  useColorMode,
 } from '@chakra-ui/react'
 import { API } from '@/common/api/api'
 
@@ -22,6 +23,7 @@ const DataNotFound = dynamic(() =>
 )
 
 function Section2(props) {
+  const { colorMode } = useColorMode()
   let dataCategory = props.category
   const [index, setIndex] = useState(0)
   const [tabs, setTabs] = useState('all')
@@ -121,7 +123,7 @@ function Section2(props) {
                 return (
                   <>
                     <Tab
-                      _selected={{ color: '#10214B', fontWeight: 'bold' }}
+                      _selected={{ color: colorMode === 'light' ? '#10214B' : "blue.200", fontWeight: 'bold' }}
                       key={index}
                     >
                       {item.label}
@@ -175,7 +177,7 @@ function Section2(props) {
           }
         >
           <Button
-            bgColor="#10214B"
+            bgColor={colorMode === 'light' ? '#10214B' : "blue.200"}
             size="sm"
             color="white"
             p={{ base: '4', md: '8', xl: '6', '3xl': '6' }}

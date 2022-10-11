@@ -72,7 +72,7 @@ function Header(props) {
           <Heading
             as="h1"
             size="md"
-            color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
+            color={colorMode === 'light' ? "#10214B" : "blue.200"}
             letterSpacing={'-.0.01rem'}
             fontSize={{ base: 'sm', md: 'md', sm: 'md', lg: '16px', '2xl':'16px', '3xl': 'lg' }}
           >
@@ -148,10 +148,13 @@ function Header(props) {
                     Profil
                   </MenuItem>
                   <MenuItem onClick={() => router.push('/ganti-password')}>
-                    Ganti Password
+                    Ganti Kata Sandi
                   </MenuItem>
                   <MenuDivider />
-                  <Box w="full" bgColor="white" h="full">
+                  <MenuItem onClick={() => props.logoutuser('/auth/logout')}>
+                    Keluar
+                  </MenuItem>
+                  {/* <Box w="full" bgColor="white" h="full">
                     <Button
                       mt={{ base: 5, md: 0 }}
                       ml={{ base: 6, '3xl': '5px' }}
@@ -167,7 +170,7 @@ function Header(props) {
                       Log Out
                     </Button>
 
-                  </Box>
+                  </Box> */}
                 </MenuList>
               </Menu>
             </Flex>

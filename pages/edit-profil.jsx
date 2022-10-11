@@ -351,7 +351,7 @@ function EditProfil(props) {
                         px={4}
                         py={5}
                         p={[null, 6]}
-                        bg={useColorModeValue('white', 'gray.700')}
+                        bg="transparent"
                         spacing={6}
                       >
                         <SimpleGrid columns={6} spacing={6}>
@@ -915,7 +915,7 @@ function EditProfil(props) {
                         <Button
                           type="submit"
                           color="white"
-                          bgColor="#10214B"
+                          bgColor={useColorModeValue("#10214B", "blue.200")} 
                           _focus={{ shadow: '' }}
                           fontWeight="md"
                           aria-label="simpan"

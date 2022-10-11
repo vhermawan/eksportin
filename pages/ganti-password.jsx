@@ -86,130 +86,6 @@ function EditProfil() {
       })
   }
 
-  const ViewFormChangePassword = () => {
-    return (
-      <>
-        <Formik
-          initialValues={{
-            passwordBefore: '',
-            passwordNew: '',
-          }}
-          onSubmit={(values) => {
-            changePassword(values)
-          }}
-        >
-          {() => (
-            <Form>
-              <Stack
-                px={4}
-                py={5}
-                p={[null, 6]}
-                bg={useColorModeValue('white', 'gray.700')}
-                spacing={6}
-              >
-                <SimpleGrid columns={6} spacing={6}>
-                  <Field
-                    name="passwordBefore"
-                    validate={validation.ValidatePassword}
-                  >
-                    {({ field, form }) => (
-                      <FormControl
-                        as={GridItem}
-                        colSpan={[6]}
-                        isInvalid={
-                          form.errors.passwordBefore &&
-                          form.touched.passwordBefore
-                        }
-                      >
-                        <FormLabel
-                          htmlFor="passwordBefore"
-                          fontSize="sm"
-                          fontWeight="md"
-                          color={useColorModeValue('gray.700', 'gray.50')}
-                        >
-                          Password Lama
-                        </FormLabel>
-                        <Input
-                          type="password"
-                          name="passwordBefore"
-                          id="passwordBefore"
-                          mt={1}
-                          focusBorderColor="brand.400"
-                          shadow="sm"
-                          size="sm"
-                          w="full"
-                          rounded="md"
-                          placeholder="Masukkan Password"
-                          {...field}
-                        />
-                        <FormErrorMessage mb="24px">
-                          {form.errors.passwordBefore}
-                        </FormErrorMessage>
-                      </FormControl>
-                    )}
-                  </Field>
-
-                  <Field
-                    name="passwordNew"
-                    validate={validation.ValidatePassword}
-                  >
-                    {({ field, form }) => (
-                      <FormControl
-                        as={GridItem}
-                        colSpan={[6]}
-                        isInvalid={
-                          form.errors.passwordNew && form.touched.passwordNew
-                        }
-                      >
-                        <FormLabel
-                          htmlFor="passwordNew"
-                          fontSize="sm"
-                          fontWeight="md"
-                          color={useColorModeValue('gray.700', 'gray.50')}
-                        >
-                          Password Baru
-                        </FormLabel>
-                        <Input
-                          type="password"
-                          name="passwordNew"
-                          id="passwordNew"
-                          mt={1}
-                          focusBorderColor="brand.400"
-                          shadow="sm"
-                          size="sm"
-                          w="full"
-                          rounded="md"
-                          placeholder="Masukkan Password"
-                          {...field}
-                        />
-                        <FormErrorMessage mb="24px">
-                          {form.errors.passwordNew}
-                        </FormErrorMessage>
-                      </FormControl>
-                    )}
-                  </Field>
-                </SimpleGrid>
-              </Stack>
-              <Box px={{ base: 4, sm: 6 }} py={3} textAlign="right">
-                <Button
-                  type="submit"
-                  color="white"
-                  bgColor="#10214B"
-                  _focus={{ shadow: '' }}
-                  fontWeight="md"
-                  isLoading={loading}
-                  aria-label="simpan"
-                >
-                  Simpan
-                </Button>
-              </Box>
-            </Form>
-          )}
-        </Formik>
-      </>
-    )
-  }
-
   return token ? (
     <>
       <NextSeo
@@ -302,7 +178,123 @@ function EditProfil() {
               spacing={{ md: 6 }}
             >
               <GridItem mt={[5, null, 0]} colSpan={{ md: 3 }}>
-                <ViewFormChangePassword />
+                <Formik
+                  initialValues={{
+                    passwordBefore: '',
+                    passwordNew: '',
+                  }}
+                  onSubmit={(values) => {
+                    changePassword(values)
+                  }}
+                >
+                  {() => (
+                    <Form>
+                      <Stack
+                        px={4}
+                        py={5}
+                        p={[null, 6]}
+                        bg="transparent"
+                        spacing={6}
+                      >
+                        <SimpleGrid columns={6} spacing={6}>
+                          <Field
+                            name="passwordBefore"
+                            validate={validation.ValidatePassword}
+                          >
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.passwordBefore &&
+                                  form.touched.passwordBefore
+                                }
+                              >
+                                <FormLabel
+                                  htmlFor="passwordBefore"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Password Lama
+                                </FormLabel>
+                                <Input
+                                  type="password"
+                                  name="passwordBefore"
+                                  id="passwordBefore"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  placeholder="Masukkan Password"
+                                  {...field}
+                                />
+                                <FormErrorMessage mb="24px">
+                                  {form.errors.passwordBefore}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+
+                          <Field
+                            name="passwordNew"
+                            validate={validation.ValidatePassword}
+                          >
+                            {({ field, form }) => (
+                              <FormControl
+                                as={GridItem}
+                                colSpan={[6]}
+                                isInvalid={
+                                  form.errors.passwordNew && form.touched.passwordNew
+                                }
+                              >
+                                <FormLabel
+                                  htmlFor="passwordNew"
+                                  fontSize="sm"
+                                  fontWeight="md"
+                                  color={useColorModeValue('gray.700', 'gray.50')}
+                                >
+                                  Password Baru
+                                </FormLabel>
+                                <Input
+                                  type="password"
+                                  name="passwordNew"
+                                  id="passwordNew"
+                                  mt={1}
+                                  focusBorderColor="brand.400"
+                                  shadow="sm"
+                                  size="sm"
+                                  w="full"
+                                  rounded="md"
+                                  placeholder="Masukkan Password"
+                                  {...field}
+                                />
+                                <FormErrorMessage mb="24px">
+                                  {form.errors.passwordNew}
+                                </FormErrorMessage>
+                              </FormControl>
+                            )}
+                          </Field>
+                        </SimpleGrid>
+                      </Stack>
+                      <Box px={{ base: 4, sm: 6 }} py={3} textAlign="right">
+                        <Button
+                          type="submit"
+                          color="white"
+                          bgColor={useColorModeValue("#10214B", "blue.200")} 
+                          _focus={{ shadow: '' }}
+                          fontWeight="md"
+                          isLoading={loading}
+                          aria-label="simpan"
+                        >
+                          Simpan
+                        </Button>
+                      </Box>
+                    </Form>
+                  )}
+                </Formik>
               </GridItem>
             </SimpleGrid>
           </Box>

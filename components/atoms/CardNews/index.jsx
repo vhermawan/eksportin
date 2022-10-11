@@ -37,11 +37,11 @@ const CardNews = (props) => {
               fontSize={{ base: 'xs', '3xl': 'xl' }}
               letterSpacing={'-.0.01rem'}
             >
-              <Text mr="2" color="#10214B">
+              <Text mr="2" color={colorMode === 'light' ? '#10214B' : "blue.200"}>
                 {props.data.category}
               </Text>
               <Text mr="2">-</Text>
-              <Text mr="2" color="#121212">
+              <Text mr="2" color={colorMode === 'light' ? '#121212' : "white"}>
                 {props.data.duration} Menit Membaca
               </Text>
             </Flex>
@@ -79,7 +79,7 @@ const CardNews = (props) => {
                 <Flex wrap="wrap" alignItems="center">
                   <Avatar
                     name={props.data.author}
-                    src="/assets/img/Logo.png"
+                    src={colorMode === 'light' ? "/assets/img/Logo.png" : "/assets/img/Logo-darkmode.png"}
                     size="sm"
                   />
                   <Text ml="3" fontSize={13}>
@@ -91,7 +91,7 @@ const CardNews = (props) => {
                 size="sm"
                 variant="ghost"
                 p="0"
-                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
+                color={colorMode === 'light' ? "#10214B" : "blue.200"}
                 _hover={{ textDecor: 'underline' }}
                 aria-label={`Berita ${props.data.title}`}
                 onClick={() => props.setSlugNews(props.data.slug)}

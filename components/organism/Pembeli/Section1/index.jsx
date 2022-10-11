@@ -92,7 +92,9 @@ const Section1 = (props) => {
               />
               <Input
                 type="text"
+                color="black"
                 placeholder="Cari Pembeli..."
+                _placeholder={{ color: 'gray.400' }}
                 onKeyUp={(e) => doBuyerFilter(e.target.value)}
               />
             </InputGroup>

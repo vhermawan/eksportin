@@ -115,7 +115,7 @@ const Section2 = (props) => {
                 return (
                   <>
                     <Tab
-                      _selected={{ color: colorMode === 'light' ? '#10214B' : "#EE7C24", fontWeight: 'bold' }}
+                      _selected={{ color: colorMode === 'light' ? '#10214B' : "blue.200", fontWeight: 'bold' }}
                       key={item.label}
                     >
                       {item.label}
@@ -169,7 +169,7 @@ const Section2 = (props) => {
           }
         >
           <Button
-            bgColor={colorMode === 'light' ? '#10214B' : "#EE7C24"}
+            bgColor={colorMode === 'light' ? '#10214B' : "blue.200"}
             size="sm"
             color="white"
             p={{ base: '4', md: '8', xl: '6', '3xl': '6' }}

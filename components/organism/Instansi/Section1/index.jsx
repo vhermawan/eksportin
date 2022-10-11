@@ -96,7 +96,9 @@ const Section1 = (props) => {
               />
               <Input
                 type="text"
+                color="black"
                 placeholder="Cari Instansi..."
+                _placeholder={{ color: 'gray.400' }}
                 onKeyUp={(e) => searchStakeholders(e.target.value)}
               />
             </InputGroup>

@@ -22,6 +22,7 @@ import {
   ModalCloseButton,
   useDisclosure,
   useToast,
+  useColorMode,
 } from '@chakra-ui/react'
 import { FaUserAlt, FaEdit, FaFacebook, FaInstagram } from 'react-icons/fa'
 import Cookies from 'js-cookie'
@@ -41,6 +42,7 @@ const DataNotFound = dynamic(() =>
 )
 
 function Profil(props) {
+  const { colorMode} = useColorMode()
   const [token] = useState(Cookies.get('token'))
   const [dataUser, setDataUser] = useState(null)
   const [dataUmkm, setDataUmkm] = useState(null)
@@ -314,7 +316,7 @@ function Profil(props) {
                   </Flex>
                   <Text
                     fontSize="md"
-                    color="gray.500"
+                    color={colorMode === 'light' ? "gray.500" : "white"}
                     fontWeight="400"
                     mb="18px"
                   >
@@ -332,7 +334,7 @@ function Profil(props) {
                   </Flex>
                   <Text
                     fontSize="md"
-                    color="gray.500"
+                    color={colorMode === 'light' ? "gray.500" : "white"}
                     fontWeight="400"
                     mb="18px"
                   >
@@ -350,7 +352,7 @@ function Profil(props) {
                   </Flex>
                   <Text
                     fontSize="md"
-                    color="gray.500"
+                    color={colorMode === 'light' ? "gray.500" : "white"}
                     fontWeight="400"
                     mb="18px"
                   >
@@ -395,7 +397,7 @@ function Profil(props) {
                         <Link isExternal>
                           <Box w="40px" h="40px">
                             <Image
-                              src="/assets/icons/tokopedia.svg"
+                              src={colorMode === 'light' ? "/assets/icons/tokopedia.svg" : "/assets/img/tokopedia-darkmode.webp"}
                               w={10}
                               h={10}
                               loading="lazy"

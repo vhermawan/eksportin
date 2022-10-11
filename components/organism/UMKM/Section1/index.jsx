@@ -53,7 +53,7 @@ const Section1 = () => {
           </Text>
           <Box>
             <Button
-              bgColor={colorMode === 'light' ? '#10214B' : "#EE7C24"}
+              bgColor={colorMode === 'light' ? '#10214B' : "blue.200"}
               size="xs"
               color="white"
               p={{ base: '4', md: '6', '3xl': '8' }}

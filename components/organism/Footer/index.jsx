@@ -76,7 +76,7 @@ const Footer = () => {
             <Flex>
               <Heading
                 as="h1"
-                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
+                color={colorMode === 'light' ? "#10214B" : "blue.200"}
                 letterSpacing={'-.0.01rem'}
                 fontSize={{
                   base: 'sm',
@@ -144,7 +144,7 @@ const Footer = () => {
             <Flex>
               <Heading
                 as="h1"
-                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
+                color={colorMode === 'light' ? "#10214B" : "blue.200"}
                 letterSpacing={'-.0.01rem'}
                 fontSize={{
                   base: 'sm',
@@ -184,7 +184,7 @@ const Footer = () => {
             <Flex>
               <Heading
                 as="h1"
-                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
+                color={colorMode === 'light' ? "#10214B" : "blue.200"}
                 letterSpacing={'-.0.01rem'}
                 fontSize={{
                   base: 'sm',

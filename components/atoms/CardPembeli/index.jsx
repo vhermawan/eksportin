@@ -10,12 +10,19 @@ import {
   Avatar,
   Link,
   useColorModeValue,
+  useColorMode,
 } from '@chakra-ui/react'
 
 const CardUmkm = (props) => {
+  const { colorMode } = useColorMode()
   return (
     <>
-      <Box width="full" boxShadow={{ base: 'base', md: 'none' }}>
+      <Box 
+        width="full" 
+        boxShadow={{ base: 'base', md: 'none' }}
+        bgColor={colorMode === 'light' ? 'white' : "blue.200"} 
+        color="black"
+      >
         <Flex w="full" wrap={{ base: 'no-wrap', md: 'wrap' }}>
           <Box w="full">
             <Image
@@ -46,7 +53,7 @@ const CardUmkm = (props) => {
                 mr="2"
                 mb="2"
                 fontSize={{ base: 'md', '3xl': '2xl' }}
-                color={useColorModeValue('gray.700', 'white')}
+                color={"gray.700"}
                 fontWeight="700"
                 _hover={{
                   color: useColorModeValue('gray.600', 'gray.200'),

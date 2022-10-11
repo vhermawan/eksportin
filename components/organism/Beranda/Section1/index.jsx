@@ -38,7 +38,7 @@ const Section1 = (props) => {
                 '2xl': '6xl',
                 '3xl': '85px',
               }}
-              color={colorMode === 'light' ? '#10214B' : '#EE7C24'}
+              color={colorMode === 'light' ? '#10214B' : 'blue.200'}
             >
               Belajar Eskpor Barang Secara Mudah
             </Heading>
@@ -56,7 +56,7 @@ const Section1 = (props) => {
             </Text>
             <Box display={props.dataUser ? 'none' : 'block'}>
               <Button
-                bgColor={colorMode === 'light' ?  "#10214B" : "#EE7C24"}
+                bgColor={colorMode === 'light' ?  "#10214B" : "blue.200"}
                 size="md"
                 color="white"
                 p={{ base: '4', md: '8', xl: '6', '3xl': '8' }}

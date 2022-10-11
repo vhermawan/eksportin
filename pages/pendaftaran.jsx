@@ -23,7 +23,7 @@ import { registerUser } from '@/common/reducer/register/action'
 function SignUp(props) {
   let loading = props.loading
   const [token] = useState(Cookies.get('token'))
-  const titleColor = useColorModeValue('teal.300', 'teal.200')
+  const titleColor = useColorModeValue('#10214B', 'teal.200')
   const textColor = useColorModeValue('gray.700', 'white')
   const bgColor = useColorModeValue('white', 'gray.700')
 
@@ -193,7 +193,7 @@ function SignUp(props) {
                     </Field>
                     <Button
                       type="submit"
-                      bg="teal.300"
+                      bg={titleColor}
                       fontSize="10px"
                       color="white"
                       fontWeight="bold"
@@ -209,7 +209,7 @@ function SignUp(props) {
                       }}
                       isLoading={loading}
                     >
-                      SIGN UP
+                      Mendaftar
                     </Button>
                   </FormControl>
                 </Form>
@@ -230,9 +230,9 @@ function SignUp(props) {
                   ms="5px"
                   href="/login"
                   fontWeight="bold"
-                  onClick={() => router.push('/login')}
+                  onClick={() => router.push('/masuk')}
                 >
-                  Sign In
+                  Masuk
                 </Link>
               </Text>
             </Flex>

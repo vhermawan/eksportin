@@ -58,7 +58,7 @@ const Section3 = () => {
             <Heading
               mt={{ base: '10', lg: '20' }}
               fontSize={{ base: '6xl', lg: '8xl', '3xl': '9xl' }}
-              color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
+              color={colorMode === 'light' ? "#10214B" : "blue.200"}
               pl={{ base: '4', md: '0' }}
               w="max-content"
             >
@@ -74,7 +74,7 @@ const Section3 = () => {
             <Heading
               mt={{ base: '10', lg: '16' }}
               fontSize={{ base: '6xl', lg: '8xl', '3xl': '9xl' }}
-              color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
+              color={colorMode === 'light' ? "#10214B" : "blue.200"}
               pl={{ base: '4', md: '0' }}
               w="max-content"
             >
@@ -90,9 +90,10 @@ const Section3 = () => {
           </Box>
           <Spacer display={{ base: 'none', md: 'block' }} />
           <Box
-            bg={colorMode === 'light' ? '#F6FAFA' : '#EE7C24'}
+            bg={colorMode === 'light' ? '#F6FAFA' : 'blue.200'}
             w="full"
             pb={{ base: '40', md: '10', lg: '0' }}
+            color="black"
           >
             <VStack spacing={4} align="stretch" ml={{ base: '0', lg: '10' }}>
               <Box h="min-content">

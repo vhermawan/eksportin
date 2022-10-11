@@ -26,7 +26,7 @@ import { loginUser } from '@/common/reducer/login/action'
 function Login(props) {
   let loading = props.loading
   const [token] = useState(Cookies.get('token'))
-  const titleColor = useColorModeValue('teal.300', 'teal.200')
+  const titleColor = useColorModeValue('#10214B', 'teal.200')
   const textColor = useColorModeValue('gray.400', 'white')
 
   useEffect(() => {
@@ -174,7 +174,7 @@ function Login(props) {
                     <Button
                       fontSize="10px"
                       type="submit"
-                      bg="teal.300"
+                      bg={titleColor}
                       w="100%"
                       h="45"
                       mb="20px"
@@ -189,7 +189,7 @@ function Login(props) {
                       }}
                       isLoading={loading}
                     >
-                      SIGN IN
+                      Masuk
                     </Button>
                   </Form>
                 )}
@@ -208,9 +208,9 @@ function Login(props) {
                     as="span"
                     ms="5px"
                     fontWeight="bold"
-                    onClick={() => router.push('/register')}
+                    onClick={() => router.push('/pendaftaran')}
                   >
-                    Register
+                    Pendaftaran
                   </Link>
                 </Text>
               </Flex>

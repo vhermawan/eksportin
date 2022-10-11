@@ -81,7 +81,7 @@ const Section2 = () => {
               <Button
                 mt="2"
                 bg="transparent"
-                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
+                color={colorMode === 'light' ? "#10214B" : "blue.200"}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
                 onClick={() => router.push('/login')}
                 display={!token ? 'block' : 'none'}
@@ -123,7 +123,7 @@ const Section2 = () => {
               <Button
                 mt="2"
                 bg="transparent"
-                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
+                color={colorMode === 'light' ? "#10214B" : "blue.200"}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
                 onClick={() => router.push('/login')}
                 display={!token ? 'block' : 'none'}
@@ -165,7 +165,7 @@ const Section2 = () => {
               <Button
                 mt="2"
                 bg="transparent"
-                color={colorMode === 'light' ? "#10214B" : "#EE7C24"}
+                color={colorMode === 'light' ? "#10214B" : "blue.200"}
                 fontSize={{ base: 'sm', '3xl': 'xl' }}
                 onClick={() => router.push('/login')}
                 display={!token ? 'block' : 'none'}
