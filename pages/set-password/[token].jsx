@@ -18,6 +18,7 @@ import * as validation from '@/lib/validator/validator'
 import { NextSeo } from 'next-seo'
 
 export default function SetPassword() {
+  const titleColor = useColorModeValue('#10214B', 'teal.200')
   const bgColor = useColorModeValue('white', 'gray.700')
   const [loading, setLoading] = useState(false)
   const {toast} = createStandaloneToast()
@@ -106,7 +107,7 @@ export default function SetPassword() {
                 </Field>
                 <Button
                   type="submit"
-                  bg="teal.300"
+                  bg={titleColor}
                   fontSize="16px"
                   color="white"
                   fontWeight="bold"
