@@ -19,7 +19,7 @@ import * as validation from '@/lib/validator/validator'
 import { API } from '@/common/api/api'
 
 export default function LupaPassword() {
-  const titleColor = useColorModeValue('teal.300', 'teal.200')
+  const titleColor = useColorModeValue('#10214B', 'teal.200')
   const textColor = useColorModeValue('gray.700', 'white')
   const bgColor = useColorModeValue('white', 'gray.700')
   const [loading, setLoading] = useState(false)
