@@ -103,7 +103,7 @@ export default function LupaPassword() {
                 </Field>
                 <Button
                   type="submit"
-                  bg="teal.300"
+                  bg={titleColor}
                   fontSize="16px"
                   color="white"
                   fontWeight="bold"
