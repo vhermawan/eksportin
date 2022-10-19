@@ -14,6 +14,7 @@ import {
   useColorModeValue,
   FormErrorMessage,
   Spacer,
+  createStandaloneToast,
 } from '@chakra-ui/react'
 import Cookies from 'js-cookie'
 import router from 'next/router'
@@ -25,6 +26,7 @@ import { loginUser } from '@/common/reducer/login/action'
 
 function Login(props) {
   let loading = props.loading
+  const {toast} = createStandaloneToast()
   const [token] = useState(Cookies.get('token'))
   const titleColor = useColorModeValue('#10214B', 'teal.200')
   const textColor = useColorModeValue('gray.400', 'white')
@@ -33,6 +35,14 @@ function Login(props) {
     if (token) {
       router.push('/')
     }
+    toast({
+      title:
+        'Ubah Password Berhasil',
+      position: `top-right`,
+      isClosable: true,
+      variant: `left-accent`,
+      status: `success`,
+    })
   }, [token])
 
   return token ? (

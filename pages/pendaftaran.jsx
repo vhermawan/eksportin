@@ -125,12 +125,12 @@ function SignUp(props) {
                             borderRadius="15px"
                             type="text"
                             placeholder="Nama UMKM anda"
-                            mb={!form.errors.name ? '24px' : '10px'}
+                            mb={!form.errors.name ? '24px' : '0px'}
                             size="lg"
                             id="name"
                             {...field}
                           />
-                          <FormErrorMessage mb="24px">
+                          <FormErrorMessage my="4px">
                             {form.errors.name}
                           </FormErrorMessage>
                         </FormControl>
@@ -150,12 +150,12 @@ function SignUp(props) {
                             borderRadius="15px"
                             type="email"
                             placeholder="Alamat email anda"
-                            mb={!form.errors.email ? '24px' : '10px'}
+                            mb={!form.errors.email ? '24px' : '0px'}
                             size="lg"
                             id="email"
                             {...field}
                           />
-                          <FormErrorMessage mb="24px">
+                          <FormErrorMessage my="4px">
                             {form.errors.email}
                           </FormErrorMessage>
                         </FormControl>
@@ -180,12 +180,12 @@ function SignUp(props) {
                             borderRadius="15px"
                             type="password"
                             placeholder="Password anda"
-                            mb={!form.errors.password ? '24px' : '10px'}
+                            mb={!form.errors.password ? '24px' : '0px'}
                             size="lg"
                             id="password"
                             {...field}
                           />
-                          <FormErrorMessage mb="24px">
+                          <FormErrorMessage my="4px">
                             {form.errors.password}
                           </FormErrorMessage>
                         </FormControl>
